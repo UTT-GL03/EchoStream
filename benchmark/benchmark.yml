@@ -1,12 +1,50 @@
-- name : 'Spotify'
-  url : 'https://open.spotify.com'
-  actions: 
-    - name : "Choix de l'artiste GIMS"
-      type : 'click'
-      element : '.CardButton-sc-g9vf2u-0'
-      values : ['Gims']
+- name: Spotify – Streaming Maître Gims
+  url: https://www.spotify.com/
+  actions:
+    - name: Aller sur la page de connexion
+      type: click
+      element: 'a[href="/login"]'
       pageChange: true
-      waitForSelector : .contentSpacing
-    - name : "Choix de la musique"
-      type : 'click'
-      element : '.ButtonInner-sc-14ud5tc-0'
+      waitForSelector: 'input#login-username'
+
+    - name: Se connecter
+      type: fill
+      element: 'input#login-username'
+      value: 'arthur.paris999@hotmail.com'
+    - type: fill
+      element: 'input#login-password'
+      value: 'arthur30650'
+    - type: click
+      element: 'button#login-button'
+      waitForSelector: 'input[type="search"]'
+
+    - name: Chercher Maître Gims
+      type: fill
+      element: 'input[type="search"]'
+      value: 'Maître Gims'
+      waitForSelector: '.search-result'
+
+    - name: Cliquer sur le premier résultat
+      type: click
+      element: '.search-result a'
+      pageChange: true
+      waitForSelector: '.tracklist'
+
+    - name: Jouer la première chanson
+      type: click
+      element: '.tracklist-row:nth-child(1) .play-button'
+      waitForSelector: '.playing'
+
+    - name: Attendre 3 minutes pour la mesure du streaming
+      type: wait
+      duration: 180000  # Temps en millisecondes (3 minutes)
+
+    - name: Arrêter la lecture
+      type: click
+      element: '.control-button--pause'
+      
+    # Capture d'écran facultative après la mesure
+    # - name: Capture d'écran après la lecture
+    #   type: screenshot
+    #   file: 'spotify_streaming.png'
+
