@@ -1,0 +1,12 @@
+- name : 'Spotify'
+  url : 'https://open.spotify.com'
+  actions: 
+    - name : "Choix de l'artiste GIMS"
+      type : 'click'
+      element : '.CardButton-sc-g9vf2u-0'
+      values : ['Gims']
+      pageChange: true
+      waitForSelector : .contentSpacing
+    - name : "Choix de la musique"
+      type : 'click'
+      element : '.ButtonInner-sc-14ud5tc-0'
