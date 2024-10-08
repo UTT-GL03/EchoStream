@@ -1,32 +1,22 @@
-- name: Spotify – Écouter Maître Gims
-  url: https://open.spotify.com/
+- name: Spotify – Exploration
+  url: https://www.spotify.com/
   actions:
-    - name: Rechercher Maître Gims
-      type: fill
-      element: 'input[data-testid="search-input"]'
-      value: 'Maître Gims'
-      waitForSelector: 'div[data-testid="search-results"]'
-
-    - name: Cliquer sur le premier résultat
+    - name: Aller à la section "Premium"
       type: click
-      element: 'div[data-testid="search-results"] a'
+      element: 'a[href="/premium"]'
       pageChange: true
-      waitForSelector: '.main-trackList'
+      waitForSelector: 'div#premium-page'
 
-    - name: Jouer la première chanson
+    - name: Faire défiler la page
+      type: scroll
+      amount: 1000
+
+    - name: Naviguer vers "Aide"
       type: click
-      element: '.main-trackList button[data-testid="play-button"]'
-      waitForSelector: '.playing'
+      element: 'a[href="/help"]'
+      pageChange: true
+      waitForSelector: 'div#help-page'
 
-    - name: Attendre 3 minutes de lecture
+    - name: Attendre quelques secondes
       type: wait
-      duration: 180000  # 3 minutes en millisecondes
-
-    - name: Arrêter la musique
-      type: click
-      element: '.main-trackList button[data-testid="pause-button"]'
-
-  # Mesure l'impact environnemental pendant ces 3 minutes de streaming
-  measurement:
-    duration: 3  # en minutes
-    actions: true
+      duration: 5000
