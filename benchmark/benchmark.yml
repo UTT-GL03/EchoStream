@@ -1,50 +1,32 @@
-- name: Spotify – Streaming Maître Gims
-  url: https://www.spotify.com/
+- name: Spotify – Écouter Maître Gims
+  url: https://open.spotify.com/
   actions:
-    - name: Aller sur la page de connexion
-      type: click
-      element: 'a[href="/login"]'
-      pageChange: true
-      waitForSelector: 'input#login-username'
-
-    - name: Se connecter
+    - name: Rechercher Maître Gims
       type: fill
-      element: 'input#login-username'
-      value: 'arthur.paris999@hotmail.com'
-    - type: fill
-      element: 'input#login-password'
-      value: 'arthur30650'
-    - type: click
-      element: 'button#login-button'
-      waitForSelector: 'input[type="search"]'
-
-    - name: Chercher Maître Gims
-      type: fill
-      element: 'input[type="search"]'
+      element: 'input[data-testid="search-input"]'
       value: 'Maître Gims'
-      waitForSelector: '.search-result'
+      waitForSelector: 'div[data-testid="search-results"]'
 
     - name: Cliquer sur le premier résultat
       type: click
-      element: '.search-result a'
+      element: 'div[data-testid="search-results"] a'
       pageChange: true
-      waitForSelector: '.tracklist'
+      waitForSelector: '.main-trackList'
 
     - name: Jouer la première chanson
       type: click
-      element: '.tracklist-row:nth-child(1) .play-button'
+      element: '.main-trackList button[data-testid="play-button"]'
       waitForSelector: '.playing'
 
-    - name: Attendre 3 minutes pour la mesure du streaming
+    - name: Attendre 3 minutes de lecture
       type: wait
-      duration: 180000  # Temps en millisecondes (3 minutes)
+      duration: 180000  # 3 minutes en millisecondes
 
-    - name: Arrêter la lecture
+    - name: Arrêter la musique
       type: click
-      element: '.control-button--pause'
-      
-    # Capture d'écran facultative après la mesure
-    # - name: Capture d'écran après la lecture
-    #   type: screenshot
-    #   file: 'spotify_streaming.png'
+      element: '.main-trackList button[data-testid="pause-button"]'
 
+  # Mesure l'impact environnemental pendant ces 3 minutes de streaming
+  measurement:
+    duration: 3  # en minutes
+    actions: true
