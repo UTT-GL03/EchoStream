@@ -1,22 +1,18 @@
-- name: Spotify – Exploration
-  url: https://www.spotify.com/
-  actions:
-    - name: Aller à la section "Premium"
-      type: click
-      element: 'a[href="/premium"]'
+- name : 'Deezer'
+  url : 'https://www.deezer.com/fr/'
+  actions: 
+    - name : "Connexion"
+      type : 'click'
+      element : '#topbar-login-button'
       pageChange: true
-      waitForSelector: 'div#premium-page'
-
-    - name: Faire défiler la page
-      type: scroll
-      amount: 1000
-
-    - name: Naviguer vers "Aide"
-      type: click
-      element: 'a[href="/help"]'
-      pageChange: true
-      waitForSelector: 'div#help-page'
-
-    - name: Attendre quelques secondes
-      type: wait
-      duration: 5000
+      waitForSelector : .chakra-heading
+      screenshot : '/screenshot/login.png'
+    - name : "Mettre email"
+      type : 'text'
+      element : '#email'
+      content : 'arthur.paris999@gmail.com'
+      timeoutBefore: 1000
+    - name : "Mettre mdp"
+      type : 'text'
+      element : '#password'
+      content : 'P@ssw0rd123'
