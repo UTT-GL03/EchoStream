@@ -1,18 +1,38 @@
 - name : 'Deezer'
-  url : 'https://www.deezer.com/fr/'
-  actions: 
-    - name : "Connexion"
+  url : 'https://www.deezer.com/fr/channels/explore/'
+  actions:
+    - name : "Cookies"
       type : 'click'
-      element : '#topbar-login-button'
+      element : '#gdpr-btn-accept-all'  
+      screenshot : 'screenshot/accueil.png'
+    - name : "Lancer musique"
+      type : 'click'
+      element : '[data-testid="play_button_play"]'  
+      timeoutBefore : 1000
+    - name : "scroll"
+      type : 'scroll'
+      timeoutBefore : 3000
+      screenshot : 'screenshot/fin.png'
+    - name : "Nouveautés"
+      type : 'click'
+      element : '[href="/fr/channels/new"]'
       pageChange: true
-      waitForSelector : .chakra-heading
-      screenshot : '/screenshot/login.png'
-    - name : "Mettre email"
-      type : 'text'
-      element : '#email'
-      content : 'arthur.paris999@gmail.com'
-      timeoutBefore: 1000
-    - name : "Mettre mdp"
-      type : 'text'
-      element : '#password'
-      content : 'P@ssw0rd123'
+      timeoutBefore : 1000  
+    - name : "Sélectionner un album"
+      type : 'click'
+      timeoutBefore : 1000 
+      element : '[data-position="1"]'  
+      screenshot : 'screenshot/nouveautes.png'
+    - name : "lancer l'album"
+      type : 'click'
+      timeoutBefore : 3000 
+      element : '[data-testid="album-play_small-button"]'  
+      screenshot : 'screenshot/playlist.png'
+    - name : "scroll"
+      type : 'scroll'
+      timeoutBefore : 3000
+      screenshot : 'screenshot/fin.png'
+    
+    
+
+
