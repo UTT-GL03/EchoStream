@@ -4,7 +4,7 @@
     - name : "Cookies"
       type : 'click'
       element : '#gdpr-btn-accept-all'  
-      screenshot : 'screenshot/accueil.png'
+      screenshot : 'screenshot/deezer/accueil.png'
     - name : "Lancer musique"
       type : 'click'
       element : '[data-testid="play_button_play"]'  
@@ -12,27 +12,40 @@
     - name : "scroll"
       type : 'scroll'
       timeoutBefore : 3000
-      screenshot : 'screenshot/fin.png'
+      screenshot : 'screenshot/deezer/musique.png'
     - name : "Nouveautés"
       type : 'click'
       element : '[href="/fr/channels/new"]'
       pageChange: true
       timeoutBefore : 1000  
-    - name : "Sélectionner un album"
+    - name : "Explorer les nouveautés"
+      type : 'scroll'
+      timeoutBefore : 1000
+      screenshot : 'screenshot/deezer/fin.png'
+    
+- name : 'MusicMe'
+  url : 'https://www.musicme.com/#/musique/'
+  actions:
+    - name : "Cookies"
       type : 'click'
-      timeoutBefore : 1000 
-      element : '[data-position="1"]'  
-      screenshot : 'screenshot/nouveautes.png'
-    - name : "lancer l'album"
+      element : '#onetrust-accept-btn-handler'  
+      screenshot : 'screenshot/musicme/accueil.png'
+    - name : "Lancer musique"
       type : 'click'
-      timeoutBefore : 3000 
-      element : '[data-testid="album-play_small-button"]'  
-      screenshot : 'screenshot/playlist.png'
+      element : '[title="Lecture"]'  
+      timeoutBefore : 1000
     - name : "scroll"
       type : 'scroll'
       timeoutBefore : 3000
-      screenshot : 'screenshot/fin.png'
-    
-    
-
+      screenshot : 'screenshot/musicme/musique.png'
+    - name : "Nouveautés"
+      type : 'click'
+      element : '[href="/nouveautes/"]'
+      pageChange: true
+      timeoutBefore : 1000  
+    - name : "Explorer les nouveautés"
+      type : 'scroll'
+      pageChange: true
+      timeoutBefore : 1000 
+      screenshot : 'screenshot/musicme/nouveautes.png'
 

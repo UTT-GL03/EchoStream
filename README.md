@@ -22,6 +22,4 @@ Il est essentiel de réfléchir à des fonctionnalités plus équilibrées et mo
 3. Il lance la première musique qui lui est proposé
 4. Il scroll jusqu'en bas de la page pour voir ce qui lui est proposé
 5. Il se rend sur l'onglet des nouveautés 
-6. Il sélectionne un album 
-7. Il lance l'écoute de l'album
-8. Il scroll jusqu'en bas de la page
+6. Il scroll jusqu'en bas de la page
