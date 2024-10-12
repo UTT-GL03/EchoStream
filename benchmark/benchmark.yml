@@ -16,11 +16,11 @@
     - name : "Nouveautés"
       type : 'click'
       element : '[href="/fr/channels/new"]'
-      pageChange: true
       timeoutBefore : 1000  
     - name : "Explorer les nouveautés"
       type : 'scroll'
       timeoutBefore : 1000
+      pageChange: true
       screenshot : 'screenshot/deezer/fin.png'
     
 - name : 'MusicMe'
@@ -41,7 +41,6 @@
     - name : "Nouveautés"
       type : 'click'
       element : '[href="/nouveautes/"]'
-      pageChange: true
       timeoutBefore : 1000  
     - name : "Explorer les nouveautés"
       type : 'scroll'
