@@ -25,9 +25,7 @@ Il est essentiel de réfléchir à des fonctionnalités plus équilibrées et mo
 6. Il scroll jusqu'en bas de la page
 
 ### Résultat
-Les résultat de la platforme deezer : 
-
-Les résultat de la platforme Musicme :
+Les résultat de la platforme deezer et Musicme : [resultat](https://raw.githubusercontent.com/UTT-GL03/EchoStream/refs/heads/main/benchmark/benchmark.html)
 
 Les résultats de la plateforme spotify sont différents, la stucture de la page fait que c'est dure de pouvoir utiliser le cli de green it donc on a utilisé l'extension chrome et changer le protocole car il fallait absolument créer un compte pour écouter de la musique.
 
