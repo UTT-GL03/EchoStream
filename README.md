@@ -23,3 +23,11 @@ Il est essentiel de réfléchir à des fonctionnalités plus équilibrées et mo
 4. Il scroll jusqu'en bas de la page pour voir ce qui lui est proposé
 5. Il se rend sur l'onglet des nouveautés 
 6. Il scroll jusqu'en bas de la page
+
+### Résultat
+Les résultat de la platforme deezer :
+
+Les résultat de la platforme Musicme
+
+## Scénario : Streaming d'ne musique
+Pour spotify
