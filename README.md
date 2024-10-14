@@ -25,9 +25,29 @@ Il est essentiel de réfléchir à des fonctionnalités plus équilibrées et mo
 6. Il scroll jusqu'en bas de la page
 
 ### Résultat
-Les résultat de la platforme deezer :
+Les résultat de la platforme deezer : 
 
-Les résultat de la platforme Musicme
+Les résultat de la platforme Musicme :
 
-## Scénario : Streaming d'ne musique
-Pour spotify
+Les résultats de la plateforme spotify sont différents, la stucture de la page fait que c'est dure de pouvoir utiliser le cli de green it donc on a utilisé l'extension chrome et changer le protocole car il fallait absolument créer un compte pour écouter de la musique.
+
+#### Scénario spotify :
+1. Se rendre sur le site web
+2. Accepter les cookies
+3. Cliquer sur le bouton connecter
+4. Renter ses identifiants et se connecter
+5. Cliquer sur la page d'un artiste
+6. Scroller et cliquer sur la page d'une playlist personnalisé
+7. Charger la page de cette même playlist (pour voir la différence d'une page chargé dans le cache ou non)
+
+Resultat :  ![Capture d'écran 2024-10-14 173120](https://github.com/user-attachments/assets/4e675006-89ec-44d9-9c30-9937432bd10a)
+
+
+## Scénario : Streaming d'une musique
+(On rappelle que les requetes quand on clique sur la musique sont pris en compte dans les scénarios différents, ici on cherche juste à voir l'impact du streaming qu'on a pas pu calculer auparavent)
+
+Pour spotify on observe une requete de 325 ko toutes les 10 secondes, donc pour une chanson de 3 minutes on a 18 requetes et 5 850 ko de données transmis.
+
+Pour deezer on une requete de 278 octets toutes les 30 secondes, donc pour une chanson de 3 minutes on a 5 requetes et 1,390 ko de données trransmis.
+
+Pour musicme on une requête de 413 octets toutes les 30 secondes, donc pour une chanson de 3 minutes on a 5 requetes et 2,065 ko de données transmis.
