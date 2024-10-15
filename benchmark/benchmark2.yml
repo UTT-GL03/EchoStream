@@ -1,0 +1,30 @@
+- name : 'Deezer2'
+  url : 'https://www.deezer.com/fr/channels/explore/'
+  actions:
+    - name : "Cookies"
+      type : 'click'
+      timeoutBefore: 1000
+      element : '#gdpr-btn-accept-all'  
+      screenshot : 'screenshot/deezer2/accueil.png'
+    - name : "Rechercher une musique"
+      type : 'text'
+      element : '#topbar-search'
+      content : 'pause café'
+      timeoutBefore: 1000
+      screenshot : 'screenshot/deezer2/recherche.png'
+    - name : "Sélectionner la musique"
+      type : 'click'
+      pageChange : true
+      element : '#page_naboo_search > div.search-results > div.container.search-top-result-container > div.search-top-result > div > div.heading-3.ellipsis > a'  
+      timeoutBefore: 3000
+      screenshot : 'screenshot/deezer2/resultatrecherche.png'
+    - name : "Sélectionner la musique"
+      type : 'click'
+      element : '#page_naboo_playlist > div.catalog-content > div > div.css-m38am7 > div.chakra-button__group.css-1v1zob6 > div:nth-child(1) > button'  
+      timeoutBefore: 1000
+      screenshot : 'screenshot/deezer2/lancementmusique.png'
+
+
+
+
+      
