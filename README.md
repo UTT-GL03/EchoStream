@@ -16,13 +16,14 @@ Cette évolution pose plusieurs questions écologiques et économiques :
 - Les fonctionnalités de ces plateformes, telles que les storys des artistes ou les playlistes personnalisés qui encouragent à écouter toujours plus différent.  
 
 Il est essentiel de réfléchir à des fonctionnalités plus équilibrées et moins gourmandes en ressources, tout en se questionnant sur leur activation par défaut.
-## Scénario : "Ecouter le début d'une musique et d'une playlist"
+## Scénario 1 : "Lancer une musique recommandée"
 1. L'utilisateur se rend sur un site web de streaming en ligne
 2. il accepte les cookies
-3. Il lance la première musique qui lui est proposé
-4. Il scroll jusqu'en bas de la page pour voir ce qui lui est proposé
-5. Il se rend sur l'onglet des nouveautés 
-6. Il scroll jusqu'en bas de la page
+3. Il lance la première musique qui lui est proposée
+4. Il regarde les autres musiques proposées sur la page d'accueil mais rien ne l'intéresse, il stoppe donc sa navigation.
+
+## Scénario 2 : "todo"
+
 
 ### Résultat
 Les résultat de la platforme deezer et Musicme : [Voir la preview du fichier HTML](https://utt-gl03.github.io/EchoStream/benchmark/benchmark.html)

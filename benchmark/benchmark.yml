@@ -13,15 +13,6 @@
       type : 'scroll'
       timeoutBefore : 3000
       screenshot : 'screenshot/deezer/musique.png'
-    - name : "Nouveautés"
-      type : 'click'
-      element : '[href="/fr/channels/new"]'
-      timeoutBefore : 1000  
-    - name : "Explorer les nouveautés"
-      type : 'scroll'
-      timeoutBefore : 1000
-      pageChange: true
-      screenshot : 'screenshot/deezer/fin.png'
     
 - name : 'MusicMe'
   url : 'https://www.musicme.com/#/musique/'
@@ -38,13 +29,3 @@
       type : 'scroll'
       timeoutBefore : 3000
       screenshot : 'screenshot/musicme/musique.png'
-    - name : "Nouveautés"
-      type : 'click'
-      element : '[href="/nouveautes/"]'
-      timeoutBefore : 1000  
-    - name : "Explorer les nouveautés"
-      type : 'scroll'
-      pageChange: true
-      timeoutBefore : 1000 
-      screenshot : 'screenshot/musicme/nouveautes.png'
-
