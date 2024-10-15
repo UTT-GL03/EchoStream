@@ -42,7 +42,9 @@ Resultat :  ![Capture d'écran 2024-10-14 173120](https://github.com/user-attach
 
 
 ## Scénario : Streaming d'une musique
-(On rappelle que les requetes quand on clique sur la musique sont pris en compte dans les scénarios différents, ici on cherche juste à voir l'impact du streaming qu'on a pas pu calculer auparavent)
+Malheuresement l'outil greenIT mesure que sur l'instant T, donc si on veut mesurer l'impact du streaming sur tout le long de l'écoute d'une musique on va devoire le faire à la main via l'outil debbug réseau.
+
+On rappelle que les requetes quand on clique sur la musique sont pris en compte dans les scénarios différents, ici on cherche juste à voir l'impact du streaming qu'on a pas pu calculer auparavent.
 
 Pour spotify on observe une requete de 325 ko toutes les 10 secondes, donc pour une chanson de 3 minutes on a 18 requetes et 5 850 ko de données transmis.
 
