@@ -49,3 +49,18 @@ Pour spotify on observe une requete de 325 ko toutes les 10 secondes, donc pour 
 Pour deezer on une requete de 278 octets toutes les 30 secondes, donc pour une chanson de 3 minutes on a 5 requetes et 1,390 ko de données trransmis.
 
 Pour musicme on une requête de 413 octets toutes les 30 secondes, donc pour une chanson de 3 minutes on a 5 requetes et 2,065 ko de données transmis.
+
+## Maquette de l'interface et échantillon de données
+
+Nous avons vu lors de nos scénarios qu'avoir des playlists personnalisés étaient des fonctionnalités particulierement gourmande. Nous avons donc opté pour un protype qui se base uniquement sur des genres de musiques qui aurait été choisi par l'utilisateur, tout en gardant toute l'usabilité d'un site de streaming de music.
+
+Nous avons retenue deux pages type :
+- celle avec les playlist par genre que l'utilisateur a choisi
+- celle d'une playlist (avec les musiques dedans et les artistes de ce genre)
+
+![mockup](frontend/mockup.png)
+
+Pour des raisons de respect des droits d'auteurs, nous utilisons des données générées (avec dummy-json). Ces données sont générés aléatoirement et permettent d'identifier une musique, cepandant on ne peut pas générer un fichier audio donc on génère un URI pour simuler le fichier mp3 qu'on utilisera (voir [modele de données](frontend/sample_data.hbs)).
+
+
+
