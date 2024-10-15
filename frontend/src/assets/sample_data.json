@@ -1,0 +1,197 @@
+{
+  "musics": [
+    {
+      "title": "Dui erat lobortis pharetra.",
+      "creator": "Darrell Milling", 
+      "duration": "", 
+      "release_date": "2020-01-21", 
+      "genre": "Classical", 
+      "uri": "7adccf99-f80f-49cf-9818-d848508b9760.mp3" 
+    },
+    {
+      "title": "Finibus nulla pellentesque.",
+      "creator": "Chloe Pace", 
+      "duration": "", 
+      "release_date": "2022-03-08", 
+      "genre": "Classical", 
+      "uri": "9492ff1e-cac8-4311-aa23-a0e574a95662.mp3" 
+    },
+    {
+      "title": "Orci maximus.",
+      "creator": "Darrell Brandt", 
+      "duration": "", 
+      "release_date": "2022-12-26", 
+      "genre": "Hip-Hop", 
+      "uri": "abb93da4-eeeb-40da-9f14-d25933078697.mp3" 
+    },
+    {
+      "title": "Neque justo aenean ipsum.",
+      "creator": "Richelle Latshaw", 
+      "duration": "", 
+      "release_date": "2020-06-10", 
+      "genre": "Jazz", 
+      "uri": "f855a538-5e40-4e81-b8e9-a6d02630acbd.mp3" 
+    },
+    {
+      "title": "Vestibulum eget ultrices eu.",
+      "creator": "Leanne Caffey", 
+      "duration": "", 
+      "release_date": "2023-01-09", 
+      "genre": "Electronic", 
+      "uri": "4de58a30-fa82-4135-9a0e-46531657dec4.mp3" 
+    },
+    {
+      "title": "Tristique condimentum nulla porttitor lum.",
+      "creator": "Myong Fennell", 
+      "duration": "", 
+      "release_date": "2020-11-07", 
+      "genre": "Country", 
+      "uri": "8dd18841-39bf-419f-bc59-d1eb270d054b.mp3" 
+    },
+    {
+      "title": "Gravida leo morbi ac condimentum.",
+      "creator": "Rosanne Pace", 
+      "duration": "", 
+      "release_date": "2022-11-10", 
+      "genre": "Hip-Hop", 
+      "uri": "c01f376d-d4b6-4ccc-871e-9a5021a4a0e6.mp3" 
+    },
+    {
+      "title": "O u.",
+      "creator": "Myong Hyder", 
+      "duration": "", 
+      "release_date": "2021-03-23", 
+      "genre": "Electronic", 
+      "uri": "73e46286-53db-4030-a5f5-191d08b79890.mp3" 
+    },
+    {
+      "title": "Nulla elementum.",
+      "creator": "Juliana Rhymer", 
+      "duration": "", 
+      "release_date": "2020-11-14", 
+      "genre": "Jazz", 
+      "uri": "41b661c4-7c6c-4d68-b88f-7f14e06a2614.mp3" 
+    },
+    {
+      "title": "Hendrerit id imperdiet.",
+      "creator": "Madeleine Charley", 
+      "duration": "", 
+      "release_date": "2024-05-27", 
+      "genre": "Pop", 
+      "uri": "8bb1ca9c-538f-4564-8edb-8003f4531f00.mp3" 
+    },
+    {
+      "title": "Sodales etiam pharetra.",
+      "creator": "Danny Woodrum", 
+      "duration": "", 
+      "release_date": "2023-05-19", 
+      "genre": "Hip-Hop", 
+      "uri": "bfd3b17c-766a-48ed-9c53-6c3b32bd651b.mp3" 
+    },
+    {
+      "title": "Mauris sit leo.",
+      "creator": "Dannielle Turner", 
+      "duration": "", 
+      "release_date": "2020-11-21", 
+      "genre": "Rock", 
+      "uri": "68bbb148-baae-410c-859f-0cb4818118a1.mp3" 
+    },
+    {
+      "title": "Aliquam vitae neque natoque.",
+      "creator": "Susana Seabury", 
+      "duration": "", 
+      "release_date": "2020-04-05", 
+      "genre": "Classical", 
+      "uri": "76300d23-722e-4353-b14c-9d08cdf53431.mp3" 
+    },
+    {
+      "title": "Massa rhoncus el blandit nisl.",
+      "creator": "Rufus Chapman", 
+      "duration": "", 
+      "release_date": "2024-04-10", 
+      "genre": "Classical", 
+      "uri": "a9ade0f4-e538-43b9-a20a-acc0557a66e6.mp3" 
+    },
+    {
+      "title": "En pretium.",
+      "creator": "Madeleine Muldoon", 
+      "duration": "", 
+      "release_date": "2021-06-13", 
+      "genre": "Hip-Hop", 
+      "uri": "a76dafd3-549b-43dc-ba16-5ea2353c857b.mp3" 
+    },
+    {
+      "title": "Dolor con arcu ac rhoncus.",
+      "creator": "Emma Finn", 
+      "duration": "", 
+      "release_date": "2020-03-14", 
+      "genre": "Hip-Hop", 
+      "uri": "888c6f53-04c5-4ab0-9ebf-c8a617e5fcd9.mp3" 
+    },
+    {
+      "title": "Blandit quis natoque quisque.",
+      "creator": "Andy Bourne", 
+      "duration": "", 
+      "release_date": "2020-10-07", 
+      "genre": "Electronic", 
+      "uri": "b067f976-edaa-4ac1-93c5-d7a110989fe3.mp3" 
+    },
+    {
+      "title": "Con dictum diam.",
+      "creator": "Rolf Tuck", 
+      "duration": "", 
+      "release_date": "2023-09-24", 
+      "genre": "Country", 
+      "uri": "5297126c-333b-495e-b895-f7466a2ec494.mp3" 
+    },
+    {
+      "title": "Mollis it pretium.",
+      "creator": "Aiden Sprowl", 
+      "duration": "", 
+      "release_date": "2023-01-20", 
+      "genre": "Classical", 
+      "uri": "ca7d24c0-6403-4615-9316-b3cca9d3a7f6.mp3" 
+    },
+    {
+      "title": "Ut justo faucibus.",
+      "creator": "Susana Zobel", 
+      "duration": "", 
+      "release_date": "2020-09-09", 
+      "genre": "Rock", 
+      "uri": "a5dc6d99-c670-434b-a918-a85d183a0391.mp3" 
+    },
+    {
+      "title": "Quisque tincidunt vel rhoncus pharetra.",
+      "creator": "Rolf Hyder", 
+      "duration": "", 
+      "release_date": "2024-06-07", 
+      "genre": "Jazz", 
+      "uri": "ed37df88-d0af-44cc-91ca-13fefcbcbf71.mp3" 
+    },
+    {
+      "title": "Purus purus massa nisi.",
+      "creator": "Rosie Stine", 
+      "duration": "", 
+      "release_date": "2024-07-26", 
+      "genre": "Pop", 
+      "uri": "784c060c-ccd3-4e29-a17e-4dad2e1b56a4.mp3" 
+    },
+    {
+      "title": "Augue e maximus mattis tempus.",
+      "creator": "Anton Rikard", 
+      "duration": "", 
+      "release_date": "2021-11-16", 
+      "genre": "Jazz", 
+      "uri": "fc8821a0-b500-4775-9fbf-0b126cf39549.mp3" 
+    },
+    {
+      "title": "Ac lectus tem el.",
+      "creator": "Raymond Freeman", 
+      "duration": "", 
+      "release_date": "2020-10-10", 
+      "genre": "Jazz", 
+      "uri": "227579e3-a4e4-498d-91c5-f47fd99e2375.mp3" 
+    }
+  ]
+}
+
