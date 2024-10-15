@@ -31,18 +31,21 @@ Il est essentiel de réfléchir à des fonctionnalités plus équilibrées et mo
 ### Résultat
 Les résultat de la platforme deezer et Musicme : [Voir la preview du fichier HTML](https://utt-gl03.github.io/EchoStream/benchmark/benchmark.html)
 
-Les résultats de la plateforme spotify sont différents, la stucture de la page fait que c'est dure de pouvoir utiliser le cli de green it donc on a utilisé l'extension chrome et changer le protocole car il fallait absolument créer un compte pour écouter de la musique.
+Les résultats de la plateforme spotify sont différents, la stucture de la page fait que c'est dure de pouvoir utiliser le cli de green it donc on a utilisé l'extension chrome et changer le protocole car il fallait absolument créer un compte pour écouter de la musique. On précise que cet outil marche de la manière suivante : il va garder toutes les requetes qui sont faites dans l'analyse, si on fait donc une analyse à chaque étape nous allons mesurer les mêmes requetes pluisieurs fois. Pour y remedier nous allons juste faire l'analyse à la fin du scénario.
 
 #### Scénario spotify :
-1. Se rendre sur le site web
-2. Accepter les cookies
-3. Cliquer sur le bouton connecter
-4. Renter ses identifiants et se connecter
-5. Cliquer sur la page d'un artiste
-6. Scroller et cliquer sur la page d'une playlist personnalisé
-7. Charger la page de cette même playlist (pour voir la différence d'une page chargé dans le cache ou non)
+##### Premier scénario :
+1. Se rendre sur le site web et se connecter
+2. Lancer la première musique proposée 
+3. Scroller jusqu'en bas de la page pour trouver une autre musique mais ne trouvera rien
 
-Resultat :  ![Capture d'écran 2024-10-14 173120](https://github.com/user-attachments/assets/4e675006-89ec-44d9-9c30-9937432bd10a)
+##### Deuxième scénario :
+1. Se rendre sur le site web et se connecter
+2. Rechercher une musique précise
+3. Lancer l'écoute de cette musique 
+
+Resultat :  ![Capture d'écran 2024-10-15 172913](https://github.com/user-attachments/assets/3939adf0-0d86-498c-a1af-dc7b6a0e08f5)
+
 
 
 ## Scénario : Streaming d'une musique
