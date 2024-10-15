@@ -45,7 +45,7 @@ Les résultats de la plateforme spotify sont différents, la stucture de la page
 3. Lancer l'écoute de cette musique 
 
 Resultat :  ![Capture d'écran 2024-10-15 172913](https://github.com/user-attachments/assets/3939adf0-0d86-498c-a1af-dc7b6a0e08f5)
-
+(le résultat d'en bas est particulièrement désastreux, c'est le premier scénario, le site propose des vidéos et gifs par rapport à l'actualité des artistes ce qui est particulièrement couteux)
 
 
 ## Scénario : Streaming d'une musique
