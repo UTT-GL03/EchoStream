@@ -22,8 +22,11 @@ Il est essentiel de réfléchir à des fonctionnalités plus équilibrées et mo
 3. Il lance la première musique qui lui est proposée
 4. Il regarde les autres musiques proposées sur la page d'accueil mais rien ne l'intéresse, il stoppe donc sa navigation.
 
-## Scénario 2 : "todo"
-
+## Scénario 2 : "Rechercher une musique spécifique"
+1. L'utilisateur se rend sur un site web de streaming en ligne
+2. il accepte les cookies
+3. Il recherche une musique
+4. Il lance la musique trouvée
 
 ### Résultat
 Les résultat de la platforme deezer et Musicme : [Voir la preview du fichier HTML](https://utt-gl03.github.io/EchoStream/benchmark/benchmark.html)
