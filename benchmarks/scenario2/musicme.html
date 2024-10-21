@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+            crossorigin="anonymous"
+        ></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.min.css"
+            rel="stylesheet"
+            integrity="sha384-GHL5aQs2BwQUg6AUEbqq6XFSN6lGo8DAT58V5NckuLm9Ibf0uR8i7T+GwodBqcET"
+            crossorigin="anonymous"
+        />
+
+        <style type="text/css">
+            .bi-info {
+                padding: 0.25rem 0.25rem;
+                font-size: 0.875rem;
+                line-height: 0.5;
+            }
+            .pageRow {
+                background-color: #f0f0f0;
+            }
+            .collapseRow {
+                background-color: #d8ffbf;
+            }
+            .hiddenRow {
+                padding: 0 !important;
+            }
+            .grade {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                text-align: center;
+                border-radius: 50%;
+                background-color: #f00;
+                font-size: 14px;
+                font-weight: 650;
+                line-height: 24px;
+            }
+
+            .grade.big-grade {
+                width: 42px;
+                height: 42px;
+                font-size: 28px;
+                line-height: 42px;
+            }
+
+            .grade.A {
+                background-color: #349a47;
+                color: #fff;
+            }
+
+            .grade.B {
+                background-color: #51b84b;
+                color: #fff;
+            }
+
+            .grade.C {
+                background-color: #cadb2a;
+                color: #fff;
+            }
+
+            .grade.D {
+                background-color: #f6eb15;
+            }
+
+            .grade.E {
+                background-color: #fecd06;
+            }
+
+            .grade.F {
+                background-color: #f99839;
+                color: #fff;
+            }
+
+            .grade.G {
+                background-color: #ed2124;
+                color: #fff;
+            }
+
+            .checkmark-success {
+                position: absolute;
+                transform: rotate(45deg);
+                height: 18px;
+                width: 10px;
+                border-bottom: 5px solid #78b13f;
+                border-right: 5px solid #78b13f;
+                margin-left: 20px;
+            }
+
+            .close-warning,
+            .close-error {
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                padding-left: 20px;
+            }
+            .close-warning:before,
+            .close-warning:after,
+            .close-error:before,
+            .close-error:after {
+                position: absolute;
+                content: ' ';
+                height: 22px;
+                width: 4px;
+            }
+            .close-warning:before,
+            .close-error:before {
+                transform: rotate(45deg);
+            }
+            .close-warning:after,
+            .close-error:after {
+                transform: rotate(-45deg);
+            }
+
+            .close-warning:before,
+            .close-warning:after {
+                background-color: orange;
+            }
+
+            .close-error:before,
+            .close-error:after {
+                background-color: red;
+            }
+        </style>
+
+        <title>GreenIT-Analysis report</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-success bg-success text-white mb-4">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1" style="font-size: 1rem">Rapport GreenIT-Analysis > <a class="text-white" href="https://www.musicme.com/#/musique/">musicme</a></span>
+                <div class="d-flex flex-row-reverse">
+                    <div id="date">21&#x2F;10&#x2F;2024 20:03:31</div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="container my-5">
+                <div class="row text-center">
+                    <div class="col col-md-4">
+                        <div class="card mb-4 border-success" style="max-width: 18rem">
+                            <div class="card-header bg-success text-white">Requêtes</div>
+                            <div class="card-body text-dark">
+                                <h1 id="nbRequest" class="card-title">363</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-md-4">
+                        <div class="card mb-4 border-success" style="max-width: 18rem">
+                            <div class="card-header bg-success text-white">Taille de la page (Ko)</div>
+                            <div class="card-body text-dark">
+                                <h1 id="pageSize" class="card-title">5280 (12636)</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-md-4">
+                        <div class="card mb-4 border-success" style="max-width: 18rem">
+                            <div class="card-header bg-success text-white">Taille du DOM</div>
+                            <div class="card-body text-dark">
+                                <h1 id="domSize" class="card-title">1158</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container my-3">
+                <h5 class="mb-3">Etapes</h5>
+                <div class="row">
+                    <div class="col col-md-12">
+                        <table id="tabBestPractices" class="table table-sm">
+                            <thead class="table-light">
+                                <th scope="col">Etape</th>
+                                <th scope="col">EcoIndex</th>
+                                <th scope="col">Eau (cl)</th>
+                                <th scope="col">GES (gCO2e)</th>
+                                <th scope="col">Taille du DOM</th>
+                                <th scope="col">Requêtes</th>
+                                <th scope="col">Taille de la page (Ko)</th>
+                            </thead>
+                            <tbody>
+                                <!-- Empty line -->
+                                <tr class="pageRow">
+                                    <td colspan="7"><b>Chargement de la page - https:&#x2F;&#x2F;www.musicme.com&#x2F;page.php?q&#x3D;pause+caf%E9</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Chargement de la page</td>
+                                    <td>
+                                        22
+                                        <span class="grade E">E</span>
+                                    </td>
+                                    <td>3.84</td>
+                                    <td>2.56</td>
+                                    <td>1382</td>
+                                    <td>104</td>
+                                    <td>1835.063</td>
+                                </tr>
+                                <tr>
+                                    <td>Cookies</td>
+                                    <td>
+                                        16
+                                        <span class="grade F">F</span>
+                                    </td>
+                                    <td>4.02</td>
+                                    <td>2.68</td>
+                                    <td>1391</td>
+                                    <td>151</td>
+                                    <td>2102.476</td>
+                                </tr>
+                                <tr>
+                                    <td>Rechercher une musique</td>
+                                    <td>
+                                        14
+                                        <span class="grade F">F</span>
+                                    </td>
+                                    <td>4.08</td>
+                                    <td>2.72</td>
+                                    <td>1404</td>
+                                    <td>168</td>
+                                    <td>2264.915</td>
+                                </tr>
+                                <tr>
+                                    <td>Rechercher une musique</td>
+                                    <td>
+                                        54
+                                        <span class="grade C">C</span>
+                                    </td>
+                                    <td>2.88</td>
+                                    <td>1.92</td>
+                                    <td>36</td>
+                                    <td>172</td>
+                                    <td>2265.964</td>
+                                </tr>
+                                <tr>
+                                    <td>Lancer la musique</td>
+                                    <td>
+                                        10
+                                        <span class="grade F">F</span>
+                                    </td>
+                                    <td>4.2</td>
+                                    <td>2.8</td>
+                                    <td>1158</td>
+                                    <td>363</td>
+                                    <td>5279.837</td>
+                                </tr>
+                                <tr class="collapseRow">
+                                    <td colspan="7">
+                                        <a data-bs-toggle="collapse" href="#rule_0" role="button" aria-expanded="false" aria-controls="rule_0">
+                                            Bonnes pratiques (12 à mettre en oeuvre)
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7" class="hiddenRow">
+                                        <table id="rule_0" class="collapse table table-sm">
+                                            <thead class="table-light">
+                                                <th scope="col">Bonne pratique</th>
+                                                <th scope="col">Résultat</th>
+                                                <th scope="col">Grade</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td title="Les en-têtes Expires et Cache-Control déterminent la durée pendant laquelle un navigateur doit conserver une ressource dans son cache. Vous devez donc les utiliser et les configurer correctement pour les feuilles de style CSS, les scripts JavaScript et les images. Idéalement, ces éléments doivent être conservés le plus longtemps possible pour que le navigateur ne les demande plus au serveur. Cela permet d&#39;économiser les requêtes HTTP, la bande passante et l&#39;alimentation du serveur.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Les en-têtes Expires et Cache-Control déterminent la durée pendant laquelle un navigateur doit conserver une ressource dans son cache. Vous devez donc les utiliser et les configurer correctement pour les feuilles de style CSS, les scripts JavaScript et les images. Idéalement, ces éléments doivent être conservés le plus longtemps possible pour que le navigateur ne les demande plus au serveur. Cela permet d&#39;économiser les requêtes HTTP, la bande passante et l&#39;alimentation du serveur.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse0" role="button" aria-expanded="false" aria-controls="collapse0">
+                                                            <span>Ajouter des expires ou cache-control headers (&gt;&#x3D; 95%)</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>89.3% ressources cachées</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse0">
+                                                            <div class="card card-body">https://static.hosting-media.net/_minify/8.810~/css/main.css 149.9 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.810~/css/radios.css 4.7 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js 126.5 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js 4.8 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/search.js 13.8 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/showcase.js 1.5 Ko n'a pas d'Expires ou Cache-Control header<br>https://www.musicme.com/css/glyphicons.css 38.1 Ko n'a pas d'Expires ou Cache-Control header<br>https://secure.trust-provider.com/trustlogo/javascript/trustlogo.js 14.1 Ko n'a pas d'Expires ou Cache-Control header<br>https://www.musicme.com/css/fonts/glyphicons-regular.woff2 96.4 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js 126.5 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js 4.8 Ko n'a pas d'Expires ou Cache-Control header<br>https://secure.trust-provider.com/trustlogo/images/popup/seal_bg.gif 4.9 Ko n'a pas d'Expires ou Cache-Control header<br>https://secure.trust-provider.com/trustlogo/images/popup/warranty_level.gif 0.7 Ko n'a pas d'Expires ou Cache-Control header<br>https://tag.escalated.io/?i=KxxajmhPPCsT&d=www.musicme.com&type=display&cust=6793&sid=direct&c=&cust2=direct 63.7 Ko n'a pas d'Expires ou Cache-Control header<br>https://optchk.ayads.co/?callback=sublimeOptchk 0 Ko n'a pas d'Expires ou Cache-Control header<br>https://googleads.g.doubleclick.net/pagead/viewthroughconversion/866582455/?random=1729533803178&cv=9&fst=1729533803178&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=375603261%2C466465926%2C512247838&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_his=2&u_tz=120&u_java=false&u_nplug=5&u_nmime=2&sendb=1&ig=1&frm=0&url=https%3A%2F%2Fwww.musicme.com%2F&tiba=musicMe%20%3A%20musique%20gratuite%2C%20telechargement%20mp3%2C%20video-clips%20HD&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=15.0.0&uaw=0&uafvl=Chromium%3B119.0.6045.105%7CNot%253FA_Brand%3B24.0.0.0&rfmt=3&fmt=4 0 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.810~/css/main.css 149.9 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js 126.5 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js 4.8 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/search.js 13.8 Ko n'a pas d'Expires ou Cache-Control header<br>https://secure.trust-provider.com/trustlogo/images/popup/seal_bg.gif 4.9 Ko n'a pas d'Expires ou Cache-Control header<br>https://secure.trust-provider.com/trustlogo/images/popup/warranty_level.gif 0.7 Ko n'a pas d'Expires ou Cache-Control header<br>https://www.musicme.com/css/glyphicons.css 38.1 Ko n'a pas d'Expires ou Cache-Control header<br>https://secure.trust-provider.com/trustlogo/javascript/trustlogo.js 14.1 Ko n'a pas d'Expires ou Cache-Control header<br>https://www.musicme.com/css/fonts/glyphicons-regular.woff2 96.4 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js 126.5 Ko n'a pas d'Expires ou Cache-Control header<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js 4.8 Ko n'a pas d'Expires ou Cache-Control header<br>https://tag.escalated.io/?i=KxxajmhPPCsT&d=www.musicme.com&type=display&cust=6793&sid=direct&c=&cust2=direct 63.7 Ko n'a pas d'Expires ou Cache-Control header<br>https://googleads.g.doubleclick.net/pagead/viewthroughconversion/866582455/?random=1729533808297&cv=9&fst=1729533808297&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=375603260%2C466465925%2C512247838&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_his=3&u_tz=120&u_java=false&u_nplug=5&u_nmime=2&sendb=1&ig=1&frm=0&url=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&ref=https%3A%2F%2Fwww.musicme.com%2F&tiba=pause%20caf%C3%A9%20%3A%20albums%2C%20titres&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=15.0.0&uaw=0&uafvl=Chromium%3B119.0.6045.105%7CNot%253FA_Brand%3B24.0.0.0&rfmt=3&fmt=4 0 Ko n'a pas d'Expires ou Cache-Control header<br>https://aax.amazon-adsystem.com/e/dtb/bid?src=600&u=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&pr=https%3A%2F%2Fwww.musicme.com%2F&pid=NMcnK0ZCoQZDm&cb=0&ws=728x90&v=24.827.1552&t=2000&slots=%5B%7B%22sd%22%3A%2266498%22%2C%22s%22%3A%5B%22728x90%22%5D%7D%5D&schain=1.0%2C1%21firstimpression.io%2C6793%2C1%2C%2C%2C&pubid=4cd01fd0-0780-4b33-a4da-c39467660185&gdprl=%7B%22status%22%3A%22no-cmp%22%7D 0 Ko n'a pas d'Expires ou Cache-Control header<br>https://optchk.ayads.co/?callback=sublimeOptchk 0 Ko n'a pas d'Expires ou Cache-Control header<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Vous pouvez compresser le contenu des pages HTML pour réduire la consommation de bande passante entre le client et le serveur. Tous les navigateurs modernes (smartphones, tablettes, ordinateurs portables et ordinateurs de bureau) acceptent le format HTML compressé via gzip ou Deflate. Le moyen le plus simple consiste à configurer le serveur Web de manière à ce qu&#39;il comprime le flux de données HTML, à la volée ou automatiquement, à la sortie du serveur. Cette pratique (compression à la volée) n’est bénéfique que pour un flux de données HTML, car il évolue constamment. Lorsque cela est possible, nous vous recommandons de compresser manuellement les ressources statiques (par exemple, les bibliothèques CSS et JavaScript) en une seule fois.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Vous pouvez compresser le contenu des pages HTML pour réduire la consommation de bande passante entre le client et le serveur. Tous les navigateurs modernes (smartphones, tablettes, ordinateurs portables et ordinateurs de bureau) acceptent le format HTML compressé via gzip ou Deflate. Le moyen le plus simple consiste à configurer le serveur Web de manière à ce qu&#39;il comprime le flux de données HTML, à la volée ou automatiquement, à la sortie du serveur. Cette pratique (compression à la volée) n’est bénéfique que pour un flux de données HTML, car il évolue constamment. Lorsque cela est possible, nous vous recommandons de compresser manuellement les ressources statiques (par exemple, les bibliothèques CSS et JavaScript) en une seule fois.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
+                                                            <span>Compresser les ressources (&gt;&#x3D; 95%) </span>
+                                                        </a>
+                                                    </td>
+                                                    <td>99.7% ressources compressées</td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse1">
+                                                            <div class="card card-body">https://secure.trust-provider.com/trustlogo/javascript/trustlogo.js 14.1 Ko n'est pas compressé<br>https://ib.adnxs.com/ut/v3/prebid 0.2 Ko n'est pas compressé<br>https://widgets.outbrain.com/images/widgetIcons/achoice.svg 1 Ko n'est pas compressé<br>https://ib.adnxs.com/ut/v3/prebid 0.2 Ko n'est pas compressé<br>https://secure.trust-provider.com/trustlogo/javascript/trustlogo.js 14.1 Ko n'est pas compressé<br>https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=18438&site_id=202928&zone_id=1113702&size_id=2&rp_schain=1.0,1!firstimpression.io,6793,1,,,&rf=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&tg_i.domain=musicme.com&tg_i.page=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&tg_i.ref=https%3A%2F%2Fwww.musicme.com%2F&tg_i.figroup=a1&tk_flint=pbjs_lite_v7.46.0-pre&x_source.tid=e59fd075-8ca6-4ba9-9a35-c3db46962f74&l_pb_bid_id=8ca631c2414356&p_screen_res=1536x864&rp_floor=0.1&rp_secure=1&x_imp.ext.tid=e59fd075-8ca6-4ba9-9a35-c3db46962f74&rp_maxbids=1&slots=1&rand=0.5650617714178225 0.4 Ko n'est pas compressé<br>https://config.aps.amazon-adsystem.com/configs/4cd01fd0-0780-4b33-a4da-c39467660185 0.6 Ko n'est pas compressé<br>https://ib.adnxs.com/ut/v3/prebid 0.2 Ko n'est pas compressé<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Lorsqu&#39;un site Web ou un service en ligne héberge les composants d&#39;une page Web dans plusieurs domaines, le navigateur doit établir une connexion HTTP avec chacun d&#39;entre eux. Une fois la page HTML récupérée, le navigateur appelle les sources lorsqu&#39;il traverse le DOM (Document Object Model). Certaines ressources sont essentielles au bon fonctionnement de la page. S&#39;ils sont hébergés sur un autre domaine qui est lent, cela peut augmenter le temps de rendu de la page. Vous devez donc, lorsque cela est possible, regrouper toutes les ressources sur un seul domaine. La seule exception à cette règle concerne les ressources statiques (feuilles de style, images, etc.), qui doivent être hébergées sur un domaine distinct afin d&#39;éviter l&#39;envoi d&#39;un ou plusieurs cookies pour chaque requête HTTP du navigateur GET. Cela réduit le temps de réponse et la consommation inutile de bande passante.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Lorsqu&#39;un site Web ou un service en ligne héberge les composants d&#39;une page Web dans plusieurs domaines, le navigateur doit établir une connexion HTTP avec chacun d&#39;entre eux. Une fois la page HTML récupérée, le navigateur appelle les sources lorsqu&#39;il traverse le DOM (Document Object Model). Certaines ressources sont essentielles au bon fonctionnement de la page. S&#39;ils sont hébergés sur un autre domaine qui est lent, cela peut augmenter le temps de rendu de la page. Vous devez donc, lorsque cela est possible, regrouper toutes les ressources sur un seul domaine. La seule exception à cette règle concerne les ressources statiques (feuilles de style, images, etc.), qui doivent être hébergées sur un domaine distinct afin d&#39;éviter l&#39;envoi d&#39;un ou plusieurs cookies pour chaque requête HTTP du navigateur GET. Cela réduit le temps de réponse et la consommation inutile de bande passante.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
+                                                            <span>Limiter le nombre de domaines (&lt; 3)</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>53 domaine(s) trouvé(s)</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse2">
+                                                            <div class="card card-body">www.musicme.com<br>static.hosting-media.net<br>fonts.googleapis.com<br>cdn.cookielaw.org<br>mmcdn-ng2.hosting-media.net<br>www.googletagmanager.com<br>mmcdn-ng4.hosting-media.net<br>mmstatic.hosting-media.net<br>covers-ng3.hosting-media.net<br>covers-ng4.hosting-media.net<br>covers-ng2.hosting-media.net<br>covers-ng1.hosting-media.net<br>i.ytimg.com<br>mmcdn-ng1.hosting-media.net<br>www.googleadservices.com<br>ecdn.firstimpression.io<br>ads.ayads.co<br>mmcdn.hosting-media.net<br>mmcdn1.hosting-media.net<br>geolocation.onetrust.com<br>secure.trust-provider.com<br>sac.ayads.co<br>region1.google-analytics.com<br>antenna.ayads.co<br>connect.facebook.net<br>www.facebook.com<br>www.positivessl.com<br>mmcdn-ng3.hosting-media.net<br>cdn.firstimpression.io<br>tag.escalated.io<br>geoworker.ayads.co<br>optchk.ayads.co<br>ib.adnxs.com<br>www8.smartadserver.com<br>static.criteo.net<br>bidder.criteo.com<br>gum.criteo.com<br>privacyportal-fr.onetrust.com<br>ad.doubleclick.net<br>widgets.outbrain.com<br>ad.360yield.com<br>googleads.g.doubleclick.net<br>dataservice.musicme.com<br>covers.hosting-media.net<br>fonts.gstatic.com<br>pagead2.googlesyndication.com<br>cdn.jsdelivr.net<br>c.amazon-adsystem.com<br>rtb.openx.net<br>fastlane.rubiconproject.com<br>config.aps.amazon-adsystem.com<br>aax.amazon-adsystem.com<br>tpc.googlesyndication.com<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Ne redimensionnez pas les images avec les attributs HTML height et width. Cela envoie des images dans leur taille originale, gaspillant de la bande passante et de la puissance du processeur. Une image PNG-24 de 350 x 300 px est de 41 KB. Si vous redimensionniez le même fichier image en HTML et que vous l’affichez sous forme de vignette de 70 x 60 px, il s’agirait toujours de 41 Ko, alors qu’il devrait en réalité ne pas dépasser 3 Ko! Signification 38 KB téléchargés pour rien. La meilleure solution consiste à redimensionner les images à l&#39;aide d&#39;un logiciel tel que Photoshop, sans utiliser HTML. Lorsque le contenu ajouté par les utilisateurs du site Web n’a pas de valeur ajoutée spécifique, il est préférable de les empêcher d’insérer des images à l’aide d’un éditeur WYSIWYG, par exemple CKEditor.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Ne redimensionnez pas les images avec les attributs HTML height et width. Cela envoie des images dans leur taille originale, gaspillant de la bande passante et de la puissance du processeur. Une image PNG-24 de 350 x 300 px est de 41 KB. Si vous redimensionniez le même fichier image en HTML et que vous l’affichez sous forme de vignette de 70 x 60 px, il s’agirait toujours de 41 Ko, alors qu’il devrait en réalité ne pas dépasser 3 Ko! Signification 38 KB téléchargés pour rien. La meilleure solution consiste à redimensionner les images à l&#39;aide d&#39;un logiciel tel que Photoshop, sans utiliser HTML. Lorsque le contenu ajouté par les utilisateurs du site Web n’a pas de valeur ajoutée spécifique, il est préférable de les empêcher d’insérer des images à l’aide d’un éditeur WYSIWYG, par exemple CKEditor.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3">
+                                                            <span>Ne pas retailler les images dans le navigateur</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>16 image(s) retaillée(s) dans le navigateur</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse3">
+                                                            <div class="card card-body">https://mmcdn-ng2.hosting-media.net/pict/v5/musicme_logo.png est redimensionnée de 242x64 à 106x28<br>https://mmcdn-ng2.hosting-media.net/pict/v5/ic_search.png est redimensionnée de 32x32 à 16x16<br>https://covers-ng2.hosting-media.net/jpgr175/u3663729292773.jpg est redimensionnée de 175x175 à 128x128<br>https://covers-ng3.hosting-media.net/art/r128/291912.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng3.hosting-media.net/art/r128/6967.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng2.hosting-media.net/art/r128/517.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng2.hosting-media.net/art/r128/11042.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng1.hosting-media.net/art/r128/4721.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng4.hosting-media.net/art/r128/339438.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng4.hosting-media.net/art/r128/7094.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng2.hosting-media.net/art/r128/1618.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng4.hosting-media.net/art/r128/7027.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng2.hosting-media.net/art/r128/1795865.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng3.hosting-media.net/art/r128/203992.jpg est redimensionnée de 128x128 à 64x64<br>https://covers-ng3.hosting-media.net/art/r128/2995.jpg est redimensionnée de 128x128 à 64x64<br>https://mmcdn-ng4.hosting-media.net/pict/v5/creditcards_tab.gif est redimensionnée de 116x23 à 91x18<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="S&#39;il existe une balise d&#39;image avec un attribut src vide, le navigateur appelle le répertoire dans lequel se trouve la page, générant des requêtes HTTP inutiles et supplémentaires.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("S&#39;il existe une balise d&#39;image avec un attribut src vide, le navigateur appelle le répertoire dans lequel se trouve la page, générant des requêtes HTTP inutiles et supplémentaires.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapse4">
+                                                            <span>Eviter les tags SRC vides</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse4">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Assurez-vous que les fichiers CSS sont séparés du code HTML de la page. Si vous incluez du CSS dans le corps du fichier HTML et qu&#39;il est utilisé pour plusieurs pages (ou même pour l&#39;ensemble du site Web), le code doit être envoyé pour chaque page demandée par l&#39;utilisateur, augmentant ainsi le volume de données envoyées. Toutefois, si les CSS se trouvent dans leurs propres fichiers distincts, le navigateur peut éviter de les redemander en les stockant dans son cache local.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Assurez-vous que les fichiers CSS sont séparés du code HTML de la page. Si vous incluez du CSS dans le corps du fichier HTML et qu&#39;il est utilisé pour plusieurs pages (ou même pour l&#39;ensemble du site Web), le code doit être envoyé pour chaque page demandée par l&#39;utilisateur, augmentant ainsi le volume de données envoyées. Toutefois, si les CSS se trouvent dans leurs propres fichiers distincts, le navigateur peut éviter de les redemander en les stockant dans son cache local.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5">
+                                                            <span>Externaliser les css</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>10 inline stylesheet(s)</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse5">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Assurez-vous que le code JavaScript est distinct du code HTML de la page, à l’exception de toute variable de configuration pour les objets JavaScript. Si vous incluez du code JavaScript dans le corps du fichier HTML et qu&#39;il est utilisé pour plusieurs pages (ou même pour l&#39;ensemble du site Web), le code doit être envoyé pour chaque page demandée par l&#39;utilisateur, augmentant ainsi le volume de données envoyées. Toutefois, si le code JavaScript se trouve dans son propre fichier séparé, le navigateur peut éviter de les redemander en les stockant dans son cache local.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Assurez-vous que le code JavaScript est distinct du code HTML de la page, à l’exception de toute variable de configuration pour les objets JavaScript. Si vous incluez du code JavaScript dans le corps du fichier HTML et qu&#39;il est utilisé pour plusieurs pages (ou même pour l&#39;ensemble du site Web), le code doit être envoyé pour chaque page demandée par l&#39;utilisateur, augmentant ainsi le volume de données envoyées. Toutefois, si le code JavaScript se trouve dans son propre fichier séparé, le navigateur peut éviter de les redemander en les stockant dans son cache local.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse6" role="button" aria-expanded="false" aria-controls="collapse6">
+                                                            <span>Externaliser les js</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>18 inline  javascript(s)</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse6">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Les requêtes en erreurs consomment inutilement des ressources.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Les requêtes en erreurs consomment inutilement des ressources.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse7" role="button" aria-expanded="false" aria-controls="collapse7">
+                                                            <span>Eviter les requêtes en erreur</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>0 erreur(s) HTTP</td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse7">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Le temps de téléchargement d’une page côté client est directement corrélé au nombre et à la taille des fichiers que le navigateur doit télécharger. Pour chaque fichier, le navigateur envoie un HTTP GET au serveur. Il attend la réponse, puis télécharge la ressource dès qu&#39;elle est disponible. Selon le type de serveur Web que vous utilisez, plus le nombre de demandes par page est élevé, moins le serveur peut gérer de pages. La réduction du nombre de requêtes par page est essentielle pour réduire le nombre de serveurs HTTP nécessaires à l&#39;exécution du site Web et, partant, son impact sur l&#39;environnement.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Le temps de téléchargement d’une page côté client est directement corrélé au nombre et à la taille des fichiers que le navigateur doit télécharger. Pour chaque fichier, le navigateur envoie un HTTP GET au serveur. Il attend la réponse, puis télécharge la ressource dès qu&#39;elle est disponible. Selon le type de serveur Web que vous utilisez, plus le nombre de demandes par page est élevé, moins le serveur peut gérer de pages. La réduction du nombre de requêtes par page est essentielle pour réduire le nombre de serveurs HTTP nécessaires à l&#39;exécution du site Web et, partant, son impact sur l&#39;environnement.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse8" role="button" aria-expanded="false" aria-controls="collapse8">
+                                                            <span>Limiter le nombre de requêtes HTTP (&lt; 27)</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>363 requête(s) HTTP </td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse8">
+                                                            <div class="card card-body">https://www.musicme.com/#/musique/<br>https://static.hosting-media.net/_minify/8.810~/css/main.css<br>https://static.hosting-media.net/_minify/8.810~/css/radios.css<br>https://static.hosting-media.net/_minify/8.810~/css/responsive.css<br>https://fonts.googleapis.com/icon?family=Material+Icons<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js<br>https://cdn.cookielaw.org/consent/01989b06-7e92-41b3-818b-eef5170ab331/OtAutoBlock.js<br>https://cdn.cookielaw.org/scripttemplates/otSDKStub.js<br>https://mmcdn-ng2.hosting-media.net/pict/v5/musicme_logo.png<br>https://static.hosting-media.net/_minify/8.830~/js/search.js<br>https://mmcdn-ng2.hosting-media.net/pict/v5/ic_search.png<br>https://www.googletagmanager.com/gtag/js?id=G-NQK02NS3YG<br>https://static.hosting-media.net/_minify/8.830~/js/showcase.js<br>https://mmcdn-ng4.hosting-media.net/pict/offers/widebanner_202404.jpg<br>https://mmstatic.hosting-media.net/edito/1-0-1341801-3663729329950.jpg?1729335253<br>https://mmstatic.hosting-media.net/edito/1-0-1341802-602468078623.jpg?1729335253<br>https://mmstatic.hosting-media.net/edito/1-0-1341803-4099964114393.jpg?1729335253<br>https://mmstatic.hosting-media.net/edito/1-0-1341804-3617388522870.jpg?1729335253<br>https://covers-ng3.hosting-media.net/jpgr155/u3663729329950.jpg<br>https://covers-ng4.hosting-media.net/jpgr155/u0602468078623.jpg<br>https://covers-ng4.hosting-media.net/jpgr155/u4099964114393.jpg<br>https://covers-ng3.hosting-media.net/jpgr155/u3617388522870.jpg<br>https://mmstatic.hosting-media.net/edito/5-0-1341781-5021732519399.jpg?1729335247<br>https://mmstatic.hosting-media.net/edito/5-0-1341780-5021732454041.jpg?1729335247<br>https://mmstatic.hosting-media.net/edito/5-0-1341779-3617660936784.jpg?1729335247<br>https://covers-ng3.hosting-media.net/jpgr64/u5021732498762.jpg<br>https://covers-ng2.hosting-media.net/jpgr64/u5056556141105.jpg<br>https://covers-ng3.hosting-media.net/jpgr64/u0196872232882.jpg<br>https://covers-ng3.hosting-media.net/jpgr64/u3663729329950.jpg<br>https://covers-ng1.hosting-media.net/jpgr64/u5021732425348.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0196872507485.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0602475319863.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0602475262947.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0196872492637.jpg<br>https://covers-ng2.hosting-media.net/jpgr64/u0602475262497.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1163935.jpg<br>https://covers-ng3.hosting-media.net/pixr/w398/radio/tile_radio_225525.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1787215.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_103892.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1486662.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_115816.jpg<br>https://i.ytimg.com/vi/bo_efYhYU2A/mqdefault.jpg<br>https://mmcdn-ng1.hosting-media.net/pict/v5/hd_overlay_150x120_v3.png<br>https://i.ytimg.com/vi/EzKkl64rRbM/mqdefault.jpg<br>https://i.ytimg.com/vi/8EJ3zbKTWQ8/mqdefault.jpg<br>https://i.ytimg.com/vi/JPJjwHAIny4/mqdefault.jpg<br>https://i.ytimg.com/vi/kTJczUoc26U/mqdefault.jpg<br>https://i.ytimg.com/vi/tQ0yjYUFKAE/mqdefault.jpg<br>https://static.hosting-media.net/js/player-bundle.min.js?ver=8,83<br>https://covers-ng3.hosting-media.net/art/r128/291912.jpg<br>https://covers-ng3.hosting-media.net/art/r128/6967.jpg<br>https://covers-ng2.hosting-media.net/art/r128/517.jpg<br>https://covers-ng2.hosting-media.net/art/r128/11042.jpg<br>https://covers-ng1.hosting-media.net/art/r128/4721.jpg<br>https://covers-ng4.hosting-media.net/art/r128/339438.jpg<br>https://covers-ng4.hosting-media.net/art/r128/7094.jpg<br>https://covers-ng2.hosting-media.net/art/r128/1618.jpg<br>https://covers-ng4.hosting-media.net/art/r128/7027.jpg<br>https://covers-ng2.hosting-media.net/art/r128/1795865.jpg<br>https://covers-ng3.hosting-media.net/art/r128/203992.jpg<br>https://covers-ng3.hosting-media.net/art/r128/2995.jpg<br>https://covers-ng2.hosting-media.net/jpgr64/u5021732499165.jpg<br>https://covers-ng1.hosting-media.net/jpgr64/u0196872267556.jpg<br>https://covers-ng1.hosting-media.net/jpgr64/u5021732474308.jpg<br>https://mmcdn-ng1.hosting-media.net/pict/gl_g_spacer.gif<br>https://mmcdn-ng4.hosting-media.net/pict/v5/creditcards_tab.gif<br>https://mmcdn-ng1.hosting-media.net/pict/v5/paypal_tab.gif<br>https://www.googleadservices.com/pagead/conversion.js<br>https://static.hosting-media.net/js/modules/a11y-toggle.min.js<br>https://cdn.cookielaw.org/consent/01989b06-7e92-41b3-818b-eef5170ab331/01989b06-7e92-41b3-818b-eef5170ab331.json<br>https://ecdn.firstimpression.io/fi_client.js<br>https://ads.ayads.co/ajs.php?zid=17846<br>https://mmcdn.hosting-media.net/pict/v5/ic_user_bluebg.gif<br>https://mmcdn.hosting-media.net/pict/v5/arr_dwn_white.gif<br>https://mmcdn.hosting-media.net/pict/player-html/ico-play_16x16.png<br>https://mmcdn.hosting-media.net/pict/player-html/ico-down_16x16.png<br>https://mmcdn.hosting-media.net/pict/v5/arrow_more.png<br>https://mmcdn1.hosting-media.net/pict/v5/hd_overlay_150x120_v3.png<br>https://www.musicme.com/audioframe.php<br>https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location<br>https://www.musicme.com/css/glyphicons.css<br>https://static.hosting-media.net/js/audioFrame-bundle.min.js?ver=cloud.50a09893fa1f94c6262c3db227e07fbd.8,83<br>https://www.musicme.com/_modules/fb.fan.php<br>https://secure.trust-provider.com/trustlogo/javascript/trustlogo.js<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/otBannerSdk.js<br>https://sac.ayads.co/sublime/17846<br>https://www.musicme.com/css/fonts/glyphicons-regular.woff2<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js<br>https://region1.google-analytics.com/g/collect?v=2&tid=G-NQK02NS3YG&gtm=45je4ah0v9129776797za200&_p=1729533801005&gcd=13l3lPl2l1l1&npa=1&dma_cps=syphamo&dma=1&tag_exp=101686685~101794736&cid=2136748188.1729533801&ul=fr-fr&sr=1536x864&ir=1&uaa=x86&uab=64&uafvl=Chromium%3B119.0.6045.105%7CNot%253FA_Brand%3B24.0.0.0&uamb=0&uam=&uap=Windows&uapv=15.0.0&uaw=0&frm=0&pscdl=noapi&_eu=EA&_s=1&sid=1729533801&sct=1&seg=0&dl=https%3A%2F%2Fwww.musicme.com%2F&dt=musicMe%20%3A%20musique%20gratuite%2C%20telechargement%20mp3%2C%20video-clips%20HD&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=760<br>https://antenna.ayads.co/?device=d&et=841&ga=1&gc=0&gm=0&gs=0&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=1&src=wf&t=1729533801385&tfz=2&tse=1729533801386&ver=20241017120507&z=17846&e=l&bh=1080&bw=1920&thn=www.musicme.com<br>https://cdn.cookielaw.org/consent/01989b06-7e92-41b3-818b-eef5170ab331/c105c506-5467-460c-9471-1be61eaf6e01/fr.json<br>https://connect.facebook.net/fr_FR/all.js<br>https://connect.facebook.net/fr_FR/all.js?hash=1440a8220ef2ade30b45618a84ab5282<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otFlat.json<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/v2/otPcTab.json<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otCookieSettingsButton.json<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otCommonStyles.css<br>https://www.facebook.com/x/oauth/status?ancestor_origins=https%3A%2F%2Fwww.musicme.com&client_id=340194415080&input_token&origin=1&redirect_uri=https%3A%2F%2Fwww.musicme.com%2F_modules%2Ffb.fan.php&sdk=joey&wants_cookie_data=true<br>https://www.facebook.com/plugins/page.php?adapt_container_width=true&app_id=340194415080&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Dfa37a0db6d396baa9%26domain%3Dwww.musicme.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.musicme.com%252Ffe282f63c2e1ed803%26relation%3Dparent.parent&container_width=314&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2FmusicMe-293666401478%2F&locale=fr_FR&sdk=joey&show_facepile=false&small_header=false&width=500<br>https://secure.trust-provider.com/trustlogo/images/popup/seal_bg.gif<br>https://secure.trust-provider.com/trustlogo/images/popup/warranty_level.gif<br>https://www.positivessl.com/images/seals/positivessl_trust_seal_sm_124x32.png<br>https://mmcdn-ng3.hosting-media.net/pict/icons/favicon.ico<br>https://cdn.firstimpression.io/delivery/spc_fi.php?id=6793&url=%2F&charset=windows-1252&ch=20&ref=www.musicme.com&viewerId=null&referer=&_firid=31455199<br>https://tag.escalated.io/?i=KxxajmhPPCsT&d=www.musicme.com&type=display&cust=6793&sid=direct&c=&cust2=direct<br>https://tag.escalated.io/post<br>https://geoworker.ayads.co/<br>https://optchk.ayads.co/?callback=sublimeOptchk<br>https://ib.adnxs.com/ut/v3/prebid<br>https://antenna.ayads.co/?device=d&et=2146&ga=1&gc=0&gm=0&gs=2&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=2&src=wf&t=1729533801385&tfz=1307&tse=1729533802692&ver=20241017120507&z=17846&e=p&bh=1080&bw=1920&gd&gdv&ph=2502&schin=0&schinc=0<br>https://antenna.ayads.co/?a=96653&at=skinz&device=d&et=2147&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=3&src=wf&sspname=sspv3-appnexus&sspplid=12859669&t=1729533801385&tfz=1308&tse=1729533802693&ver=20241017120507&z=17846&e=sspc<br>https://www8.smartadserver.com/ac?siteid=155043&pgid=1486287&fmtid=42281&visit=M&tmstp=1729533802763&out=json&sh=1080&sw=1920&tgt=json%3Bvskinz%3Dtrue%3Bgm%3D0%3Bscreen%3Dlarge%3Blarge_screen%3DTRUE%3Btag%3Dwf%3Bpage_home%3Dtrue%3Bpage_height_num%3D3000%3Bpage_weight%3D230000%3Buser_bandwidth%3D10%3Bpage_loading_speed%3D190%3Bskinz%3Dtrue%3Bskinz-d%3D300&gdpr=1&pgDomain=https%3A%2F%2Fwww.musicme.com%2F%23%2Fmusique%2F&schain=1.0%2C1!sublime.xyz%2C2054%2C1<br>https://antenna.ayads.co/?a=96653&at=skinz&device=d&et=2217&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&rt=65&sqid=4&src=wf&sspname=sspv3-appnexus&sspplid=12859669&sspr=1&t=1729533801385&tfz=1377&tse=1729533802762&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=202704&at=skinz&device=d&et=2217&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=5&src=wf&sspname=sspv3-smartadserver&sspplid=155043%7C1486287%7C42281&t=1729533801385&tfz=1378&tse=1729533802763&ver=20241017120507&z=17846&e=sspc<br>https://static.criteo.net/js/ld/publishertag.js<br>https://antenna.ayads.co/?a=202704&at=skinz&device=d&et=2280&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&rt=60&sqid=6&src=wf&sspname=sspv3-smartadserver&sspplid=155043%7C1486287%7C42281&sspr=1&t=1729533801385&tfz=1441&tse=1729533802826&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=220689&at=skinz&device=d&et=2280&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=7&src=wf&sspname=sspv3-criteovideo&sspplid=1615638&t=1729533801385&tfz=1441&tse=1729533802826&ver=20241017120507&z=17846&e=sspc<br>https://bidder.criteo.com/cdb?ptv=159&profileId=184&cb=19812846217<br>https://static.criteo.net/js/ld/publishertag.js<br>https://bidder.criteo.com/csm/events<br>https://static.criteo.net/images/pixel.gif?ch=1<br>https://static.criteo.net/images/pixel.gif?ch=2<br>https://antenna.ayads.co/?a=220689&at=skinz&device=d&et=2483&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=8&src=wf&sspname=sspv3-criteovideo&sspplid=1615638&t=1729533801385&tfz=1644&tse=1729533803029&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=181200&at=skinz&device=d&et=2483&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=9&src=wf&sspname=sspv3-criteo&sspplid=1565419&t=1729533801385&tfz=1644&tse=1729533803029&ver=20241017120507&z=17846&e=sspc<br>https://gum.criteo.com/syncframe?origin=publishertag&topUrl=www.musicme.com#%7B%22lwid%22:%7B%22origin%22:0%7D,%22bundle%22:%7B%22origin%22:0%7D,%22optout%22:%7B%22value%22:false,%22origin%22:0%7D,%22tld%22:%22musicme.com%22,%22topUrl%22:%22www.musicme.com%22,%22version%22:159,%22cw%22:true,%22lsw%22:true,%22origin%22:%22publishertag%22,%22requestId%22:%220.9430961173895704%22%7D<br>https://connect.facebook.net/fr_FR/all.js<br>https://www.googleadservices.com/pagead/conversion.js<br>https://privacyportal-fr.onetrust.com/request/v1/consentreceipts<br>https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250<br>https://widgets.outbrain.com/images/widgetIcons/achoice.svg<br>https://privacyportal-fr.onetrust.com/request/v1/consentreceipts<br>https://connect.facebook.net/fr_FR/all.js?hash=1440a8220ef2ade30b45618a84ab5282<br>https://bidder.criteo.com/cdb?ptv=159&profileId=184&cb=58144275159<br>https://static.criteo.net/images/pixel.gif?ch=1<br>https://static.criteo.net/images/pixel.gif?ch=2<br>https://ad.360yield.com/335/pb<br>https://bidder.criteo.com/csm/events<br>https://antenna.ayads.co/?a=181200&at=skinz&device=d&et=2621&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=10&src=wf&sspname=sspv3-criteo&sspplid=1565419&t=1729533801385&tfz=1782&tse=1729533803166&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=205908&at=skinz&device=d&et=2621&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&ni=335&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=11&src=wf&sspname=sspv3-improve&sspplid=22621579&t=1729533801385&tfz=1782&tse=1729533803167&ver=20241017120507&z=17846&e=sspc<br>https://googleads.g.doubleclick.net/pagead/viewthroughconversion/866582455/?random=1729533803178&cv=9&fst=1729533803178&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=375603261%2C466465926%2C512247838&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_his=2&u_tz=120&u_java=false&u_nplug=5&u_nmime=2&sendb=1&ig=1&frm=0&url=https%3A%2F%2Fwww.musicme.com%2F&tiba=musicMe%20%3A%20musique%20gratuite%2C%20telechargement%20mp3%2C%20video-clips%20HD&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=15.0.0&uaw=0&uafvl=Chromium%3B119.0.6045.105%7CNot%253FA_Brand%3B24.0.0.0&rfmt=3&fmt=4<br>https://dataservice.musicme.com/dataservice/v3/album/3663729329950?resources=tracks&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br>https://ib.adnxs.com/ut/v3/prebid<br>https://antenna.ayads.co/?a=205908&at=skinz&device=d&et=2719&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&ni=335&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&rt=96&sqid=12&src=wf&sspname=sspv3-improve&sspplid=22621579&sspr=4&t=1729533801385&tfz=1880&tse=1729533803265&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=208187&at=skinz&device=d&et=2719&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=13&src=wf&sspname=sspv3-appnexus&sspplid=23837079&t=1729533801385&tfz=1880&tse=1729533803265&ver=20241017120507&z=17846&e=sspc<br>https://dataservice.musicme.com/dataservice/v3/artist/291912?resources=videos%7BmaxResults:0%7D,albums%7BmaxResults:0%7D,related-artists%7BmaxResults:15%7D&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br>https://dataservice.musicme.com/dataservice/v3/artist/291912?resources=videos%7BmaxResults:0%7D,albums%7BmaxResults:0%7D,related-artists%7BmaxResults:15%7D&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br>https://antenna.ayads.co/?a=208187&at=skinz&device=d&et=2762&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&rt=35&sqid=14&src=wf&sspname=sspv3-appnexus&sspplid=23837079&sspr=1&t=1729533801385&tfz=1923&tse=1729533803308&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?device=d&et=2763&ga=1&gc=0&gm=0&gs=2&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=15&src=wf&t=1729533801385&tfz=1924&tse=1729533803309&ver=20241017120507&z=17846&e=ipb<br>https://covers-ng3.hosting-media.net/jpgr175/u3663729329950.jpg<br>https://www.musicme.com/ajax/predictive.ajax.php?q=p&t=all&f=0&r=20017<br>https://covers.hosting-media.net/art/r32/12904.jpg<br>https://covers.hosting-media.net/art/r32/4593.jpg<br>https://covers.hosting-media.net/art/r32/3000.jpg<br>https://covers.hosting-media.net/art/r32/6726.jpg<br>https://covers.hosting-media.net/art/r32/6773.jpg<br>https://covers.hosting-media.net/art/r32/8369.jpg<br>https://covers.hosting-media.net/art/r32/5982.jpg<br>https://covers.hosting-media.net/art/r32/58759.jpg<br>https://covers.hosting-media.net/art/r32/1798.jpg<br>https://covers.hosting-media.net/art/r32/12188.jpg<br>https://www.musicme.com/ajax/predictive.ajax.php?q=paus&t=all&f=0&r=20017<br>https://covers.hosting-media.net/art/r32/3357.jpg<br>https://covers.hosting-media.net/art/r32/221328.jpg<br>https://covers.hosting-media.net/art/r32/86882.jpg<br>https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2<br>https://www.musicme.com/ajax/predictive.ajax.php?q=pause%20c&t=all&f=0&r=20017<br>https://www.musicme.com/ajax/predictive.ajax.php?q=pause%20caf&t=all&f=0&r=20017<br>https://antenna.ayads.co/?device=d&et=7075&ga=1&gc=0&gm=0&gs=2&puid=318f4a16-ec65-4e7b-ae98-b67a3d5a1fdb&sqid=16&src=wf&t=1729533801385&tfz=6235&tse=1729533807620&ver=20241017120507&z=17846&e=ul<br>https://www.musicme.com/search.php?ambsearch=pause+caf%E9&a=&mmz=all&lastsearch=&t=&i=<br>https://www.musicme.com/page.php?q=pause+caf%E9<br>https://static.hosting-media.net/_minify/8.810~/css/main.css<br>https://static.hosting-media.net/_minify/8.810~/css/responsive.css<br>https://fonts.googleapis.com/icon?family=Material+Icons<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js<br>https://cdn.cookielaw.org/consent/01989b06-7e92-41b3-818b-eef5170ab331/OtAutoBlock.js<br>https://cdn.cookielaw.org/scripttemplates/otSDKStub.js<br>https://mmcdn-ng2.hosting-media.net/pict/v5/musicme_logo.png<br>https://static.hosting-media.net/_minify/8.830~/js/search.js<br>https://mmcdn-ng2.hosting-media.net/pict/v5/ic_search.png<br>https://www.googletagmanager.com/gtag/js?id=G-NQK02NS3YG<br>https://covers-ng2.hosting-media.net/jpgr88/u3663729292773.jpg<br>https://covers-ng4.hosting-media.net/jpgr88/u0192518047209.jpg<br>https://covers-ng2.hosting-media.net/jpgr88/u3617056763673.jpg<br>https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js<br>https://static.hosting-media.net/js/player-bundle.min.js?ver=8,83<br>https://covers-ng3.hosting-media.net/jpgr64/u3663729329950.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0602468078623.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u4099964114393.jpg<br>https://covers-ng3.hosting-media.net/jpgr64/u3617388522870.jpg<br>https://covers-ng3.hosting-media.net/art/r128/291912.jpg<br>https://covers-ng3.hosting-media.net/art/r128/6967.jpg<br>https://covers-ng2.hosting-media.net/art/r128/517.jpg<br>https://covers-ng2.hosting-media.net/art/r128/11042.jpg<br>https://covers-ng1.hosting-media.net/art/r128/4721.jpg<br>https://covers-ng4.hosting-media.net/art/r128/339438.jpg<br>https://covers-ng4.hosting-media.net/art/r128/7094.jpg<br>https://covers-ng2.hosting-media.net/art/r128/1618.jpg<br>https://covers-ng4.hosting-media.net/art/r128/7027.jpg<br>https://covers-ng2.hosting-media.net/art/r128/1795865.jpg<br>https://covers-ng3.hosting-media.net/art/r128/203992.jpg<br>https://covers-ng3.hosting-media.net/art/r128/2995.jpg<br>https://covers-ng2.hosting-media.net/jpgr64/u5021732499165.jpg<br>https://covers-ng2.hosting-media.net/jpgr64/u5056556141105.jpg<br>https://covers-ng1.hosting-media.net/jpgr64/u0196872267556.jpg<br>https://covers-ng3.hosting-media.net/jpgr64/u0196872232882.jpg<br>https://covers-ng3.hosting-media.net/jpgr64/u5021732498762.jpg<br>https://covers-ng1.hosting-media.net/jpgr64/u5021732474308.jpg<br>https://mmcdn-ng1.hosting-media.net/pict/gl_g_spacer.gif<br>https://mmcdn-ng4.hosting-media.net/pict/v5/creditcards_tab.gif<br>https://mmcdn-ng1.hosting-media.net/pict/v5/paypal_tab.gif<br>https://www.googleadservices.com/pagead/conversion.js<br>https://static.hosting-media.net/js/modules/a11y-toggle.min.js<br>https://mmcdn-ng4.hosting-media.net/pict/offers/widebanner_202404.jpg<br>https://mmstatic.hosting-media.net/edito/1-0-1341801-3663729329950.jpg?1729335253<br>https://mmstatic.hosting-media.net/edito/1-0-1341802-602468078623.jpg?1729335253<br>https://mmstatic.hosting-media.net/edito/1-0-1341803-4099964114393.jpg?1729335253<br>https://mmstatic.hosting-media.net/edito/1-0-1341804-3617388522870.jpg?1729335253<br>https://covers-ng3.hosting-media.net/jpgr155/u3663729329950.jpg<br>https://covers-ng4.hosting-media.net/jpgr155/u0602468078623.jpg<br>https://covers-ng4.hosting-media.net/jpgr155/u4099964114393.jpg<br>https://covers-ng3.hosting-media.net/jpgr155/u3617388522870.jpg<br>https://mmstatic.hosting-media.net/edito/5-0-1341781-5021732519399.jpg?1729335247<br>https://mmstatic.hosting-media.net/edito/5-0-1341780-5021732454041.jpg?1729335247<br>https://mmstatic.hosting-media.net/edito/5-0-1341779-3617660936784.jpg?1729335247<br>https://covers-ng1.hosting-media.net/jpgr64/u5021732425348.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0196872507485.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0602475319863.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0602475262947.jpg<br>https://covers-ng4.hosting-media.net/jpgr64/u0196872492637.jpg<br>https://covers-ng2.hosting-media.net/jpgr64/u0602475262497.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1163935.jpg<br>https://covers-ng3.hosting-media.net/pixr/w398/radio/tile_radio_225525.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1787215.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_103892.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1486662.jpg<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_115816.jpg<br>https://i.ytimg.com/vi/bo_efYhYU2A/mqdefault.jpg<br>https://mmcdn-ng1.hosting-media.net/pict/v5/hd_overlay_150x120_v3.png<br>https://i.ytimg.com/vi/EzKkl64rRbM/mqdefault.jpg<br>https://i.ytimg.com/vi/8EJ3zbKTWQ8/mqdefault.jpg<br>https://i.ytimg.com/vi/JPJjwHAIny4/mqdefault.jpg<br>https://i.ytimg.com/vi/kTJczUoc26U/mqdefault.jpg<br>https://i.ytimg.com/vi/tQ0yjYUFKAE/mqdefault.jpg<br>https://mmcdn.hosting-media.net/pict/v5/ic_user_bluebg.gif<br>https://mmcdn.hosting-media.net/pict/v5/arr_dwn_white.gif<br>https://mmcdn.hosting-media.net/pict/player-html/ico-play_16x16.png<br>https://mmcdn.hosting-media.net/pict/player-html/ico-down_16x16.png<br>https://mmcdn.hosting-media.net/pict/v5/arrow_more.png<br>https://mmcdn1.hosting-media.net/pict/v5/hd_overlay_150x120_v3.png<br>https://secure.trust-provider.com/trustlogo/images/popup/seal_bg.gif<br>https://secure.trust-provider.com/trustlogo/images/popup/warranty_level.gif<br>https://www.positivessl.com/images/seals/positivessl_trust_seal_sm_124x32.png<br>https://static.criteo.net/images/pixel.gif?ch=1<br>https://static.criteo.net/images/pixel.gif?ch=2<br>https://covers-ng3.hosting-media.net/jpgr175/u3663729329950.jpg<br>https://covers.hosting-media.net/art/r32/12904.jpg<br>https://covers.hosting-media.net/art/r32/4593.jpg<br>https://covers.hosting-media.net/art/r32/3000.jpg<br>https://covers.hosting-media.net/art/r32/6726.jpg<br>https://covers.hosting-media.net/art/r32/6773.jpg<br>https://covers.hosting-media.net/art/r32/8369.jpg<br>https://covers.hosting-media.net/art/r32/5982.jpg<br>https://covers.hosting-media.net/art/r32/58759.jpg<br>https://covers.hosting-media.net/art/r32/1798.jpg<br>https://covers.hosting-media.net/art/r32/12188.jpg<br>https://covers.hosting-media.net/art/r32/3357.jpg<br>https://covers.hosting-media.net/art/r32/221328.jpg<br>https://covers.hosting-media.net/art/r32/86882.jpg<br>https://cdn.cookielaw.org/consent/01989b06-7e92-41b3-818b-eef5170ab331/01989b06-7e92-41b3-818b-eef5170ab331.json<br>https://ecdn.firstimpression.io/fi_client.js<br>https://ads.ayads.co/ajs.php?zid=17846<br>https://www.musicme.com/audioframe.php<br>https://mmcdn.hosting-media.net/pict/v5/ic_head_search.png<br>https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2<br>https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location<br>https://static.hosting-media.net/js/audioFrame-bundle.min.js?ver=cloud.50a09893fa1f94c6262c3db227e07fbd.8,83<br>https://sac.ayads.co/sublime/17846<br>https://www.musicme.com/css/glyphicons.css<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/otBannerSdk.js<br>https://www.musicme.com/_modules/fb.fan.php<br>https://secure.trust-provider.com/trustlogo/javascript/trustlogo.js<br>https://cdn.firstimpression.io/delivery/spc_fi.php?id=6793&url=%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&charset=windows-1252&ch=20&ref=www.musicme.com&viewerId=A7&_utm=direct%7Cdirect%7C%7C%7C%7C&_firid=39553701<br>https://www.musicme.com/css/fonts/glyphicons-regular.woff2<br>https://antenna.ayads.co/?device=d&et=575&ga=1&gc=0&gm=0&gs=0&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=1&src=wf&t=1729533808202&tfz=0&tse=1729533808202&ver=20241017120507&z=17846&e=l&bh=1080&bw=1920&thn=www.musicme.com<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js<br>https://cdn.cookielaw.org/consent/01989b06-7e92-41b3-818b-eef5170ab331/c105c506-5467-460c-9471-1be61eaf6e01/fr.json<br>https://connect.facebook.net/fr_FR/all.js<br>https://connect.facebook.net/fr_FR/all.js?hash=1440a8220ef2ade30b45618a84ab5282<br>https://tag.escalated.io/?i=KxxajmhPPCsT&d=www.musicme.com&type=display&cust=6793&sid=direct&c=&cust2=direct<br>https://ecdn.firstimpression.io/static/js/prebidamp.js<br>https://cdn.jsdelivr.net/npm/prebid-universal-creative@latest/dist/creative.js<br>https://c.amazon-adsystem.com/aax2/apstag.js<br>https://ecdn.firstimpression.io/static/js/fiamp.js<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otFlat.json<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/v2/otPcTab.json<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otCookieSettingsButton.json<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otCommonStyles.css<br>https://googleads.g.doubleclick.net/pagead/viewthroughconversion/866582455/?random=1729533808297&cv=9&fst=1729533808297&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=375603260%2C466465925%2C512247838&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_his=3&u_tz=120&u_java=false&u_nplug=5&u_nmime=2&sendb=1&ig=1&frm=0&url=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&ref=https%3A%2F%2Fwww.musicme.com%2F&tiba=pause%20caf%C3%A9%20%3A%20albums%2C%20titres&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=15.0.0&uaw=0&uafvl=Chromium%3B119.0.6045.105%7CNot%253FA_Brand%3B24.0.0.0&rfmt=3&fmt=4<br>https://www.facebook.com/plugins/page.php?adapt_container_width=true&app_id=340194415080&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df5a480ef5d6816a82%26domain%3Dwww.musicme.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.musicme.com%252Ff4b8dae9fb10a5358%26relation%3Dparent.parent&container_width=314&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2FmusicMe-293666401478%2F&locale=fr_FR&sdk=joey&show_facepile=false&small_header=false&width=500<br>https://connect.facebook.net/fr_FR/all.js<br>https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js<br>https://connect.facebook.net/fr_FR/all.js?hash=1440a8220ef2ade30b45618a84ab5282<br>https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202410160101/show_ads_impl_with_ama.js?client=ca-pub-2057437892451580&plah=www.musicme.com&bust=31088160<br>https://ecdn.firstimpression.io/static/js/prebidamp.js<br>https://cdn.firstimpression.io/delivery/lg.php?bannerid=47201%7C55128%7C55526%7C58722%7C66498&campaignid=15%7C18%7C16%7C11%7C43&zoneid=106765%7C106765%7C106765%7C106765%7C106765<br>https://rtb.openx.net/openrtbb/prebidjs<br>https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=18438&site_id=202928&zone_id=1113702&size_id=2&rp_schain=1.0,1!firstimpression.io,6793,1,,,&rf=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&tg_i.domain=musicme.com&tg_i.page=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&tg_i.ref=https%3A%2F%2Fwww.musicme.com%2F&tg_i.figroup=a1&tk_flint=pbjs_lite_v7.46.0-pre&x_source.tid=e59fd075-8ca6-4ba9-9a35-c3db46962f74&l_pb_bid_id=8ca631c2414356&p_screen_res=1536x864&rp_floor=0.1&rp_secure=1&x_imp.ext.tid=e59fd075-8ca6-4ba9-9a35-c3db46962f74&rp_maxbids=1&slots=1&rand=0.5650617714178225<br>https://c.amazon-adsystem.com/aax2/apstag.js<br>https://pagead2.googlesyndication.com/pagead/html/r20241014/r20190131/zrt_lookup.html<br>https://pagead2.googlesyndication.com/pagead/ads?client=ca-pub-2057437892451580&output=html&h=70&adk=1100931525&adf=2633044599&w=662&abgtt=9&lmt=1729533808&channel=5597377531&ad_type=text&format=662x70&color_bg=%23ffffff&color_link=%23606060&color_text=%23808080&color_url=%234a86ff&url=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&wgl=1&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE5LjAuNjA0NS4xMDUiLG51bGwsMCxudWxsLCI2NCIsW1siQ2hyb21pdW0iLCIxMTkuMC42MDQ1LjEwNSJdLFsiTm90P0FfQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1729533808393&bpp=13&bdt=579&idt=105&shv=r20241014&mjsv=m202410160101&ptt=9&saldr=aa&abxe=1&eoidce=1&correlator=7591973932570&frm=20&pv=2&u_tz=120&u_his=3&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_sd=1&dmc=8&adx=460&ady=1193&biw=1920&bih=1080&scr_x=0&scr_y=0&eid=95343853%2C44759875%2C44759926%2C31087701%2C31088129%2C31088193%2C95343681%2C95344188%2C95344787%2C95345270%2C31088160%2C31087703%2C95344979%2C31087608%2C95340252%2C95340254&oid=2&pvsid=1485854373654288&tmod=2123966089&uas=3&nvt=1&ref=https%3A%2F%2Fwww.musicme.com%2F&fc=896&brdim=12%2C12%2C12%2C12%2C1536%2C0%2C1313%2C996%2C1920%2C1080&vis=1&rsz=%7Co%7CeEbr%7C&abl=NS&pfx=0&fu=0&bc=31&bz=0.68&ifi=1&uci=a!1&btvi=1&fsb=1&dtd=123<br>https://pagead2.googlesyndication.com/pagead/ads?client=ca-pub-2057437892451580&output=html&adk=1594762678&adf=3414979741&abgtt=9&lmt=1729533808&plat=9%3A134250504%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&plas=423x732_l%7C423x854_r&channel=5597377531&format=0x0&url=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&pra=7&wgl=1&aihb=0&asro=0&ailel=1~2~4~6~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~29~30~34&aiael=1~2~4~6~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~29~30~34&aicel=33&aifxl=29_18~30_19&aiixl=29_5~30_6&aslmct=0.7&asamct=0.7&aiict=1&itsi=-1&aiombap=1&aief=1&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE5LjAuNjA0NS4xMDUiLG51bGwsMCxudWxsLCI2NCIsW1siQ2hyb21pdW0iLCIxMTkuMC42MDQ1LjEwNSJdLFsiTm90P0FfQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1729533808407&bpp=1&bdt=592&idt=122&shv=r20241014&mjsv=m202410160101&ptt=9&saldr=aa&abxe=1&eoidce=1&prev_fmts=662x70&nras=1&correlator=7591973932570&pv_ch=5597377531%2B&frm=20&pv=1&u_tz=120&u_his=3&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_sd=1&dmc=8&adx=-12245933&ady=-12245933&biw=1920&bih=1080&scr_x=0&scr_y=0&eid=95343853%2C44759875%2C44759926%2C31087701%2C31088129%2C31088193%2C95343681%2C95344188%2C95344787%2C95345270%2C31088160%2C31087703%2C95344979%2C31087608%2C95340252%2C95340254&oid=2&pvsid=1485854373654288&tmod=2123966089&uas=3&nvt=1&fsapi=1&ref=https%3A%2F%2Fwww.musicme.com%2F&fc=896&brdim=12%2C12%2C12%2C12%2C1536%2C0%2C1313%2C996%2C1920%2C1080&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&bz=0.68&ifi=2&uci=a!2&fsb=1&dtd=161<br>https://config.aps.amazon-adsystem.com/configs/4cd01fd0-0780-4b33-a4da-c39467660185<br>https://c.amazon-adsystem.com/cdn/prod/config?src=600&u=https%3A%2F%2Fwww.musicme.com&pubid=4cd01fd0-0780-4b33-a4da-c39467660185<br>https://aax.amazon-adsystem.com/e/dtb/bid?src=600&u=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&pr=https%3A%2F%2Fwww.musicme.com%2F&pid=NMcnK0ZCoQZDm&cb=0&ws=728x90&v=24.827.1552&t=2000&slots=%5B%7B%22sd%22%3A%2266498%22%2C%22s%22%3A%5B%22728x90%22%5D%7D%5D&schain=1.0%2C1%21firstimpression.io%2C6793%2C1%2C%2C%2C&pubid=4cd01fd0-0780-4b33-a4da-c39467660185&gdprl=%7B%22status%22%3A%22no-cmp%22%7D<br>https://c.amazon-adsystem.com/bao-csm/aps-comm/aps_csm.js<br>https://optchk.ayads.co/?callback=sublimeOptchk<br>https://ib.adnxs.com/ut/v3/prebid<br>https://antenna.ayads.co/?device=d&et=1845&ga=1&gc=0&gm=0&gs=2&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=2&src=wf&t=1729533808202&tfz=1270&tse=1729533809472&ver=20241017120507&z=17846&e=p&bh=1080&bw=1920&gd&gdv&ph=2002&schin=0&schinc=0<br>https://antenna.ayads.co/?a=96653&at=skinz&device=d&et=1846&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=3&src=wf&sspname=sspv3-appnexus&sspplid=12859669&t=1729533808202&tfz=1270&tse=1729533809472&ver=20241017120507&z=17846&e=sspc<br>https://www8.smartadserver.com/ac?siteid=155043&pgid=1486287&fmtid=42281&visit=M&tmstp=1729533809514&out=json&sh=1080&sw=1920&tgt=json%3Bgm%3D0%3Bscreen%3Dlarge%3Blarge_screen%3DTRUE%3Btag%3Dwf%3Bpage_home%3Dfalse%3Bpage_height_num%3D2000%3Bpage_weight%3D200000%3Buser_bandwidth%3D10%3Bpage_loading_speed%3D160%3Bskinz%3Dtrue%3Bskinz-d%3D300&gdpr=1&pgDomain=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%2525E9&schain=1.0%2C1!sublime.xyz%2C2054%2C1<br>https://antenna.ayads.co/?a=96653&at=skinz&device=d&et=1887&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&rt=38&sqid=4&src=wf&sspname=sspv3-appnexus&sspplid=12859669&sspr=1&t=1729533808202&tfz=1311&tse=1729533809513&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=202704&at=skinz&device=d&et=1887&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=5&src=wf&sspname=sspv3-smartadserver&sspplid=155043%7C1486287%7C42281&t=1729533808202&tfz=1311&tse=1729533809513&ver=20241017120507&z=17846&e=sspc<br>https://static.criteo.net/js/ld/publishertag.js<br>https://antenna.ayads.co/?a=202704&at=skinz&device=d&et=1907&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&rt=18&sqid=6&src=wf&sspname=sspv3-smartadserver&sspplid=155043%7C1486287%7C42281&sspr=1&t=1729533808202&tfz=1332&tse=1729533809534&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=220689&at=skinz&device=d&et=1907&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=7&src=wf&sspname=sspv3-criteovideo&sspplid=1615638&t=1729533808202&tfz=1332&tse=1729533809534&ver=20241017120507&z=17846&e=sspc<br>https://bidder.criteo.com/cdb?ptv=159&profileId=184&cb=90506644088<br>https://pagead2.googlesyndication.com/getconfig/sodar?sv=200&tid=gda&tv=r20241014&st=env<br>https://gum.criteo.com/syncframe?origin=publishertag&topUrl=www.musicme.com#%7B%22lwid%22:%7B%22origin%22:0%7D,%22bundle%22:%7B%22origin%22:0%7D,%22optout%22:%7B%22value%22:false,%22origin%22:0%7D,%22tld%22:%22musicme.com%22,%22topUrl%22:%22www.musicme.com%22,%22version%22:159,%22cw%22:true,%22lsw%22:true,%22origin%22:%22publishertag%22,%22requestId%22:%220.5541194755420265%22%7D<br>https://ib.adnxs.com/ut/v3/prebid<br>https://bidder.criteo.com/csm/events<br>https://static.criteo.net/images/pixel.gif?ch=1<br>https://static.criteo.net/images/pixel.gif?ch=2<br>https://antenna.ayads.co/?a=220689&at=skinz&device=d&et=1976&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=8&src=wf&sspname=sspv3-criteovideo&sspplid=1615638&t=1729533808202&tfz=1401&tse=1729533809603&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=208187&at=skinz&device=d&et=1976&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=9&src=wf&sspname=sspv3-appnexus&sspplid=23837079&t=1729533808202&tfz=1401&tse=1729533809603&ver=20241017120507&z=17846&e=sspc<br>https://pagead2.googlesyndication.com/pagead/ads?client=ca-pub-2057437892451580&output=html&h=280&adk=2675842768&adf=1269261316&pi=t.aa~a.175871898~rp.4&w=1200&abgtt=9&fwrn=4&fwrnh=100&lmt=1729533809&rafmt=1&to=qs&pwprc=8679300027&channel=5597377531&format=1200x280&url=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&fwr=0&pra=3&rpe=1&resp_fmts=3&wgl=1&fa=40&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE5LjAuNjA0NS4xMDUiLG51bGwsMCxudWxsLCI2NCIsW1siQ2hyb21pdW0iLCIxMTkuMC42MDQ1LjEwNSJdLFsiTm90P0FfQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1729533809637&bpp=2&bdt=1823&idt=-M&shv=r20241014&mjsv=m202410160101&ptt=9&saldr=aa&abxe=1&eo_id_str=ID%3De4ced86a0b602219%3AT%3D1729533811%3ART%3D1729533811%3AS%3DAA-AfjZMIFb6qGXGWsciQtouysrM&prev_fmts=662x70%2C0x0&nras=2&correlator=7591973932570&pv_ch=5597377531%2B&frm=20&pv=1&u_tz=120&u_his=3&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_sd=1&dmc=8&adx=360&ady=1524&biw=1920&bih=1080&scr_x=0&scr_y=0&eid=95343853%2C44759875%2C44759926%2C31087701%2C31088129%2C31088193%2C95343681%2C95344188%2C95344787%2C95345270%2C31088160%2C31087703%2C95344979%2C31087608%2C95340252%2C95340254&oid=2&pvsid=1485854373654288&tmod=2123966089&uas=3&nvt=1&ref=https%3A%2F%2Fwww.musicme.com%2F&fc=896&brdim=12%2C12%2C12%2C12%2C1536%2C0%2C1313%2C996%2C1920%2C1080&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=128&bc=31&bz=0.68&ifi=3&uci=a!3&btvi=2&fsb=1&dtd=11<br>https://pagead2.googlesyndication.com/pagead/ads?client=ca-pub-2057437892451580&output=html&h=280&adk=2295968409&adf=3589690202&pi=t.aa~a.2705123238~rp.4&w=662&abgtt=9&fwrn=4&fwrnh=100&lmt=1729533809&rafmt=1&to=qs&pwprc=8679300027&channel=5597377531&format=662x280&url=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&fwr=0&pra=3&rpe=1&resp_fmts=3&wgl=1&fa=40&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE5LjAuNjA0NS4xMDUiLG51bGwsMCxudWxsLCI2NCIsW1siQ2hyb21pdW0iLCIxMTkuMC42MDQ1LjEwNSJdLFsiTm90P0FfQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1729533809637&bpp=1&bdt=1822&idt=-M&shv=r20241014&mjsv=m202410160101&ptt=9&saldr=aa&abxe=1&eo_id_str=ID%3De4ced86a0b602219%3AT%3D1729533811%3ART%3D1729533811%3AS%3DAA-AfjZMIFb6qGXGWsciQtouysrM&prev_fmts=662x70%2C0x0%2C1200x280&nras=3&correlator=7591973932570&pv_ch=5597377531%2B&frm=20&pv=1&u_tz=120&u_his=3&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_sd=1&dmc=8&adx=460&ady=1149&biw=1920&bih=1080&scr_x=0&scr_y=0&eid=95343853%2C44759875%2C44759926%2C31087701%2C31088129%2C31088193%2C95343681%2C95344188%2C95344787%2C95345270%2C31088160%2C31087703%2C95344979%2C31087608%2C95340252%2C95340254&oid=2&pvsid=1485854373654288&tmod=2123966089&uas=3&nvt=1&ref=https%3A%2F%2Fwww.musicme.com%2F&fc=896&brdim=12%2C12%2C12%2C12%2C1536%2C0%2C1313%2C996%2C1920%2C1080&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=128&bc=31&bz=0.68&ifi=4&uci=a!4&btvi=3&fsb=1&dtd=15<br>https://pagead2.googlesyndication.com/pagead/ads?client=ca-pub-2057437892451580&output=html&h=280&adk=4126512821&adf=4177975884&pi=t.aa~a.1596961429~rp.4&w=1200&abgtt=9&fwrn=4&fwrnh=100&lmt=1729533809&rafmt=1&to=qs&pwprc=8679300027&channel=5597377531&format=1200x280&url=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&fwr=0&pra=3&rpe=1&resp_fmts=3&wgl=1&fa=40&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE5LjAuNjA0NS4xMDUiLG51bGwsMCxudWxsLCI2NCIsW1siQ2hyb21pdW0iLCIxMTkuMC42MDQ1LjEwNSJdLFsiTm90P0FfQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&dt=1729533809637&bpp=1&bdt=1822&idt=1&shv=r20241014&mjsv=m202410160101&ptt=9&saldr=aa&abxe=1&eo_id_str=ID%3De4ced86a0b602219%3AT%3D1729533811%3ART%3D1729533811%3AS%3DAA-AfjZMIFb6qGXGWsciQtouysrM&prev_fmts=662x70%2C0x0%2C1200x280%2C662x280&nras=4&correlator=7591973932570&pv_ch=5597377531%2B&frm=20&pv=1&u_tz=120&u_his=3&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_sd=1&dmc=8&adx=360&ady=2201&biw=1920&bih=1080&scr_x=0&scr_y=0&eid=95343853%2C44759875%2C44759926%2C31087701%2C31088129%2C31088193%2C95343681%2C95344188%2C95344787%2C95345270%2C31088160%2C31087703%2C95344979%2C31087608%2C95340252%2C95340254&oid=2&pvsid=1485854373654288&tmod=2123966089&uas=3&nvt=1&ref=https%3A%2F%2Fwww.musicme.com%2F&fc=896&brdim=12%2C12%2C12%2C12%2C1536%2C0%2C1313%2C996%2C1920%2C1080&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=128&bc=31&bz=0.68&ifi=5&uci=a!5&btvi=4&fsb=1&dtd=18<br>https://tpc.googlesyndication.com/sodar/sodar2.js<br>https://static.criteo.net/js/ld/publishertag.js<br>https://antenna.ayads.co/?a=208187&at=skinz&device=d&et=2054&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&rt=75&sqid=10&src=wf&sspname=sspv3-appnexus&sspplid=23837079&sspr=1&t=1729533808202&tfz=1478&tse=1729533809680&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=181200&at=skinz&device=d&et=2054&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=11&src=wf&sspname=sspv3-criteo&sspplid=1565419&t=1729533808202&tfz=1478&tse=1729533809680&ver=20241017120507&z=17846&e=sspc<br>https://bidder.criteo.com/cdb?ptv=159&profileId=184&cb=81337017291<br>https://tpc.googlesyndication.com/sodar/sodar2/232/runner.html<br>https://static.criteo.net/images/pixel.gif?ch=1<br>https://static.criteo.net/images/pixel.gif?ch=2<br>https://ad.360yield.com/335/pb<br>https://bidder.criteo.com/csm/events<br>https://antenna.ayads.co/?a=181200&at=skinz&device=d&et=2110&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=12&src=wf&sspname=sspv3-criteo&sspplid=1565419&t=1729533808202&tfz=1534&tse=1729533809736&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?a=205908&at=skinz&device=d&et=2110&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&ni=335&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=13&src=wf&sspname=sspv3-improve&sspplid=22621579&t=1729533808202&tfz=1534&tse=1729533809736&ver=20241017120507&z=17846&e=sspc<br>https://antenna.ayads.co/?a=205908&at=skinz&device=d&et=2140&ga=1&gc=0&gcp=0&gm=0&gs=2&isssp=1&ni=335&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&rt=29&sqid=14&src=wf&sspname=sspv3-improve&sspplid=22621579&sspr=4&t=1729533808202&tfz=1564&tse=1729533809766&ver=20241017120507&z=17846&e=sspko<br>https://antenna.ayads.co/?device=d&et=2140&ga=1&gc=0&gm=0&gs=2&puid=63751316-8ae6-4a5e-8a9a-0d65ac8726cc&sqid=15&src=wf&t=1729533808202&tfz=1565&tse=1729533809767&ver=20241017120507&z=17846&e=ipb<br>https://dataservice.musicme.com/dataservice/v3/album/3663729329950?resources=tracks&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br>https://dataservice.musicme.com/dataservice/v3/artist/291912?resources=videos%7BmaxResults:0%7D,albums%7BmaxResults:0%7D,related-artists%7BmaxResults:15%7D&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br>https://dataservice.musicme.com/dataservice/v3/artist/291912?resources=videos%7BmaxResults:0%7D,albums%7BmaxResults:0%7D,related-artists%7BmaxResults:15%7D&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br>https://covers-ng3.hosting-media.net/jpgr175/u3663729329950.jpg<br>https://pagead2.googlesyndication.com/pagead/sodar?id=sodar2&v=232&t=2&li=gda_r20241014&jk=1485854373654288&bg=!wcKlwo3NAAaUWUsktFk7ADQBe5WfODwxVOKHJfq2NTPCiFcfoQG2MyScRoXl0QgdCFGvCI4ZKOnekq_bYwP8Q3TYkuJNAgAAAHFSAAAAA2gBB34ANTspWNbgGwKB8BijpaQq5-FjfQTeWNXAQNNPzfwlDQnU98x4cyz1y0TFDJC8A3WDlQJKenJnCgDIPSUUOLC51O2AlGWa6dGqxWMwybqm9cmp8BF2uCilJCaQrWoHz_NTMMnZrmtm1UjRvBk4KFx-bPKQORcKL9ajZ7dFdGBw6q8fYEFbVhuyeje3Z4gAMzHFX9wHKdwUJkXIEfPbMYbn6ExABt0ulmT1hTFtSzjEnBmMSRkB0cCkGPUsJbHf8EVu25hjoRSFI-Jsx9j6aZwM2gjCCFNDSIDISVpaS2FROkNhPzLiBfyvvw53pJXbbG_c-yvKZbUnx0Y9WbAHTZk_pAKZAny76zEcBxJFMsH3x1aFjAf5Zz7uRuGAkgN015OfXPQqnsax4sSQEtk3M1Yy6b9bfw4nJrOykqLRS9y2N1Gv59zSVRTkkR1rfOn01K9OiWVeVguU_j2Lrnl4zNzQLV4zvUDPZgOljcrTMrlsSoXWcrSLfLoWcfd8afxOUP82rP46kqTKvwxM08HTiyT8agHOAXMINNA50fgFD6nwr1sKz1Mar_f3ZbKmxpyc5ySKbJX7ieIFpP-VTbxo8GCscYvQRC5C1bY6lTKAbM8GxDr0spjfTr-MnB8ZZqvlAxddvI8kexGuTrazoA8vNwBrz81nr6t5V3jU1YuX0kMwtk7ERp2RtqS8FoRm-o9jPInQ3G1O5JUIGuhdSDhBV2oS8qhtKJUy4xYHK7zNGoCjJrQqJblPklGnbGemVLJlmpIgle1xvoVdnRmzmRvE4ErtuuOK7omu1H48WgdLEgKhJhdp0ZopsnZgCTOmdWCt4DZ86A-Qk5py9MWvRdZOprZGFOrwtwcgXH-yi1mz8UYvP82aJzTuV3dBEJz6D5_QSH8ERbTYkzLk-fGW2dZWkQcnlWI2j4ACpCIzOJbs-GBJg2qQWzPQz6-KvjZJQSqOQ1P9KSV-pRPxRJIptXjI9YpC7TVcjZcRxISoHr0Zsp5oskA_I_CGhqO6FP3kCa11A6-7xx9uV2TBUnm-up9V9YUuw6iRhQdHhLeZmlCfVszggZDOMBW42tVa2dN4Khp1uYnWkphhQs2w5iupDJ_piHMsMlA80jjEwYphVAcvFGneY6Xzo9fW7hFgsCM5VR8d1cN386x3oDzsWQoCiwbdcySZZi17jHk3lT-8JXO9e1ru8OQ<br>https://dataservice.musicme.com/dataservice/v3/album/3663729292773?resources=tracks&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br>https://dataservice.musicme.com/dataservice/v3/artist/1498070?resources=videos%7BmaxResults:0%7D,albums%7BmaxResults:0%7D,related-artists%7BmaxResults:15%7D&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br>https://dataservice.musicme.com/dataservice/v3/artist/1498070?resources=videos%7BmaxResults:0%7D,albums%7BmaxResults:0%7D,related-artists%7BmaxResults:15%7D&format=json&partnerid=22876&client=%7B%22type%22:%22desktop-web%22,%22context%22:%22www.musicme.com%22,%22app%22:%22mmplayer%22%7D<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Télécharger des images qui ne seront pas nécessairement visibles consomme inutilement des ressources. Il s&#39;agit par exemple d&#39;images qui sont affichées uniquement suite à une action utilisateur.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Télécharger des images qui ne seront pas nécessairement visibles consomme inutilement des ressources. Il s&#39;agit par exemple d&#39;images qui sont affichées uniquement suite à une action utilisateur.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse9" role="button" aria-expanded="false" aria-controls="collapse9">
+                                                            <span>Ne pas télécharger des images inutilement</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>0 image(s) téléchargée(s) mais non affichée(s) dans la page </td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse9">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="JSLint est un outil de contrôle de qualité du code qui vérifie que la syntaxe JavaScript utilisée sera comprise par tous les navigateurs. Le code produit est donc conforme aux règles de codage qui permettent aux interpréteurs d’exécuter le code rapidement et facilement. Le processeur est donc utilisé pour un temps plus court.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("JSLint est un outil de contrôle de qualité du code qui vérifie que la syntaxe JavaScript utilisée sera comprise par tous les navigateurs. Le code produit est donc conforme aux règles de codage qui permettent aux interpréteurs d’exécuter le code rapidement et facilement. Le processeur est donc utilisé pour un temps plus court.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse10" role="button" aria-expanded="false" aria-controls="collapse10">
+                                                            <span>Valider le javascript</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>1 erreur(s) javascript</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse10">
+                                                            <div class="card card-body">URL inline js has 1 error(s) <br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="La longueur du cookie doit être réduite car il est envoyé à chaque requête.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("La longueur du cookie doit être réduite car il est envoyé à chaque requête.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11">
+                                                            <span>Taille maximum des cookies par domaine(&lt; 512 Octets)</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse11">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Utilisez un outil tel que YUI Compressor pour supprimer les espaces et les sauts de ligne inutiles. Apache mod_pagespeed de Google peut également automatiser cette opération.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Utilisez un outil tel que YUI Compressor pour supprimer les espaces et les sauts de ligne inutiles. Apache mod_pagespeed de Google peut également automatiser cette opération.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse12" role="button" aria-expanded="false" aria-controls="collapse12">
+                                                            <span>Minifier les css (&gt;&#x3D; 95%)</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse12">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Utilisez un outil tel que YUI Compressor pour supprimer les espaces inutiles, les sauts de ligne, les points-virgules et raccourcir les noms de variables locales. Cette opération peut être automatisée à l’aide du module Apache mod_pagespeed de Google.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Utilisez un outil tel que YUI Compressor pour supprimer les espaces inutiles, les sauts de ligne, les points-virgules et raccourcir les noms de variables locales. Cette opération peut être automatisée à l’aide du module Apache mod_pagespeed de Google.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse13" role="button" aria-expanded="false" aria-controls="collapse13">
+                                                            <span>Minifier les js (&gt;&#x3D; 95%)</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>0% js minifié</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse13">
+                                                            <div class="card card-body">inline js devrait être minifié<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Pour les ressources statiques, un cookie est inutile, cela consomme donc inutilement de la bande passante. Pour éviter cela, on peut utiliser un domaine différent pour les ressources statiques ou restreindre la portée des cookies crées">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Pour les ressources statiques, un cookie est inutile, cela consomme donc inutilement de la bande passante. Pour éviter cela, on peut utiliser un domaine différent pour les ressources statiques ou restreindre la portée des cookies crées");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse14" role="button" aria-expanded="false" aria-controls="collapse14">
+                                                            <span>Pas de cookie pour les ressources statiques</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse14">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Les redirections doivent être évitées autant que possible car elles ralentissent la réponse et consomment inutilement des ressources.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Les redirections doivent être évitées autant que possible car elles ralentissent la réponse et consomment inutilement des ressources.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse15" role="button" aria-expanded="false" aria-controls="collapse15">
+                                                            <span>Eviter les redirections</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>3 redirection(s)</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse15">
+                                                            <div class="card card-body">302 https://ads.ayads.co/ajs.php?zid=17846<br>302 https://www.musicme.com/search.php?ambsearch=pause+caf%E9&a=&mmz=all&lastsearch=&t=&i=<br>302 https://ads.ayads.co/ajs.php?zid=17846<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Les images bitmap constituent souvent la plupart des octets téléchargés, juste devant les bibliothèques CSS et JavaScript. Leur optimisation a donc un impact considérable sur la bande passante consommée.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Les images bitmap constituent souvent la plupart des octets téléchargés, juste devant les bibliothèques CSS et JavaScript. Leur optimisation a donc un impact considérable sur la bande passante consommée.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse16" role="button" aria-expanded="false" aria-controls="collapse16">
+                                                            <span>Optimiser les images bitmap</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse16">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Les images svg sont moins lourdes que les images bitmap, elles peuvent cependant être optimisées et minifiées via des outils (par exemple svgo)">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Les images svg sont moins lourdes que les images bitmap, elles peuvent cependant être optimisées et minifiées via des outils (par exemple svgo)");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse17" role="button" aria-expanded="false" aria-controls="collapse17">
+                                                            <span>Optimiser les images svg</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse17">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Évitez d’utiliser des plug-ins (machines virtuelles Flash Player, Java et Silverlight, etc.), car ils peuvent entraîner une lourde charge de ressources (processeur et RAM). C’est particulièrement vrai avec le lecteur Adobe, à tel point qu’Apple a décidé de ne pas installer la technologie sur ses appareils mobiles afin de maximiser la durée de vie de la batterie. Privilégiez les technologies standard telles que HTML5 et ECMAScript">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Évitez d’utiliser des plug-ins (machines virtuelles Flash Player, Java et Silverlight, etc.), car ils peuvent entraîner une lourde charge de ressources (processeur et RAM). C’est particulièrement vrai avec le lecteur Adobe, à tel point qu’Apple a décidé de ne pas installer la technologie sur ses appareils mobiles afin de maximiser la durée de vie de la batterie. Privilégiez les technologies standard telles que HTML5 et ECMAScript");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse18" role="button" aria-expanded="false" aria-controls="collapse18">
+                                                            <span>Ne pas utiliser de plugins</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse18">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Outre les avantages pour l’utilisateur, cette feuille de style réduit le nombre de pages imprimées et donc réduit indirectement l’empreinte écologique du site Web. Elle doit être aussi simple que possible et utiliser une police de caractères à l&#39;encre claire, par exemple Siècle gothique. Envisagez également de masquer l&#39;en-tête, le pied de page, le menu et la barre latérale, ainsi que de supprimer toutes les images, à l&#39;exception de celles nécessaires au contenu. Cette feuille de style d&#39;impression permet d&#39;obtenir une impression plus nette en réduisant ce qui est affiché à l&#39;écran.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Outre les avantages pour l’utilisateur, cette feuille de style réduit le nombre de pages imprimées et donc réduit indirectement l’empreinte écologique du site Web. Elle doit être aussi simple que possible et utiliser une police de caractères à l&#39;encre claire, par exemple Siècle gothique. Envisagez également de masquer l&#39;en-tête, le pied de page, le menu et la barre latérale, ainsi que de supprimer toutes les images, à l&#39;exception de celles nécessaires au contenu. Cette feuille de style d&#39;impression permet d&#39;obtenir une impression plus nette en réduisant ce qui est affiché à l&#39;écran.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse19" role="button" aria-expanded="false" aria-controls="collapse19">
+                                                            <span>Fournir une print css</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse19">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Les réseaux sociaux tels que  Facebook, Twiter, Pinterest, etc. fournissent des plugins à installer sur une page WEB pour y afficher un bouton partager et un compteur de j&#39;aime. Ces plugins consomme des ressources inutilement, il est mieux de mettre des liens directs">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Les réseaux sociaux tels que  Facebook, Twiter, Pinterest, etc. fournissent des plugins à installer sur une page WEB pour y afficher un bouton partager et un compteur de j&#39;aime. Ces plugins consomme des ressources inutilement, il est mieux de mettre des liens directs");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse20" role="button" aria-expanded="false" aria-controls="collapse20">
+                                                            <span>N&#39;utilisez pas les boutons standards des réseaux sociaux</span>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-center">
+                                                        <div class="checkmark-success"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse20">
+                                                            <div class="card card-body"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Réduisez le nombre de fichiers CSS pour réduire le nombre de requêtes HTTP. Si plusieurs feuilles de style sont utilisées sur toutes les pages du site Web, concaténez-les dans un seul fichier. Certains CMS et frameworks offrent des moyens d&#39;effectuer cette optimisation automatiquement.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Réduisez le nombre de fichiers CSS pour réduire le nombre de requêtes HTTP. Si plusieurs feuilles de style sont utilisées sur toutes les pages du site Web, concaténez-les dans un seul fichier. Certains CMS et frameworks offrent des moyens d&#39;effectuer cette optimisation automatiquement.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse21" role="button" aria-expanded="false" aria-controls="collapse21">
+                                                            <span>Limiter le nombre de fichiers css (&lt;3) </span>
+                                                        </a>
+                                                    </td>
+                                                    <td>6 fichiers css</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse21">
+                                                            <div class="card card-body">https://static.hosting-media.net/_minify/8.810~/css/main.css<br>https://static.hosting-media.net/_minify/8.810~/css/radios.css<br>https://static.hosting-media.net/_minify/8.810~/css/responsive.css<br>https://fonts.googleapis.com/icon?family=Material+Icons<br>https://www.musicme.com/css/glyphicons.css<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otCommonStyles.css<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Un ETag est une signature associée à une réponse du serveur. Si le client demande une URL (page HTML, image, feuille de style, etc.) dont l&#39;ETag est identique à celle qu&#39;il a déjà, le serveur Web répondra qu&#39;il n&#39;a pas besoin de télécharger la ressource et qu&#39;il doit utiliser celle-ci. il possède déjà. L&#39;utilisation d&#39;ETags permet d&#39;économiser d&#39;énormes quantités de bande passante.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Un ETag est une signature associée à une réponse du serveur. Si le client demande une URL (page HTML, image, feuille de style, etc.) dont l&#39;ETag est identique à celle qu&#39;il a déjà, le serveur Web répondra qu&#39;il n&#39;a pas besoin de télécharger la ressource et qu&#39;il doit utiliser celle-ci. il possède déjà. L&#39;utilisation d&#39;ETags permet d&#39;économiser d&#39;énormes quantités de bande passante.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse22" role="button" aria-expanded="false" aria-controls="collapse22">
+                                                            <span>Utiliser des ETags (&gt;&#x3D; 95%)</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>67.3% ressources utilisant des ETags</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse22">
+                                                            <div class="card card-body">https://static.hosting-media.net/_minify/8.810~/css/main.css 149.9 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.810~/css/radios.css 4.7 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.810~/css/responsive.css 26.8 Ko n'utilise pas d'ETags<br>https://fonts.googleapis.com/icon?family=Material+Icons 0.6 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js 126.5 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js 4.8 Ko n'utilise pas d'ETags<br>https://cdn.cookielaw.org/scripttemplates/otSDKStub.js 22.5 Ko n'utilise pas d'ETags<br>https://mmcdn-ng2.hosting-media.net/pict/v5/musicme_logo.png 2.4 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/search.js 13.8 Ko n'utilise pas d'ETags<br>https://mmcdn-ng2.hosting-media.net/pict/v5/ic_search.png 1.6 Ko n'utilise pas d'ETags<br>https://www.googletagmanager.com/gtag/js?id=G-NQK02NS3YG 284.8 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/showcase.js 1.5 Ko n'utilise pas d'ETags<br>https://mmcdn-ng4.hosting-media.net/pict/offers/widebanner_202404.jpg 70 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr155/u3663729329950.jpg 17.2 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr155/u0602468078623.jpg 8.3 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr155/u4099964114393.jpg 13.5 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr155/u3617388522870.jpg 11.5 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr64/u5021732498762.jpg 2.8 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/jpgr64/u5056556141105.jpg 6.7 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr64/u0196872232882.jpg 5.3 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr64/u3663729329950.jpg 4.7 Ko n'utilise pas d'ETags<br>https://covers-ng1.hosting-media.net/jpgr64/u5021732425348.jpg 3.5 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0196872507485.jpg 4.2 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0602475319863.jpg 7.6 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0602475262947.jpg 5.3 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0196872492637.jpg 3.9 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/jpgr64/u0602475262497.jpg 5.7 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1163935.jpg 38.3 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/pixr/w398/radio/tile_radio_225525.jpg 30.5 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1787215.jpg 27.3 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_103892.jpg 51.5 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1486662.jpg 72.5 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_115816.jpg 50.7 Ko n'utilise pas d'ETags<br>https://mmcdn-ng1.hosting-media.net/pict/v5/hd_overlay_150x120_v3.png 0.8 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/art/r128/291912.jpg 8.8 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/art/r128/6967.jpg 10.2 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/art/r128/517.jpg 17.8 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/art/r128/11042.jpg 16.2 Ko n'utilise pas d'ETags<br>https://covers-ng1.hosting-media.net/art/r128/4721.jpg 10.7 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/art/r128/339438.jpg 12.3 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/art/r128/7094.jpg 9.6 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/art/r128/1618.jpg 10.5 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/art/r128/7027.jpg 8 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/art/r128/1795865.jpg 4.4 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/art/r128/203992.jpg 7.6 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/art/r128/2995.jpg 16.4 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/jpgr64/u5021732499165.jpg 2.9 Ko n'utilise pas d'ETags<br>https://covers-ng1.hosting-media.net/jpgr64/u0196872267556.jpg 6.1 Ko n'utilise pas d'ETags<br>https://covers-ng1.hosting-media.net/jpgr64/u5021732474308.jpg 3.5 Ko n'utilise pas d'ETags<br>https://mmcdn-ng1.hosting-media.net/pict/gl_g_spacer.gif 0 Ko n'utilise pas d'ETags<br>https://mmcdn-ng4.hosting-media.net/pict/v5/creditcards_tab.gif 2.6 Ko n'utilise pas d'ETags<br>https://mmcdn-ng1.hosting-media.net/pict/v5/paypal_tab.gif 1.6 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/v5/ic_user_bluebg.gif 0.1 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/v5/arr_dwn_white.gif 0.1 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/player-html/ico-play_16x16.png 1 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/player-html/ico-down_16x16.png 1 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/v5/arrow_more.png 1 Ko n'utilise pas d'ETags<br>https://mmcdn1.hosting-media.net/pict/v5/hd_overlay_150x120_v3.png 0.8 Ko n'utilise pas d'ETags<br>https://sac.ayads.co/sublime/17846 340.2 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js 126.5 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js 4.8 Ko n'utilise pas d'ETags<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otCommonStyles.css 21 Ko n'utilise pas d'ETags<br>https://www.positivessl.com/images/seals/positivessl_trust_seal_sm_124x32.png 2.3 Ko n'utilise pas d'ETags<br>https://mmcdn-ng3.hosting-media.net/pict/icons/favicon.ico 99.7 Ko n'utilise pas d'ETags<br>https://optchk.ayads.co/?callback=sublimeOptchk 0 Ko n'utilise pas d'ETags<br>https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250 1.1 Ko n'utilise pas d'ETags<br>https://googleads.g.doubleclick.net/pagead/viewthroughconversion/866582455/?random=1729533803178&cv=9&fst=1729533803178&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=375603261%2C466465926%2C512247838&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_his=2&u_tz=120&u_java=false&u_nplug=5&u_nmime=2&sendb=1&ig=1&frm=0&url=https%3A%2F%2Fwww.musicme.com%2F&tiba=musicMe%20%3A%20musique%20gratuite%2C%20telechargement%20mp3%2C%20video-clips%20HD&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=15.0.0&uaw=0&uafvl=Chromium%3B119.0.6045.105%7CNot%253FA_Brand%3B24.0.0.0&rfmt=3&fmt=4 0 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr175/u3663729329950.jpg 20.5 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/12904.jpg 2.2 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/4593.jpg 1.4 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/3000.jpg 1.6 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/6726.jpg 2.1 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/6773.jpg 1.6 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/8369.jpg 1.9 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/5982.jpg 2 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/58759.jpg 1.9 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/1798.jpg 2.1 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/12188.jpg 1.8 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/3357.jpg 1.9 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/221328.jpg 1.6 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/86882.jpg 1.4 Ko n'utilise pas d'ETags<br>https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2 128.4 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.810~/css/main.css 149.9 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.810~/css/responsive.css 26.8 Ko n'utilise pas d'ETags<br>https://fonts.googleapis.com/icon?family=Material+Icons 0.6 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js 126.5 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js 4.8 Ko n'utilise pas d'ETags<br>https://cdn.cookielaw.org/scripttemplates/otSDKStub.js 22.5 Ko n'utilise pas d'ETags<br>https://mmcdn-ng2.hosting-media.net/pict/v5/musicme_logo.png 2.4 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/search.js 13.8 Ko n'utilise pas d'ETags<br>https://mmcdn-ng2.hosting-media.net/pict/v5/ic_search.png 1.6 Ko n'utilise pas d'ETags<br>https://www.googletagmanager.com/gtag/js?id=G-NQK02NS3YG 284.8 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/jpgr88/u3663729292773.jpg 9.2 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr88/u0192518047209.jpg 9.5 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/jpgr88/u3617056763673.jpg 6.2 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr64/u3663729329950.jpg 4.7 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0602468078623.jpg 2.7 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u4099964114393.jpg 3.9 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr64/u3617388522870.jpg 3.8 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/art/r128/291912.jpg 8.8 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/art/r128/6967.jpg 10.2 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/art/r128/517.jpg 17.8 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/art/r128/11042.jpg 16.2 Ko n'utilise pas d'ETags<br>https://covers-ng1.hosting-media.net/art/r128/4721.jpg 10.7 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/art/r128/339438.jpg 12.3 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/art/r128/7094.jpg 9.6 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/art/r128/1618.jpg 10.5 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/art/r128/7027.jpg 8 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/art/r128/1795865.jpg 4.4 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/art/r128/203992.jpg 7.6 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/art/r128/2995.jpg 16.4 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/jpgr64/u5021732499165.jpg 2.9 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/jpgr64/u5056556141105.jpg 6.7 Ko n'utilise pas d'ETags<br>https://covers-ng1.hosting-media.net/jpgr64/u0196872267556.jpg 6.1 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr64/u0196872232882.jpg 5.3 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr64/u5021732498762.jpg 2.8 Ko n'utilise pas d'ETags<br>https://covers-ng1.hosting-media.net/jpgr64/u5021732474308.jpg 3.5 Ko n'utilise pas d'ETags<br>https://mmcdn-ng1.hosting-media.net/pict/gl_g_spacer.gif 0 Ko n'utilise pas d'ETags<br>https://mmcdn-ng4.hosting-media.net/pict/v5/creditcards_tab.gif 2.6 Ko n'utilise pas d'ETags<br>https://mmcdn-ng1.hosting-media.net/pict/v5/paypal_tab.gif 1.6 Ko n'utilise pas d'ETags<br>https://mmcdn-ng4.hosting-media.net/pict/offers/widebanner_202404.jpg 70 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr155/u3663729329950.jpg 17.2 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr155/u0602468078623.jpg 8.3 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr155/u4099964114393.jpg 13.5 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr155/u3617388522870.jpg 11.5 Ko n'utilise pas d'ETags<br>https://covers-ng1.hosting-media.net/jpgr64/u5021732425348.jpg 3.5 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0196872507485.jpg 4.2 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0602475319863.jpg 7.6 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0602475262947.jpg 5.3 Ko n'utilise pas d'ETags<br>https://covers-ng4.hosting-media.net/jpgr64/u0196872492637.jpg 3.9 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/jpgr64/u0602475262497.jpg 5.7 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1163935.jpg 38.3 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/pixr/w398/radio/tile_radio_225525.jpg 30.5 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1787215.jpg 27.3 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_103892.jpg 51.5 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_1486662.jpg 72.5 Ko n'utilise pas d'ETags<br>https://covers-ng2.hosting-media.net/pixr/w398/radio/tile_radio_115816.jpg 50.7 Ko n'utilise pas d'ETags<br>https://mmcdn-ng1.hosting-media.net/pict/v5/hd_overlay_150x120_v3.png 0.8 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/v5/ic_user_bluebg.gif 0.1 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/v5/arr_dwn_white.gif 0.1 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/player-html/ico-play_16x16.png 1 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/player-html/ico-down_16x16.png 1 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/v5/arrow_more.png 1 Ko n'utilise pas d'ETags<br>https://mmcdn1.hosting-media.net/pict/v5/hd_overlay_150x120_v3.png 0.8 Ko n'utilise pas d'ETags<br>https://www.positivessl.com/images/seals/positivessl_trust_seal_sm_124x32.png 2.3 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr175/u3663729329950.jpg 20.5 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/12904.jpg 2.2 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/4593.jpg 1.4 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/3000.jpg 1.6 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/6726.jpg 2.1 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/6773.jpg 1.6 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/8369.jpg 1.9 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/5982.jpg 2 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/58759.jpg 1.9 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/1798.jpg 2.1 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/12188.jpg 1.8 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/3357.jpg 1.9 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/221328.jpg 1.6 Ko n'utilise pas d'ETags<br>https://covers.hosting-media.net/art/r32/86882.jpg 1.4 Ko n'utilise pas d'ETags<br>https://mmcdn.hosting-media.net/pict/v5/ic_head_search.png 3.2 Ko n'utilise pas d'ETags<br>https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2 128.4 Ko n'utilise pas d'ETags<br>https://sac.ayads.co/sublime/17846 340.2 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/cfg.js,/js/utils.js,/js/layout.js,/js/common.js,/js/ajax.class.js,/js/flacom.js,/js/popup.js,/js/mylibrary.js,/js/swfobject.js 126.5 Ko n'utilise pas d'ETags<br>https://static.hosting-media.net/_minify/8.830~/js/fbconnect.js 4.8 Ko n'utilise pas d'ETags<br>https://cdn.cookielaw.org/scripttemplates/6.25.0/assets/otCommonStyles.css 21 Ko n'utilise pas d'ETags<br>https://googleads.g.doubleclick.net/pagead/viewthroughconversion/866582455/?random=1729533808297&cv=9&fst=1729533808297&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=375603260%2C466465925%2C512247838&u_h=864&u_w=1536&u_ah=864&u_aw=1536&u_cd=24&u_his=3&u_tz=120&u_java=false&u_nplug=5&u_nmime=2&sendb=1&ig=1&frm=0&url=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&ref=https%3A%2F%2Fwww.musicme.com%2F&tiba=pause%20caf%C3%A9%20%3A%20albums%2C%20titres&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=15.0.0&uaw=0&uafvl=Chromium%3B119.0.6045.105%7CNot%253FA_Brand%3B24.0.0.0&rfmt=3&fmt=4 0 Ko n'utilise pas d'ETags<br>https://config.aps.amazon-adsystem.com/configs/4cd01fd0-0780-4b33-a4da-c39467660185 0.6 Ko n'utilise pas d'ETags<br>https://aax.amazon-adsystem.com/e/dtb/bid?src=600&u=https%3A%2F%2Fwww.musicme.com%2Fpage.php%3Fq%3Dpause%2Bcaf%25E9&pr=https%3A%2F%2Fwww.musicme.com%2F&pid=NMcnK0ZCoQZDm&cb=0&ws=728x90&v=24.827.1552&t=2000&slots=%5B%7B%22sd%22%3A%2266498%22%2C%22s%22%3A%5B%22728x90%22%5D%7D%5D&schain=1.0%2C1%21firstimpression.io%2C6793%2C1%2C%2C%2C&pubid=4cd01fd0-0780-4b33-a4da-c39467660185&gdprl=%7B%22status%22%3A%22no-cmp%22%7D 0 Ko n'utilise pas d'ETags<br>https://optchk.ayads.co/?callback=sublimeOptchk 0 Ko n'utilise pas d'ETags<br>https://covers-ng3.hosting-media.net/jpgr175/u3663729329950.jpg 20.5 Ko n'utilise pas d'ETags<br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Utilisez des polices standards telles qu’elles existent déjà sur l’ordinateur de l’utilisateur et n’ont donc pas besoin d’être téléchargées. Cela économise de la bande passante et améliore le temps de rendu du site Web.">
+                                                        <button
+                                                            class="btn-primary bi bi-info rounded-circle"
+                                                            onclick='alert("Utilisez des polices standards telles qu’elles existent déjà sur l’ordinateur de l’utilisateur et n’ont donc pas besoin d’être téléchargées. Cela économise de la bande passante et améliore le temps de rendu du site Web.");'>
+                                                        </button>
+                                                        <a data-bs-toggle="collapse" href="#collapse23" role="button" aria-expanded="false" aria-controls="collapse23">
+                                                            <span>Utiliser des polices de caractères standards</span>
+                                                        </a>
+                                                    </td>
+                                                    <td>449  Ko de police(s) de caractères spécifique(s)</td>
+                                                    <td class="text-center">
+                                                        <div class="close-error"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="hiddenRow">
+                                                        <div class="collapse" id="collapse23">
+                                                            <div class="card card-body">https://www.musicme.com/css/fonts/glyphicons-regular.woff2 96KB <br>https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2 128KB <br>https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2 128KB <br>https://www.musicme.com/css/fonts/glyphicons-regular.woff2 96KB <br></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container my-3">
+                <h5 class="mb-3">Bonnes pratiques</h5>
+                <div class="row">
+                    <div class="col col-md-12">
+                        <table id="tabBestPractices" class="table table-sm">
+                            <thead class="table-light">
+                                <th scope="col">Bonne pratique</th>
+                                <th scope="col">Résultat</th>
+                                <th scope="col">Effort</th>
+                                <th scope="col">Impact</th>
+                                <th scope="col">Priorité</th>
+                                <th scope="col">Grade</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Les en-têtes Expires et Cache-Control déterminent la durée pendant laquelle un navigateur doit conserver une ressource dans son cache. Vous devez donc les utiliser et les configurer correctement pour les feuilles de style CSS, les scripts JavaScript et les images. Idéalement, ces éléments doivent être conservés le plus longtemps possible pour que le navigateur ne les demande plus au serveur. Cela permet d&#39;économiser les requêtes HTTP, la bande passante et l&#39;alimentation du serveur.");'>
+                                        </button>
+                                        <span>Ajouter des expires ou cache-control headers (&gt;&#x3D; 95%)</span>
+                                    </td>
+                                    <td>
+                                        89.3% ressources cachées
+                                    </td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Vous pouvez compresser le contenu des pages HTML pour réduire la consommation de bande passante entre le client et le serveur. Tous les navigateurs modernes (smartphones, tablettes, ordinateurs portables et ordinateurs de bureau) acceptent le format HTML compressé via gzip ou Deflate. Le moyen le plus simple consiste à configurer le serveur Web de manière à ce qu&#39;il comprime le flux de données HTML, à la volée ou automatiquement, à la sortie du serveur. Cette pratique (compression à la volée) n’est bénéfique que pour un flux de données HTML, car il évolue constamment. Lorsque cela est possible, nous vous recommandons de compresser manuellement les ressources statiques (par exemple, les bibliothèques CSS et JavaScript) en une seule fois.");'>
+                                        </button>
+                                        <span>Compresser les ressources (&gt;&#x3D; 95%) </span>
+                                    </td>
+                                    <td>
+                                        99.7% ressources compressées
+                                    </td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Lorsqu&#39;un site Web ou un service en ligne héberge les composants d&#39;une page Web dans plusieurs domaines, le navigateur doit établir une connexion HTTP avec chacun d&#39;entre eux. Une fois la page HTML récupérée, le navigateur appelle les sources lorsqu&#39;il traverse le DOM (Document Object Model). Certaines ressources sont essentielles au bon fonctionnement de la page. S&#39;ils sont hébergés sur un autre domaine qui est lent, cela peut augmenter le temps de rendu de la page. Vous devez donc, lorsque cela est possible, regrouper toutes les ressources sur un seul domaine. La seule exception à cette règle concerne les ressources statiques (feuilles de style, images, etc.), qui doivent être hébergées sur un domaine distinct afin d&#39;éviter l&#39;envoi d&#39;un ou plusieurs cookies pour chaque requête HTTP du navigateur GET. Cela réduit le temps de réponse et la consommation inutile de bande passante.");'>
+                                        </button>
+                                        <span>Limiter le nombre de domaines (&lt; 3)</span>
+                                    </td>
+                                    <td>
+                                        53 domaine(s) trouvé(s)
+                                    </td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Ne redimensionnez pas les images avec les attributs HTML height et width. Cela envoie des images dans leur taille originale, gaspillant de la bande passante et de la puissance du processeur. Une image PNG-24 de 350 x 300 px est de 41 KB. Si vous redimensionniez le même fichier image en HTML et que vous l’affichez sous forme de vignette de 70 x 60 px, il s’agirait toujours de 41 Ko, alors qu’il devrait en réalité ne pas dépasser 3 Ko! Signification 38 KB téléchargés pour rien. La meilleure solution consiste à redimensionner les images à l&#39;aide d&#39;un logiciel tel que Photoshop, sans utiliser HTML. Lorsque le contenu ajouté par les utilisateurs du site Web n’a pas de valeur ajoutée spécifique, il est préférable de les empêcher d’insérer des images à l’aide d’un éditeur WYSIWYG, par exemple CKEditor.");'>
+                                        </button>
+                                        <span>Ne pas retailler les images dans le navigateur</span>
+                                    </td>
+                                    <td>
+                                        16 image(s) retaillée(s) dans le navigateur
+                                    </td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("S&#39;il existe une balise d&#39;image avec un attribut src vide, le navigateur appelle le répertoire dans lequel se trouve la page, générant des requêtes HTTP inutiles et supplémentaires.");'>
+                                        </button>
+                                        <span>Eviter les tags SRC vides</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Assurez-vous que les fichiers CSS sont séparés du code HTML de la page. Si vous incluez du CSS dans le corps du fichier HTML et qu&#39;il est utilisé pour plusieurs pages (ou même pour l&#39;ensemble du site Web), le code doit être envoyé pour chaque page demandée par l&#39;utilisateur, augmentant ainsi le volume de données envoyées. Toutefois, si les CSS se trouvent dans leurs propres fichiers distincts, le navigateur peut éviter de les redemander en les stockant dans son cache local.");'>
+                                        </button>
+                                        <span>Externaliser les css</span>
+                                    </td>
+                                    <td>
+                                        10 inline stylesheet(s)
+                                    </td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Assurez-vous que le code JavaScript est distinct du code HTML de la page, à l’exception de toute variable de configuration pour les objets JavaScript. Si vous incluez du code JavaScript dans le corps du fichier HTML et qu&#39;il est utilisé pour plusieurs pages (ou même pour l&#39;ensemble du site Web), le code doit être envoyé pour chaque page demandée par l&#39;utilisateur, augmentant ainsi le volume de données envoyées. Toutefois, si le code JavaScript se trouve dans son propre fichier séparé, le navigateur peut éviter de les redemander en les stockant dans son cache local.");'>
+                                        </button>
+                                        <span>Externaliser les js</span>
+                                    </td>
+                                    <td>
+                                        18 inline  javascript(s)
+                                    </td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Les requêtes en erreurs consomment inutilement des ressources.");'>
+                                        </button>
+                                        <span>Eviter les requêtes en erreur</span>
+                                    </td>
+                                    <td>
+                                        0 erreur(s) HTTP
+                                    </td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Le temps de téléchargement d’une page côté client est directement corrélé au nombre et à la taille des fichiers que le navigateur doit télécharger. Pour chaque fichier, le navigateur envoie un HTTP GET au serveur. Il attend la réponse, puis télécharge la ressource dès qu&#39;elle est disponible. Selon le type de serveur Web que vous utilisez, plus le nombre de demandes par page est élevé, moins le serveur peut gérer de pages. La réduction du nombre de requêtes par page est essentielle pour réduire le nombre de serveurs HTTP nécessaires à l&#39;exécution du site Web et, partant, son impact sur l&#39;environnement.");'>
+                                        </button>
+                                        <span>Limiter le nombre de requêtes HTTP (&lt; 27)</span>
+                                    </td>
+                                    <td>
+                                        363 requête(s) HTTP 
+                                    </td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Télécharger des images qui ne seront pas nécessairement visibles consomme inutilement des ressources. Il s&#39;agit par exemple d&#39;images qui sont affichées uniquement suite à une action utilisateur.");'>
+                                        </button>
+                                        <span>Ne pas télécharger des images inutilement</span>
+                                    </td>
+                                    <td>
+                                        0 image(s) téléchargée(s) mais non affichée(s) dans la page 
+                                    </td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("JSLint est un outil de contrôle de qualité du code qui vérifie que la syntaxe JavaScript utilisée sera comprise par tous les navigateurs. Le code produit est donc conforme aux règles de codage qui permettent aux interpréteurs d’exécuter le code rapidement et facilement. Le processeur est donc utilisé pour un temps plus court.");'>
+                                        </button>
+                                        <span>Valider le javascript</span>
+                                    </td>
+                                    <td>
+                                        1 erreur(s) javascript
+                                    </td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("La longueur du cookie doit être réduite car il est envoyé à chaque requête.");'>
+                                        </button>
+                                        <span>Taille maximum des cookies par domaine(&lt; 512 Octets)</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Utilisez un outil tel que YUI Compressor pour supprimer les espaces et les sauts de ligne inutiles. Apache mod_pagespeed de Google peut également automatiser cette opération.");'>
+                                        </button>
+                                        <span>Minifier les css (&gt;&#x3D; 95%)</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Utilisez un outil tel que YUI Compressor pour supprimer les espaces inutiles, les sauts de ligne, les points-virgules et raccourcir les noms de variables locales. Cette opération peut être automatisée à l’aide du module Apache mod_pagespeed de Google.");'>
+                                        </button>
+                                        <span>Minifier les js (&gt;&#x3D; 95%)</span>
+                                    </td>
+                                    <td>
+                                        0% js minifié
+                                    </td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Pour les ressources statiques, un cookie est inutile, cela consomme donc inutilement de la bande passante. Pour éviter cela, on peut utiliser un domaine différent pour les ressources statiques ou restreindre la portée des cookies crées");'>
+                                        </button>
+                                        <span>Pas de cookie pour les ressources statiques</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Les redirections doivent être évitées autant que possible car elles ralentissent la réponse et consomment inutilement des ressources.");'>
+                                        </button>
+                                        <span>Eviter les redirections</span>
+                                    </td>
+                                    <td>
+                                        3 redirection(s)
+                                    </td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Les images bitmap constituent souvent la plupart des octets téléchargés, juste devant les bibliothèques CSS et JavaScript. Leur optimisation a donc un impact considérable sur la bande passante consommée.");'>
+                                        </button>
+                                        <span>Optimiser les images bitmap</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Les images svg sont moins lourdes que les images bitmap, elles peuvent cependant être optimisées et minifiées via des outils (par exemple svgo)");'>
+                                        </button>
+                                        <span>Optimiser les images svg</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Évitez d’utiliser des plug-ins (machines virtuelles Flash Player, Java et Silverlight, etc.), car ils peuvent entraîner une lourde charge de ressources (processeur et RAM). C’est particulièrement vrai avec le lecteur Adobe, à tel point qu’Apple a décidé de ne pas installer la technologie sur ses appareils mobiles afin de maximiser la durée de vie de la batterie. Privilégiez les technologies standard telles que HTML5 et ECMAScript");'>
+                                        </button>
+                                        <span>Ne pas utiliser de plugins</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Outre les avantages pour l’utilisateur, cette feuille de style réduit le nombre de pages imprimées et donc réduit indirectement l’empreinte écologique du site Web. Elle doit être aussi simple que possible et utiliser une police de caractères à l&#39;encre claire, par exemple Siècle gothique. Envisagez également de masquer l&#39;en-tête, le pied de page, le menu et la barre latérale, ainsi que de supprimer toutes les images, à l&#39;exception de celles nécessaires au contenu. Cette feuille de style d&#39;impression permet d&#39;obtenir une impression plus nette en réduisant ce qui est affiché à l&#39;écran.");'>
+                                        </button>
+                                        <span>Fournir une print css</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Les réseaux sociaux tels que  Facebook, Twiter, Pinterest, etc. fournissent des plugins à installer sur une page WEB pour y afficher un bouton partager et un compteur de j&#39;aime. Ces plugins consomme des ressources inutilement, il est mieux de mettre des liens directs");'>
+                                        </button>
+                                        <span>N&#39;utilisez pas les boutons standards des réseaux sociaux</span>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="checkmark-success"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Réduisez le nombre de fichiers CSS pour réduire le nombre de requêtes HTTP. Si plusieurs feuilles de style sont utilisées sur toutes les pages du site Web, concaténez-les dans un seul fichier. Certains CMS et frameworks offrent des moyens d&#39;effectuer cette optimisation automatiquement.");'>
+                                        </button>
+                                        <span>Limiter le nombre de fichiers css (&lt;3) </span>
+                                    </td>
+                                    <td>
+                                        6 fichiers css
+                                    </td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Un ETag est une signature associée à une réponse du serveur. Si le client demande une URL (page HTML, image, feuille de style, etc.) dont l&#39;ETag est identique à celle qu&#39;il a déjà, le serveur Web répondra qu&#39;il n&#39;a pas besoin de télécharger la ressource et qu&#39;il doit utiliser celle-ci. il possède déjà. L&#39;utilisation d&#39;ETags permet d&#39;économiser d&#39;énormes quantités de bande passante.");'>
+                                        </button>
+                                        <span>Utiliser des ETags (&gt;&#x3D; 95%)</span>
+                                    </td>
+                                    <td>
+                                        67.3% ressources utilisant des ETags
+                                    </td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-primary bi bi-info rounded-circle"
+                                            onclick='alert("Utilisez des polices standards telles qu’elles existent déjà sur l’ordinateur de l’utilisateur et n’ont donc pas besoin d’être téléchargées. Cela économise de la bande passante et améliore le temps de rendu du site Web.");'>
+                                        </button>
+                                        <span>Utiliser des polices de caractères standards</span>
+                                    </td>
+                                    <td>
+                                        449  Ko de police(s) de caractères spécifique(s)
+                                    </td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td class="text-center">
+                                        <div class="close-error"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+- name : 'Deezer'
+  url : 'https://www.deezer.com/fr/channels/explore/'
+  actions:
+    - name : "Cookies"
+      type : 'click'
+      timeoutBefore: 1000
+      element : '#gdpr-btn-accept-all'  
+      screenshot : 'screenshot/deezer/accueil.png'
+    - name : "Rechercher une musique"
+      type : 'text'
+      element : '#topbar-search'
+      content : 'pause café'
+      timeoutBefore: 1000
+      screenshot : 'screenshot/deezer/recherche.png'
+    - name : "Sélectionner la musique"
+      type : 'click'
+      pageChange : true
+      element : '#page_naboo_search > div.search-results > div.container.search-top-result-container > div.search-top-result > div > div.heading-3.ellipsis > a'  
+      timeoutBefore: 1000
+      screenshot : 'screenshot/deezer/resultatrecherche.png'
+    - name : "Lancer la musique"
+      type : 'click'
+      element : '#page_naboo_playlist > div.catalog-content > div > div.css-m38am7 > div.chakra-button__group.css-1v1zob6 > div:nth-child(1) > button'  
+      timeoutBefore: 3000
+      screenshot : 'screenshot/deezer/lancementmusique.png'
+
+- name : 'musicme'
+  url : 'https://www.musicme.com/#/musique/'
+  actions:
+    - name : "Cookies"
+      type : 'click'
+      timeoutBefore: 1000
+      element : '#onetrust-accept-btn-handler'  
+      screenshot : 'screenshot/musicme/accueil.png'
+    - name : "Rechercher une musique"
+      type : 'text'
+      element : '#mmsearch'
+      content : 'pause café'
+      timeoutBefore: 1000
+      screenshot : 'screenshot/musicme/recherche.png'
+    - name : "Rechercher une musique"
+      type : 'click'
+      element : '#searchboxholder > a'
+      timeoutBefore: 1000
+      screenshot : 'screenshot/musicme/resultatrecherche.png'
+    - name : "Lancer la musique"
+      type : 'click'
+      element : '#cdstreamtxt0 > a'  
+      timeoutBefore: 3000
+      screenshot : 'screenshot/musicme/lancementmusique.png'
+      
+
+
+
+      
