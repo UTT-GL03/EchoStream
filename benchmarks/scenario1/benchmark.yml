@@ -1,0 +1,31 @@
+- name : 'Deezer'
+  url : 'https://www.deezer.com/fr/channels/explore/'
+  actions:
+    - name : "Cookies"
+      type : 'click'
+      element : '#gdpr-btn-accept-all'  
+      screenshot : 'screenshot/deezer/accueil.png'
+    - name : "Lancer musique"
+      type : 'click'
+      element : '[data-testid="play_button_play"]'  
+      timeoutBefore : 1000
+    - name : "scroll"
+      type : 'scroll'
+      timeoutBefore : 3000
+      screenshot : 'screenshot/deezer/musique.png'
+    
+- name : 'MusicMe'
+  url : 'https://www.musicme.com/#/musique/'
+  actions:
+    - name : "Cookies"
+      type : 'click'
+      element : '#onetrust-accept-btn-handler'  
+      screenshot : 'screenshot/musicme/accueil.png'
+    - name : "Lancer musique"
+      type : 'click'
+      element : '[title="Lecture"]'  
+      timeoutBefore : 1000
+    - name : "scroll"
+      type : 'scroll'
+      timeoutBefore : 3000
+      screenshot : 'screenshot/musicme/musique.png'
