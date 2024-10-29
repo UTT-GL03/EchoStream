@@ -7,7 +7,7 @@
       "duration": "", 
       "release_date": "2020-02-18", 
       "genre": "Rock", 
-      "audioUrl": "eb210d63-3812-42d0-8f28-7480f09e71a8.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_edba63c54d.mp3" 
     },
     {
       "id": "1",
@@ -16,7 +16,7 @@
       "duration": "", 
       "release_date": "2023-12-09", 
       "genre": "Hip-Hop", 
-      "audioUrl": "ecaf3eed-00dd-4b73-bfd1-9a2fd7bd9823.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_c182a43cef.mp3" 
     },
     {
       "id": "2",
@@ -25,7 +25,7 @@
       "duration": "", 
       "release_date": "2021-08-22", 
       "genre": "Pop", 
-      "audioUrl": "98d4abc2-260b-412f-971d-a4ae83e2e482.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_ecc8a47bed.mp3" 
     },
     {
       "id": "3",
@@ -34,7 +34,7 @@
       "duration": "", 
       "release_date": "2021-01-01", 
       "genre": "Classical", 
-      "audioUrl": "07e3f64f-cd5a-42cb-9e69-079d203f0b2e.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_5f255644d4.mp3" 
     },
     {
       "id": "4",
@@ -43,7 +43,7 @@
       "duration": "", 
       "release_date": "2020-07-29", 
       "genre": "Jazz", 
-      "audioUrl": "b1a25f85-c222-4625-9860-1a90534b39a3.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2022/09/06/audio_33c88bcc79.mp3" 
     },
     {
       "id": "5",
@@ -52,7 +52,7 @@
       "duration": "", 
       "release_date": "2023-07-19", 
       "genre": "Country", 
-      "audioUrl": "89cf66b5-9915-4cb1-89c3-56ba908b9adb.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_beaf4e3fe9.mp3" 
     },
     {
       "id": "6",
@@ -61,7 +61,7 @@
       "duration": "", 
       "release_date": "2023-06-04", 
       "genre": "Reggae", 
-      "audioUrl": "86b646ed-02ea-4d9a-b9f8-02a45fca76b7.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_72d622f494.mp3" 
     },
     {
       "id": "7",
@@ -70,7 +70,7 @@
       "duration": "", 
       "release_date": "2024-07-15", 
       "genre": "Electronic", 
-      "audioUrl": "ee2a2406-2fe3-45aa-9699-f1e8659d8980.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2022/10/04/audio_0629ce8816.mp3" 
     },
     {
       "id": "8",
@@ -79,7 +79,7 @@
       "duration": "", 
       "release_date": "2020-10-18", 
       "genre": "Reggae", 
-      "audioUrl": "d661144c-036b-46d3-9d3c-7d327eb6c7c7.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_c845d13567.mp3" 
     },
     {
       "id": "9",
@@ -88,142 +88,7 @@
       "duration": "", 
       "release_date": "2024-07-03", 
       "genre": "Reggae", 
-      "audioUrl": "11e38cf3-a33e-4728-ad82-2933ed04a6a6.mp3" 
-    },
-    {
-      "id": "10",
-      "title": "Orci pulvinar euismod.",
-      "artist": "Janett White", 
-      "duration": "", 
-      "release_date": "2024-12-30", 
-      "genre": "Reggae", 
-      "audioUrl": "89545e09-756d-44aa-9e17-261515861c13.mp3" 
-    },
-    {
-      "id": "11",
-      "title": "Ex nisi tincidunt adipiscing.",
-      "artist": "Vaughn Porras", 
-      "duration": "", 
-      "release_date": "2022-08-26", 
-      "genre": "Electronic", 
-      "audioUrl": "c9b3f1ee-64b2-481c-8bbf-7ce50e4e5475.mp3" 
-    },
-    {
-      "id": "12",
-      "title": "Dolor cras euismod mattis.",
-      "artist": "Heath Castleman", 
-      "duration": "", 
-      "release_date": "2022-05-01", 
-      "genre": "Pop", 
-      "audioUrl": "0027e1f9-6ae7-412c-9589-8d8e1ee8a459.mp3" 
-    },
-    {
-      "id": "13",
-      "title": "El nam dictum quisque.",
-      "artist": "Alexa Wallis", 
-      "duration": "", 
-      "release_date": "2021-04-20", 
-      "genre": "Jazz", 
-      "audioUrl": "55916f20-7891-4ba2-8a52-ac5d57ace119.mp3" 
-    },
-    {
-      "id": "14",
-      "title": "Au pulvinar eu fringilla adipiscing.",
-      "artist": "Katelin Milling", 
-      "duration": "", 
-      "release_date": "2022-08-31", 
-      "genre": "Hip-Hop", 
-      "audioUrl": "75f5d258-4494-443e-b78b-8341611b9b20.mp3" 
-    },
-    {
-      "id": "15",
-      "title": "Sollicitudin accumsan bibendum.",
-      "artist": "Michael Rikard", 
-      "duration": "", 
-      "release_date": "2024-10-22", 
-      "genre": "Pop", 
-      "audioUrl": "93428b90-87bc-49ff-a0e4-8d126eadc241.mp3" 
-    },
-    {
-      "id": "16",
-      "title": "E ornare finibus nunc.",
-      "artist": "Vernon Higgins", 
-      "duration": "", 
-      "release_date": "2024-02-24", 
-      "genre": "Pop", 
-      "audioUrl": "116b57c0-e0b1-4c98-a522-c22bad9100d5.mp3" 
-    },
-    {
-      "id": "17",
-      "title": "Ultrices elit.",
-      "artist": "Heath Bourne", 
-      "duration": "", 
-      "release_date": "2023-09-08", 
-      "genre": "Electronic", 
-      "audioUrl": "66f4de24-9bc6-4a8e-972a-81eca235b9c7.mp3" 
-    },
-    {
-      "id": "18",
-      "title": "Imperdiet lacus dictum vitae.",
-      "artist": "Grace White", 
-      "duration": "", 
-      "release_date": "2024-02-17", 
-      "genre": "Electronic", 
-      "audioUrl": "ed498346-7b77-4c99-9486-f03423f88343.mp3" 
-    },
-    {
-      "id": "19",
-      "title": "Eget enim ut scelerisque.",
-      "artist": "Maisha Goudy", 
-      "duration": "", 
-      "release_date": "2023-09-02", 
-      "genre": "Country", 
-      "audioUrl": "e9a97c1b-fb65-4b6e-aae6-154db44caaa0.mp3" 
-    },
-    {
-      "id": "20",
-      "title": "Ornare mi.",
-      "artist": "Jason Tuck", 
-      "duration": "", 
-      "release_date": "2021-10-09", 
-      "genre": "Pop", 
-      "audioUrl": "d84c314b-00da-4949-b7af-e1078334811d.mp3" 
-    },
-    {
-      "id": "21",
-      "title": "Nunc mauris at posuere donec.",
-      "artist": "Alexa Higgins", 
-      "duration": "", 
-      "release_date": "2023-11-03", 
-      "genre": "Reggae", 
-      "audioUrl": "d1985c06-cec3-448a-a31f-21862829fc95.mp3" 
-    },
-    {
-      "id": "22",
-      "title": "Lacinia id eti pharetra erat.",
-      "artist": "Maisha Miers", 
-      "duration": "", 
-      "release_date": "2022-05-31", 
-      "genre": "Jazz", 
-      "audioUrl": "6e3bc04c-7624-47dc-bf88-cab302217fc7.mp3" 
-    },
-    {
-      "id": "23",
-      "title": "Euismod tempor orci.",
-      "artist": "Madeleine Hyder", 
-      "duration": "", 
-      "release_date": "2021-06-24", 
-      "genre": "Country", 
-      "audioUrl": "aec62056-24c1-49da-8673-b4951e4d7877.mp3" 
-    },
-    {
-      "id": "24",
-      "title": "Nam pharetra felis u orci.",
-      "artist": "Anton Miers", 
-      "duration": "", 
-      "release_date": "2023-10-16", 
-      "genre": "Country", 
-      "audioUrl": "9305c5cc-51e4-4189-a33f-f6ad2a5341d4.mp3" 
+      "audioUrl": "https://cdn.pixabay.com/audio/2022/11/11/audio_b9cd69c82b.mp3" 
     }
   ]
 }
