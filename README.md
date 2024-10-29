@@ -71,5 +71,14 @@ Nous avons retenue deux pages type :
 
 Pour des raisons de respect des droits d'auteurs, nous utilisons des données générées (avec dummy-json). Ces données sont générés aléatoirement et permettent d'identifier une musique, cepandant on ne peut pas générer un fichier audio donc on génère un URI pour simuler le fichier mp3 qu'on utilisera (voir [modele de données](frontend/sample_data.hbs)).
 
+## Prototype n°1 : Fonctionnalités pour le scénario prioritaire avec données statiques
 
+Pour le premier prototype : 
+- Notre base de données reste statique et dans le frontend
+- Les fonctionnalités implémentés sont celles uniquement requises pour le scénario 1 ('Rechercher une musique et l'écouter)
 
+Ce scénario nécéssite de pouvoir rechercher parmis une liste de musique et de l'écouter.
+
+### Page recherche
+
+Nous avons dévelloper une page avec une barre de recherche et une liste de musique de manière très simpliste.
