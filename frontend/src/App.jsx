@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Search} from 'lucide-react';
 import './App.css';
 import musicDatabase from './assets/sample_data.json'
 
@@ -7,7 +7,19 @@ const AudioPlayer = ({ song }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
-  const audioRef = React.useRef(null);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.addEventListener('timeupdate', handleTimeUpdate);
+      audio.addEventListener('ended', () => setIsPlaying(false));
+      return () => {
+        audio.removeEventListener('timeupdate', handleTimeUpdate);
+        audio.removeEventListener('ended', () => setIsPlaying(false));
+      };
+    }
+  }, []);
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -40,7 +52,7 @@ const AudioPlayer = ({ song }) => {
         onClick={togglePlay}
         className="p-2 rounded-full hover:bg-gray-100"
       >
-        {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+        {isPlaying ? "⏸️" : "▶️"}
       </button>
       
       <div className="flex-1">
@@ -56,14 +68,12 @@ const AudioPlayer = ({ song }) => {
         onClick={toggleMute}
         className="p-2 rounded-full hover:bg-gray-100"
       >
-        {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+        {isMuted ? "🔇" : "🔊"}
       </button>
 
       <audio
         ref={audioRef}
         src={song.audioUrl}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={() => setIsPlaying(false)}
       />
     </div>
   );
