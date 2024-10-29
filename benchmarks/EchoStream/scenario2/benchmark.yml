@@ -1,0 +1,16 @@
+- name : 'EchoStream'
+  url : 'http://localhost:4173/'
+  actions:
+    - name : "Rechercher une musique"
+      type : 'text'
+      element : '#root > div > div > div.relative.mb-6 > input'
+      content : 'Aliquam nisl.'
+      timeoutBefore: 1000
+      screenshot : 'screenshot/echostream/recherche.png'
+    - name : "Lancer la musique"
+      type : 'click'
+      element : '#root > div > div > div.space-y-4 > div > div.flex.items-center.space-x-4 > button:nth-child(1)'  
+      timeoutBefore: 3000
+      screenshot : 'screenshot/echostream/lancementmusique.png'
+
+      
