@@ -2,12 +2,13 @@
   "musics": [
     {{#repeat min=20 max=30}}
     {
+      "id": "{{@index}}",
       "title": "{{lorem min=2 max=5}}",
-      "creator": "{{firstName}} {{lastName}}", 
+      "artist": "{{firstName}} {{lastName}}", 
       "duration": "{{integer min=120 max=600}}", 
       "release_date": "{{date '2020-01-01' '2024-12-31' 'YYYY-MM-DD'}}", 
       "genre": "{{random 'Pop' 'Rock' 'Jazz' 'Hip-Hop' 'Classical' 'Electronic' 'Reggae' 'Country'}}", 
-      "uri": "{{guid}}.mp3" 
+      "audioUrl": "{{guid}}.mp3" 
     }
     {{/repeat}}
   ]
