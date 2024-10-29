@@ -82,3 +82,30 @@ Ce scénario nécéssite de pouvoir rechercher parmis une liste de musique et de
 ### Page recherche
 
 Nous avons dévelloper une page avec une barre de recherche et une liste de musique de manière très simpliste.
+
+![Capture d'écran 2024-10-29 170600](https://github.com/user-attachments/assets/0fb92cfe-7919-4a54-9d5e-01a32880ede8)
+Fig.2: Prototype de la page de recherche.
+
+Pour l'instant nous avons choisi d'utiliser la librairie lucid-react essentiellement pour sa fonction de recherche qui permet de prototyper rapidement sans se lancer dans la conception d'un algorithme de recherche. Il s'avère que cette librairie permet aussi d'ajouter des élèments graphiques pour des controleurs de média, fonction qui peuvent être assurer de manière minimaliste par le html 5. 
+
+On a donc voulu voir quel était l'impact d'utiliser les fonctions qui ne sont pas nécessaire car déjà existante avec l'argument 'controller' que propose la balise <audio> ou <media> de html mais qui rend le site plus jolie. Car les sites de streaming sont avant tout des commerces il est donc évident que ces sites soit épurés et jolie pour qu'il soit quand même pertinent, donc regardons les différences et ce que ça coûte.
+Nous utilisons aussi tailwind.css pour le style générale de la page pour générer du css personnalisé .
+
+Nous pouvons donc ici mesurer l'impact général de la page et donc de nos choix de framwork, utilisé react et les librairies pour gagner du temps sur les fonctionnalités et l'esthéthisme font que cela peut manquer d'optimisation donc peut-être plus de requête, peut être du code inutile donc un DOM plus grand que nécessaire:
+
+Nous avons donc utilisé simplement l'extension chrome de green it pour voir de manière très simple l'impact de nos choix en mesurant deux foix deux version du site :
+- Une fois la version dev du site web et une fois la version build du site web et donc comment il sera au final
+- Une version avec l'utilisation de lucid-react pour les élèments de controle de média et une version avec lucid-react juste pour la barre de recherche.
+
+![Capture d'écran 2024-10-29 172507](https://github.com/user-attachments/assets/72af5e44-4452-4b2b-a514-3b0860a3eb63)
+Fig.3: Résultat des 4 tests .
+
+Ce qu'on lit de ses résultats c'est que les versions dev du site web sont déjà assez imposante pour le peu qu'il y a et la différence entre utliser des librairies pour le design uniquement est significative (autour de 20% de différence).
+
+Cependant une fois build la page est déjà beaucoup plus moderé et en plus la différence entre les deux versions ne ce voit quasiment pas. On peut donc ce dire que ça ne change pas grand chose avec la librairie lucid-react d'utiliser des fonctions importé pour gérer des élements de designs. 
+
+Au final on se sait pas encore toutes les fonctionnalités qu'on utilisera ou utilisera pas pour finir le projet mais on peut se dire qu'on peut se sentir libre d'utiliser ou non cette librairie comme on veut car l'impact sera dérisoire.
+
+### Execution du scénario principale
+
+Nous pouvons donc éxecuter notre scénario principale et voir l'impact de l'utilsation de notre site comparé à nos concurrents :
