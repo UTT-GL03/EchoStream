@@ -90,7 +90,7 @@ const MusicSearchApp = () => {
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">
-          Music Search & Player
+          EchoStream
         </h1>
         
         <div className="relative mb-6">
