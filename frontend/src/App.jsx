@@ -4,13 +4,18 @@ import './App.css';
 
 const AudioPlayer = ({ song }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);  // État pour le mute
+  const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);  // État pour la durée
+  const [audioSrc, setAudioSrc] = useState(null);  // URL audio, chargée seulement au clic
+  const [isLoaded, setIsLoaded] = useState(false); // Indique si l’audio est prêt à être lu
   const audioRef = React.useRef(null);
 
   const togglePlay = () => {
-    if (audioRef.current) {
+    if (!audioSrc) {
+      // Définit l'URL audio la première fois qu'on clique sur "Play"
+      setAudioSrc(song.audioUrl);
+    } else if (isLoaded) {
+      // Si l'audio est prêt, joue ou met en pause
       if (isPlaying) {
         audioRef.current.pause();
       } else {
@@ -34,24 +39,15 @@ const AudioPlayer = ({ song }) => {
     }
   };
 
-  const handleLoadedMetadata = () => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);  // Définir la durée de la musique
-    }
-  };
-
-  const formatTime = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-    return `${minutes}:${seconds}`;
+  const handleCanPlay = () => {
+    setIsLoaded(true);   // Indique que l’audio est prêt à être lu
+    audioRef.current.play(); // Joue l’audio dès qu’il est prêt
+    setIsPlaying(true);
   };
 
   return (
     <div className="flex items-center space-x-4">
-      <button
-        onClick={togglePlay}
-        className="p-2 rounded-full hover:bg-gray-100"
-      >
+      <button onClick={togglePlay} className="p-2 rounded-full hover:bg-gray-100">
         {isPlaying ? <Pause size={20} /> : <Play size={20} />}
       </button>
       
@@ -64,26 +60,22 @@ const AudioPlayer = ({ song }) => {
         </div>
       </div>
 
-      <span>{formatTime(duration)}</span> {/* Affiche la durée formatée */}
-
-      <button
-        onClick={toggleMute}
-        className="p-2 rounded-full hover:bg-gray-100"
-      >
+      <button onClick={toggleMute} className="p-2 rounded-full hover:bg-gray-100">
         {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
       </button>
 
-      <audio
-        ref={audioRef}
-        src={song.audioUrl}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleLoadedMetadata}  // Définir la durée dès le chargement des métadonnées
-        onEnded={() => setIsPlaying(false)}
-      />
+      {audioSrc && (
+        <audio
+          ref={audioRef}
+          src={audioSrc}
+          onTimeUpdate={handleTimeUpdate}
+          onCanPlay={handleCanPlay}
+          onEnded={() => setIsPlaying(false)}
+        />
+      )}
     </div>
   );
 };
-
 
 const MusicSearchApp = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -100,8 +92,6 @@ const MusicSearchApp = () => {
     song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     song.artist.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
