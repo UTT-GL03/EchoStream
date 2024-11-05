@@ -111,3 +111,10 @@ Au final on se sait pas encore toutes les fonctionnalités qu'on utilisera ou ut
 Nous pouvons donc éxecuter notre scénario principale et voir l'impact de l'utilsation de notre site comparé à nos concurrents :
 
 [Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/scenario2/benchmark.html)
+
+### Chargement dynamique des données
+
+Dans cette seconde version du prototype, les données sont désormais chargées dynamiquement par le frontend
+En utilisant le même scénario qqu'avec la première version du prototype, nous n'avons qu'une seule requête supplémentaire par page consultée.
+
+[Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2/benchmark.html)
