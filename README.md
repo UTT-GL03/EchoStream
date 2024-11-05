@@ -109,3 +109,5 @@ Au final on se sait pas encore toutes les fonctionnalités qu'on utilisera ou ut
 ### Execution du scénario principale
 
 Nous pouvons donc éxecuter notre scénario principale et voir l'impact de l'utilsation de notre site comparé à nos concurrents :
+
+[preview html](benchmarks/EchoStream/scenario2/benchmark.html)
