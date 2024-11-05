@@ -29,7 +29,7 @@ Il est essentiel de réfléchir à des fonctionnalités plus équilibrées et mo
 4. Il lance la musique trouvée
 
 ### Résultat
-Les résultat de la platforme deezer et Musicme : [Voir la preview du fichier HTML](https://utt-gl03.github.io/EchoStream/benchmark/benchmark.html)
+Les résultat de la platforme deezer et Musicme : [Voir la preview du fichier HTML](https://utt-gl03.github.io/EchoStream/benchmarks/scenario1/benchmark.html)
 
 Les résultats de la plateforme spotify sont différents, la stucture de la page fait que c'est dure de pouvoir utiliser le cli de green it donc on a utilisé l'extension chrome et changer le protocole car il fallait absolument créer un compte pour écouter de la musique. On précise que cet outil marche de la manière suivante : il va garder toutes les requetes qui sont faites dans l'analyse, si on fait donc une analyse à chaque étape nous allons mesurer les mêmes requetes pluisieurs fois. Pour y remedier nous allons juste faire l'analyse à la fin du scénario.
 
