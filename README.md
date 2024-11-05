@@ -118,3 +118,10 @@ Dans cette seconde version du prototype, les données sont désormais chargées 
 En utilisant le même scénario qqu'avec la première version du prototype, nous n'avons qu'une seule requête supplémentaire par page consultée.
 
 [Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2/EchoStream.html)
+
+### Optimisation du nombre de requêtes
+
+Nous nous sommes rendus compte qu'une requête était faite pour chaque musique lorsque nous chargions la mage pour charger le fichier mp3.
+Nous avons donc modifié notre application pour ne charger le fichier mp3 que lorsque nous lançons la musqique. Nous perdons quelques informations non nécessaires comme la durée de la musique mais nous gagnons un nombre important de requête.
+
+[Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2_optiRequetes/EchoStream.html)
