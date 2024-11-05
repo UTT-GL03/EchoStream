@@ -37,7 +37,7 @@ Les résultats de la plateforme spotify sont différents, la stucture de la page
 ##### Premier scénario :
 1. Se rendre sur le site web et se connecter
 2. Lancer la première musique proposée 
-3. Scroller jusqu'en bas de la page pour trouver une autre musique mais ne trouvera rien
+3. Regarder les autres musiques proposées sur la page d'accueil mais ne rien trouver.
 
 ##### Deuxième scénario :
 1. Se rendre sur le site web et se connecter
