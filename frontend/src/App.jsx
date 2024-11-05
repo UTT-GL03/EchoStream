@@ -4,8 +4,9 @@ import './App.css';
 
 const AudioPlayer = ({ song }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);  // État pour le mute
   const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);  // État pour la durée
   const audioRef = React.useRef(null);
 
   const togglePlay = () => {
@@ -33,6 +34,18 @@ const AudioPlayer = ({ song }) => {
     }
   };
 
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);  // Définir la durée de la musique
+    }
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  };
+
   return (
     <div className="flex items-center space-x-4">
       <button
@@ -51,6 +64,8 @@ const AudioPlayer = ({ song }) => {
         </div>
       </div>
 
+      <span>{formatTime(duration)}</span> {/* Affiche la durée formatée */}
+
       <button
         onClick={toggleMute}
         className="p-2 rounded-full hover:bg-gray-100"
@@ -62,11 +77,13 @@ const AudioPlayer = ({ song }) => {
         ref={audioRef}
         src={song.audioUrl}
         onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}  // Définir la durée dès le chargement des métadonnées
         onEnded={() => setIsPlaying(false)}
       />
     </div>
   );
 };
+
 
 const MusicSearchApp = () => {
   const [searchTerm, setSearchTerm] = useState('');
