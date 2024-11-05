@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import './App.css';
-import musicDatabase from './assets/sample_data.json'
 
 const AudioPlayer = ({ song }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -71,7 +70,15 @@ const AudioPlayer = ({ song }) => {
 
 const MusicSearchApp = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  
+  const [musicDatabase, setMusicDatabase] = useState({ musics: [] });
+
+  useEffect(() => {
+    fetch('/sample_data.json')
+      .then((response) => response.json())
+      .then((data) => setMusicDatabase(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
   const filteredMusic = musicDatabase.musics.filter(song =>
     song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     song.artist.toLowerCase().includes(searchTerm.toLowerCase())
