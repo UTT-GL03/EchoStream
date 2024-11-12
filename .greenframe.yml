@@ -1,7 +1,7 @@
 baseURL: http://localhost
 projectName: EchoStream
 scenarios:
-    - path: ./benchmark/scenario1.js
+    - path: ./benchmarks/scenario1.js
       name: Consulter les musiques
 containers:
   - echostream-static_hosting-1
