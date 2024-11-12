@@ -3,6 +3,4 @@ projectName: EchoStream
 scenarios:
     - path: ./benchmarks/scenario1.js
       name: Consulter les musiques
-containers:
-  - echostream-static_hosting-1
 
