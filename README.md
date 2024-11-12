@@ -130,26 +130,26 @@ Nous avons donc modifié notre application pour ne charger le fichier mp3 que lo
 
 ### Changement de l'outil d'analyse
 
-Après avoir discuté de la méthode de calcul qu'utilise greeniT, nous nous sommes demandés si cet manière de calculer était vraiment pertinante ? En résumé greenIT vise à calculer l'impact globale de l'utilisation d'un site internet, que ce soit l'impacte d'acheter un téléphone que d'alimenter les serveurs, que de construire le réseau... Au final même si l'outil est pratique et permet de se rendre compte des impactes des utilisations de la technologie, il ne nous aide pas vraiment à voir l'impacte strictement liée à l'utilisation de notre site. 
-On utilisera donc greenFrame, un outil plus pour les développeurs donc qui permet de calculer uniquement l'impacte énergétique liée à l'utilisation de notre appli web.
+Après avoir discuté de la méthode de calcul qu'utilise GreenIT, nous nous sommes demandés si cette manière de calculer était vraiment pertinente ? En résumé GreenIT vise à calculer l'impact global de l'utilisation d'un site internet, que ce soit l'impact de l'achat ou la production du téléphone utilisé, l'alimentation des serveurs, la construction duréseau, etc. Au final même si l'outil est pratique et permet de se rendre compte des impacts des utilisations de la technologie, il ne nous aide pas vraiment à voir l'impact strictement lié à l'utilisation de notre site. 
+On utilisera donc GreenFrame, un outil qui permet de calculer uniquement l'impact énergétique lié à l'utilisation de notre application web.
 
 On veut donc re-créer un échantillon d'analyse des sites concurrents pour pouvoir comparer ce qui est comparable avec le nouvel outil, voici les résultats de l'analyse simple de la première page du site :
 
 ![Capture d'écran 2024-11-12 163127](https://github.com/user-attachments/assets/3124cedc-2501-43fb-b5a7-0279412c784c)
-__Fig.1__: Résultat de spotify
+__Fig.1__: Résultat de Spotify
 
 ![Capture d'écran 2024-11-12 163520](https://github.com/user-attachments/assets/7ab482d9-83b9-4aa2-aaa5-be6c9949967b)
-__Fig.2__: Résultat de deezer
+__Fig.2__: Résultat de Deezer
 
 ![Capture d'écran 2024-11-12 163624](https://github.com/user-attachments/assets/53d6db26-01d5-463a-8512-6e96722bcac7)
-__Fig.3__: Résultat de musicMe
+__Fig.3__: Résultat de MusicMe
 
-On fait ensuite les modifications pour faire les tests à chaque push dans notre projet green frame on peut voir des résultats qui nous disent que notre site consomme très peu de ressource, essentiellement du temps d'écran, la seule fonctionnalité est celle de la recherche donc très peu de cpu utiliser. Ce sont donc des résultats très concluants par rapport aux concurrents
+On fait ensuite les modifications pour faire les tests à chaque push dans notre projet GreenFrame. On peut voir des résultats qui nous disent que notre site consomme très peu de ressource, essentiellement du temps d'écran, la seule fonctionnalité qui peut est celle de la recherche donc très peu de CPU utilisé. Ce sont donc des résultats très concluants par rapport aux concurrents.
 
 ![Capture d'écran 2024-11-12 174747](https://github.com/user-attachments/assets/21d6b884-99e8-41fb-90a7-4bff0ccf34d5)
 __Fig.4__: Résultat de notre prototype V.2
 
-Nous avons ensuite mesurer l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant, effictevement nous n'avons pas de streaming, ni de transformations dans le serveur donc le serveur ne fait que relayer les datas qui y sont stockés. Donc logiquement le seul pic de consommation est au lancement du site.
+Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant, effectivement nous n'avons pas de streaming, ni de transformations ou calcul à faire dans le serveur qui ne fait que relayer les données qui sont stockées. Donc logiquement le seul pic de consommation est au lancement du site.
 
 ![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)
 __Fig.5__: Résultat de notre prototype V.2 coté serveur 
