@@ -143,3 +143,13 @@ __Fig.2__: Résultat de deezer
 
 ![Capture d'écran 2024-11-12 163624](https://github.com/user-attachments/assets/53d6db26-01d5-463a-8512-6e96722bcac7)
 __Fig.3__: Résultat de musicMe
+
+On fait ensuite les modifications pour faire les tests à chaque push dans notre projet green frame on peut voir des résultats qui nous disent que notre site consomme très peu de ressource, essentiellement du temps d'écran, la seule fonctionnalité est celle de la recherche donc très peu de cpu utiliser. Ce sont donc des résultats très concluants par rapport aux concurrents
+
+![Capture d'écran 2024-11-12 174747](https://github.com/user-attachments/assets/21d6b884-99e8-41fb-90a7-4bff0ccf34d5)
+__Fig.4__: Résultat de notre prototype V.2
+
+Nous avons ensuite mesurer l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant, effictevement nous n'avons pas de streaming, ni de transformations dans le serveur donc le serveur ne fait que relayer les datas qui y sont stockés. Donc logiquement le seul pic de consommation est au lancement du site.
+
+![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)
+__Fig.5__: Résultat de notre prototype V.2 coté serveur 
