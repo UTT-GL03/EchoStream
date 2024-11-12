@@ -112,6 +112,8 @@ Nous pouvons donc éxecuter notre scénario principal et voir l'impact de l'util
 
 [Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/scenario2/EchoStream.html)
 
+## Prototype n°2 : Fonctionnalités pour le scénario prioritaire avec données statiques chargées de manière dynamique
+
 ### Chargement dynamique des données
 
 Dans cette seconde version du prototype, les données sont désormais chargées dynamiquement par le frontend.
@@ -125,3 +127,19 @@ Nous nous sommes rendus compte qu'une requête était faite pour chaque musique 
 Nous avons donc modifié notre application pour ne charger le fichier mp3 que lorsque nous lançons la musqique. Nous perdons quelques informations non nécessaires comme la durée de la musique mais nous gagnons un nombre important de requête.
 
 [Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2_optiRequetes/EchoStream.html)
+
+### Changement de l'outil d'analyse
+
+Après avoir discuté de la méthode de calcul qu'utilise greeniT, nous nous sommes demandés si cet manière de calculer était vraiment pertinante ? En résumé greenIT vise à calculer l'impact globale de l'utilisation d'un site internet, que ce soit l'impacte d'acheter un téléphone que d'alimenter les serveurs, que de construire le réseau... Au final même si l'outil est pratique et permet de se rendre compte des impactes des utilisations de la technologie, il ne nous aide pas vraiment à voir l'impacte strictement liée à l'utilisation de notre site. 
+On utilisera donc greenFrame, un outil plus pour les développeurs donc qui permet de calculer uniquement l'impacte énergétique liée à l'utilisation de notre appli web.
+
+On veut donc re-créer un échantillon d'analyse des sites concurrents pour pouvoir comparer ce qui est comparable avec le nouvel outil, voici les résultats de l'analyse simple de la première page du site :
+
+![Capture d'écran 2024-11-12 163127](https://github.com/user-attachments/assets/3124cedc-2501-43fb-b5a7-0279412c784c)
+__Fig.1__: Résultat de spotify
+
+![Capture d'écran 2024-11-12 163520](https://github.com/user-attachments/assets/7ab482d9-83b9-4aa2-aaa5-be6c9949967b)
+__Fig.2__: Résultat de deezer
+
+![Capture d'écran 2024-11-12 163624](https://github.com/user-attachments/assets/53d6db26-01d5-463a-8512-6e96722bcac7)
+__Fig.3__: Résultat de musicMe
