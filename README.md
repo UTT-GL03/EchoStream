@@ -153,3 +153,15 @@ Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On 
 
 ![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)
 __Fig.5__: Résultat de notre prototype V.2 coté serveur 
+
+## Prototype n°3 : Fonctionnalités pour le scénario prioritaire avec données stockées dans une base de données
+
+Pour la V3 de notre prototype, nous voulons que les données soient stockées dans une base de données en ligne (CouchDB). L'interêt d'une base de données dynamique est de pouvoir rajouter facilement des musiques. On pourrait même imaginer comme on le voulait un formulaire pour que les gens rajoutent eux même leur musique dans l'application.
+
+![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)
+__Fig.6__: Résultat de notre prototype V.2 
+
+![image](https://github.com/user-attachments/assets/51b8db95-6d01-458f-936b-7d6fa91f767d)
+__Fig.6__: Résultat de notre prototype V.3
+
+On observe pas de différence dans l'utilisation du réseau via notre sécnario green frame, nous pensons que c'est dû au fait que nos 'musiques' ne sont que des liens qui renvoient vers une plateforme qui fait télécharger un fichier mp3 et donc ne prends aucune place. On remarque cependant une augmentation de l'usuage du cpu liée au fonctionnement de la base de donnée sur un docker. Cependant si on avait de vrai musique dans notre BDD on peut imaginer que la baisse de consommation en réseau aurait été significative car le site n'aurait plus de fichier musicaux lourd chargé dans la page.
