@@ -5,5 +5,5 @@ scenarios:
       name: Consulter les musiques
 containers:
   - echostream-static_hosting-1
-  - greenframe-backend-1
+  - echostream-backend-1
 
