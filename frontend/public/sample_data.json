@@ -1,7 +1,6 @@
 {
-  "musics": [
+  "docs": [
     {
-      "id": "0",
       "title": "Aliquam nisl.",
       "artist": "Raisa Zobel", 
       "duration": "", 
@@ -10,7 +9,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_edba63c54d.mp3" 
     },
     {
-      "id": "1",
       "title": "Aliquet bibendum.",
       "artist": "Raisa Mercer", 
       "duration": "", 
@@ -19,7 +17,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_c182a43cef.mp3" 
     },
     {
-      "id": "2",
       "title": "Felis consectetur lacinia metus.",
       "artist": "Chloe Bickers", 
       "duration": "", 
@@ -28,7 +25,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_ecc8a47bed.mp3" 
     },
     {
-      "id": "3",
       "title": "Elit sed ornare.",
       "artist": "Darrell Bourne", 
       "duration": "", 
@@ -37,7 +33,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_5f255644d4.mp3" 
     },
     {
-      "id": "4",
       "title": "Nisi dui.",
       "artist": "Curtis Turner", 
       "duration": "", 
@@ -46,7 +41,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2022/09/06/audio_33c88bcc79.mp3" 
     },
     {
-      "id": "5",
       "title": "Finibus nisi neque nam.",
       "artist": "Rufus Krumm", 
       "duration": "", 
@@ -55,7 +49,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_beaf4e3fe9.mp3" 
     },
     {
-      "id": "6",
       "title": "Curabitur vehicula e ornare.",
       "artist": "Rico Leath", 
       "duration": "", 
@@ -64,7 +57,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_72d622f494.mp3" 
     },
     {
-      "id": "7",
       "title": "Amet commodo.",
       "artist": "Selma Rebelo", 
       "duration": "", 
@@ -73,7 +65,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2022/10/04/audio_0629ce8816.mp3" 
     },
     {
-      "id": "8",
       "title": "Sit sem con justo eget.",
       "artist": "Lyle Bickers", 
       "duration": "", 
@@ -82,7 +73,6 @@
       "audioUrl": "https://cdn.pixabay.com/audio/2024/06/25/audio_c845d13567.mp3" 
     },
     {
-      "id": "9",
       "title": "Dignissim velit eu donec.",
       "artist": "Cyrus Coolidge", 
       "duration": "", 

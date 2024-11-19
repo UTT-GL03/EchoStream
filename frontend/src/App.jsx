@@ -6,16 +6,14 @@ const AudioPlayer = ({ song }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [audioSrc, setAudioSrc] = useState(null);  // URL audio, chargée seulement au clic
-  const [isLoaded, setIsLoaded] = useState(false); // Indique si l’audio est prêt à être lu
+  const [audioSrc, setAudioSrc] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
   const audioRef = React.useRef(null);
 
   const togglePlay = () => {
     if (!audioSrc) {
-      // Définit l'URL audio la première fois qu'on clique sur "Play"
       setAudioSrc(song.audioUrl);
     } else if (isLoaded) {
-      // Si l'audio est prêt, joue ou met en pause
       if (isPlaying) {
         audioRef.current.pause();
       } else {
@@ -40,8 +38,8 @@ const AudioPlayer = ({ song }) => {
   };
 
   const handleCanPlay = () => {
-    setIsLoaded(true);   // Indique que l’audio est prêt à être lu
-    audioRef.current.play(); // Joue l’audio dès qu’il est prêt
+    setIsLoaded(true);
+    audioRef.current.play();
     setIsPlaying(true);
   };
 
@@ -79,16 +77,19 @@ const AudioPlayer = ({ song }) => {
 
 const MusicSearchApp = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [musicDatabase, setMusicDatabase] = useState({ musics: [] });
+  const [musicDatabase, setMusicDatabase] = useState([]);
 
   useEffect(() => {
-    fetch('/sample_data.json')
+    fetch('http://localhost:5984/echostream_db/_all_docs?include_docs=true')
       .then((response) => response.json())
-      .then((data) => setMusicDatabase(data))
+      .then((data) => {
+        const musics = data.rows.map((row) => row.doc);
+        setMusicDatabase(musics);
+        })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  const filteredMusic = musicDatabase.musics.filter(song =>
+  const filteredMusic = musicDatabase.filter(song =>
     song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     song.artist.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -114,7 +115,7 @@ const MusicSearchApp = () => {
         <div className="space-y-4">
           {filteredMusic.map(song => (
             <div 
-              key={song.id}
+              key={song._id}
               className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow"
             >
               <h2 className="text-xl font-semibold text-gray-800">{song.title}</h2>
