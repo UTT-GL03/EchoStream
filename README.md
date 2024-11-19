@@ -161,7 +161,11 @@ Pour la V3 de notre prototype, nous voulons que les données soient stockées da
 ![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)
 __Fig.6__: Résultat de notre prototype V.2 
 
-![image](https://github.com/user-attachments/assets/51b8db95-6d01-458f-936b-7d6fa91f767d)
-__Fig.6__: Résultat de notre prototype V.3
 
-On observe pas de différence dans l'utilisation du réseau via notre sécnario green frame, nous pensons que c'est dû au fait que nos 'musiques' ne sont que des liens qui renvoient vers une plateforme qui fait télécharger un fichier mp3 et donc ne prends aucune place. On remarque cependant une augmentation de l'usuage du cpu liée au fonctionnement de la base de donnée sur un docker. Cependant si on avait de vrai musique dans notre BDD on peut imaginer que la baisse de consommation en réseau aurait été significative car le site n'aurait plus de fichier musicaux lourd chargé dans la page.
+![image](https://github.com/user-attachments/assets/51b8db95-6d01-458f-936b-7d6fa91f767d)
+__Fig.7__: Résultat de notre prototype V.3
+
+
+On observe pas de différence dans l'utilisation du réseau via notre sécnario green frame, nous pensons que c'est dû au fait que nos 'musiques' ne sont que des liens qui renvoient vers une plateforme qui fait télécharger un fichier mp3 et donc ne prends aucune place. On remarque cependant une augmentation de l'usuage du cpu liée au fonctionnement de la base de donnée sur un docker. Cependant si on avait de vrai musique dans notre BDD on peut imaginer que la baisse de consommation en réseau aurait été significative car le site n'aurait plus de fichier musicaux lourd chargé dans la page. On peut donc se dire qu'avec du vrai streaming et un catalogue de musique plus large cette modification de notre prototype qui à l'air à priori néfaste écologiquement deviendrait à posteriori rentable écologiquement
+
+
