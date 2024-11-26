@@ -185,3 +185,19 @@ On voit une grande augmentation du temps d'écran, effectivement on a qu'une seu
 
 ![Capture d'écran 2024-11-26 154741](https://github.com/user-attachments/assets/e88237fa-1035-47ad-a730-3701d14fab9f)
 __Fig.9__ : Évolution de l'impact de la consultation de la page d'acceuil en passant de 10 musiques à 1000 musiques.
+
+### Prise en compte du passage à l'échelle
+
+Nos résultats montrent qu'on a beaucoup trop de musiques affiché sur notre site, on veut donc filtrer les musiques qu'on va afficher, en occurence par date de sortie pour afficher les musiques les plus récentes à l'utilisateur. 
+
+Pour réaliser cela nous devons indexer notre base de donnée pour réaliser une requête dans la base de donnée, du coup dans notre cas on va l'indexer en fonction de la date car on va l'afficher selon celle-ci.
+
+### Évolution de l'impact environnemental après correction
+
+Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière verion est toujours un peu plus néfaste que avant mais le résultats vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la data base, dans de prochaines versions nous améliorerons notre application pour pouvoir accèder aux 1000 musiques sans pour autant les afficher d'office.
+__Fig.10__ : Evolution de l'impact de notre app au cours des dernieres versions.
+
+Quand on regarde les résultats plus attentivement, on voit que effectivement le screen time tombe, mais aussi qu'il consomme beaucoup moins pour accèder à la base de donné grâce à notre indexation qui a amelioré l'efficacité de la BDD. Et ensuite on consomme moins de ressources en réseau car évidemment on n'affiche plus que 100 musiques au lieu de 1000.
+
+![Capture_decran_2024-11-26_172301](https://github.com/user-attachments/assets/f49948d3-9dfd-4c54-bad0-8a36616e866c)
+__Fig.11__ : Impact de la page d'acceuil avec les 100 musiques les plus récentes affichés
