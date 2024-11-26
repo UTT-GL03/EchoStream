@@ -170,3 +170,18 @@ On n'observe pas de différence dans l'utilisation du réseau via notre sécnari
 ![Capture d'écran 2024-11-19 171624](https://github.com/user-attachments/assets/db711e7e-821d-4585-abb2-68c6014e8aac)
 __Fig.8__: Résultat de notre prototype V.3 coté backend
 
+## Prototype n°4 : Fonctionnalités pour le scénario prioritaire avec filtrage des données
+
+### Passage à l'échelle
+
+Dans le cas d'una application de streaming de music, l'augmentation de données se traduit par une augmentation de musique. Le poids des musiques ne va pas changer, il y en aura juste plus. Il est cependant nécessaire d'avoir une grande liberté de choix pour être compétitifs donc une grande data base. 
+
+L'augmentation du volume de musiques semble dur d'apréhender mais il paraît assez évident que ce marché est en plein expension et qu'il ne sera pas linéaire dans les prochaines années.
+
+### Évolution de l'impact environnemental avant correction
+
+La figure 9 illustre l'impact du passage à l'échelle de 10 musiques à 1000 musiques (donc multiplier par 100 de manière arbitraire).
+On voit une grande augmentation du temps d'écran, effectivement on a qu'une seule page donc toutes les musiques sont affichés sur l'écran d'acceuil, on peut imaginer qu'il est aller scroller tout en bas de la page pour le scénario d'où le grand screen time. On observe aucun changement sur le côté client ce qui est logique. Sur le côté serveur on voir une augmentation de 250% au niveau du cpu pour traiter la data supplémentaire et aussi une augmentation pas mesurable au niveau réseau qui est aussi importante.
+
+![Capture d'écran 2024-11-26 154741](https://github.com/user-attachments/assets/e88237fa-1035-47ad-a730-3701d14fab9f)
+__Fig.9__ : Évolution de l'impact de la consultation de la page d'acceuil en passant de 10 musiques à 1000 musiques.
