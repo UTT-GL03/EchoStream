@@ -80,10 +80,19 @@ const MusicSearchApp = () => {
   const [musicDatabase, setMusicDatabase] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5984/echostream_db/_all_docs?include_docs=true')
+    fetch('http://localhost:5984/echostream_db/_find', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        selector: { release_date: { "$lt": '2024-11-27' },},
+        sort: [{ release_date: "desc" }],
+        limit: 100
+      })
+    })
       .then((response) => response.json())
       .then((data) => {
-        const musics = data.rows.map((row) => row.doc);
+        const musics = data.docs;
+        console.log(musics);
         setMusicDatabase(musics);
         })
       .catch((error) => console.error("Error fetching data:", error));
