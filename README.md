@@ -195,6 +195,7 @@ Pour réaliser cela nous devons indexer notre base de donnée pour réaliser une
 ### Évolution de l'impact environnemental après correction
 
 Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière verion est toujours un peu plus néfaste qu'avant mais le résultat vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la base de données. Dans les prochaines versions nous améliorerons notre application pour pouvoir accéder aux 1000 musiques sans pour autant les afficher (notamment en améliorant notre outil de recherche).
+
 ![Capture d'écran 2024-11-26 171712](https://github.com/user-attachments/assets/1a25ffab-8b4f-470e-9e76-fc9a650d8e80)  
 __Fig.10__ : Evolution de l'impact de notre application au cours des dernieres versions.
 
