@@ -195,6 +195,7 @@ Pour réaliser cela nous devons indexer notre base de donnée pour réaliser une
 ### Évolution de l'impact environnemental après correction
 
 Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière verion est toujours un peu plus néfaste que avant mais le résultats vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la data base, dans de prochaines versions nous améliorerons notre application pour pouvoir accèder aux 1000 musiques sans pour autant les afficher d'office.
+![Capture d'écran 2024-11-26 171712](https://github.com/user-attachments/assets/1a25ffab-8b4f-470e-9e76-fc9a650d8e80)
 __Fig.10__ : Evolution de l'impact de notre app au cours des dernieres versions.
 
 Quand on regarde les résultats plus attentivement, on voit que effectivement le screen time tombe, mais aussi qu'il consomme beaucoup moins pour accèder à la base de donné grâce à notre indexation qui a amelioré l'efficacité de la BDD. Et ensuite on consomme moins de ressources en réseau car évidemment on n'affiche plus que 100 musiques au lieu de 1000.
