@@ -44,7 +44,7 @@ Les résultats de la plateforme spotify sont différents, la stucture de la page
 2. Rechercher une musique précise
 3. Lancer l'écoute de cette musique 
 
-Resultat :  ![Capture d'écran 2024-10-15 172913](https://github.com/user-attachments/assets/3939adf0-0d86-498c-a1af-dc7b6a0e08f5)
+Resultat :  ![Capture d'écran 2024-10-15 172913](https://github.com/user-attachments/assets/3939adf0-0d86-498c-a1af-dc7b6a0e08f5)  
 (le résultat d'en bas est particulièrement désastreux, c'est le premier scénario, le site propose des vidéos et gifs par rapport à l'actualité des artistes ce qui est particulièrement couteux en ressources)
 
 
@@ -67,7 +67,7 @@ Nous avons retenu deux pages type :
 - celle avec les playlist par genre que l'utilisateur a choisi,
 - celle d'une playlist (avec les musiques dedans et les artistes de ce genre).
 
-![mockup](frontend/mockup.png)
+![mockup](frontend/mockup.png)  
 
 Pour des raisons de respect des droits d'auteurs, nous utilisons des données générées (avec dummy-json). Ces données sont générés aléatoirement et permettent d'identifier une musique, cepandant on ne peut pas générer un fichier audio donc on utilise un URL qui vient de la base de données Pixabay (voir [modele de données](frontend/sample_data.hbs)).
 
@@ -83,7 +83,7 @@ Ce scénario nécéssite de pouvoir rechercher parmi une liste de musiques et de
 
 Nous avons développer une page avec une barre de recherche et une liste de musiques de manière très simpliste.
 
-![Capture d'écran 2024-10-29 170600](https://github.com/user-attachments/assets/0fb92cfe-7919-4a54-9d5e-01a32880ede8)
+![Capture d'écran 2024-10-29 170600](https://github.com/user-attachments/assets/0fb92cfe-7919-4a54-9d5e-01a32880ede8)  
 Fig.2: Prototype de la page de recherche.
 
 Pour l'instant nous avons choisi d'utiliser la librairie lucid-react essentiellement pour sa fonction de recherche qui permet de prototyper rapidement sans se lancer dans la conception d'un algorithme de recherche. Il s'avère que cette librairie permet aussi d'ajouter des élèments graphiques pour des contrôleurs de média, fonctions qui peuvent être assurées de manière minimaliste par le html 5. 
@@ -97,7 +97,7 @@ Nous avons donc utilisé simplement l'extension chrome de GreenIT pour voir de m
 - la version dev et build du site web avec l'utilisations des balises html par défaut,
 - les mêmes versions avec l'utilisation de lucid-react pour les élèments de contrôle de média et pour la barre de recherche.
 
-![Capture d'écran 2024-10-29 172507](https://github.com/user-attachments/assets/72af5e44-4452-4b2b-a514-3b0860a3eb63)
+![Capture d'écran 2024-10-29 172507](https://github.com/user-attachments/assets/72af5e44-4452-4b2b-a514-3b0860a3eb63)  
 Fig.3: Résultat des 4 tests.
 
 Ce qu'on lit de ces résultats c'est que les versions dev du site web sont déjà assez imposantes pour le peu qu'il y a et la différence entre utliser des librairies pour le design uniquement est significative (autour de 20% de différence).
@@ -135,70 +135,70 @@ On utilisera donc GreenFrame, un outil qui permet de calculer uniquement l'impac
 
 On veut donc re-créer un échantillon d'analyse des sites concurrents pour pouvoir comparer ce qui est comparable avec le nouvel outil, voici les résultats de l'analyse simple de la première page du site :
 
-![Capture d'écran 2024-11-12 163127](https://github.com/user-attachments/assets/3124cedc-2501-43fb-b5a7-0279412c784c)
+![Capture d'écran 2024-11-12 163127](https://github.com/user-attachments/assets/3124cedc-2501-43fb-b5a7-0279412c784c)  
 __Fig.1__: Résultat de Spotify
 
-![Capture d'écran 2024-11-12 163520](https://github.com/user-attachments/assets/7ab482d9-83b9-4aa2-aaa5-be6c9949967b)
+![Capture d'écran 2024-11-12 163520](https://github.com/user-attachments/assets/7ab482d9-83b9-4aa2-aaa5-be6c9949967b)  
 __Fig.2__: Résultat de Deezer
 
-![Capture d'écran 2024-11-12 163624](https://github.com/user-attachments/assets/53d6db26-01d5-463a-8512-6e96722bcac7)
+![Capture d'écran 2024-11-12 163624](https://github.com/user-attachments/assets/53d6db26-01d5-463a-8512-6e96722bcac7)  
 __Fig.3__: Résultat de MusicMe
 
 On fait ensuite les modifications pour faire les tests à chaque push dans notre projet GreenFrame. On peut voir des résultats qui nous disent que notre site consomme très peu de ressource, essentiellement du temps d'écran, la seule fonctionnalité qui peut est celle de la recherche donc très peu de CPU utilisé. Ce sont donc des résultats très concluants par rapport aux concurrents.
 
-![Capture d'écran 2024-11-12 174747](https://github.com/user-attachments/assets/21d6b884-99e8-41fb-90a7-4bff0ccf34d5)
+![Capture d'écran 2024-11-12 174747](https://github.com/user-attachments/assets/21d6b884-99e8-41fb-90a7-4bff0ccf34d5)  
 __Fig.4__: Résultat de notre prototype V.2
 
 Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant, effectivement nous n'avons pas de streaming, ni de transformations ou calcul à faire dans le serveur qui ne fait que relayer les données qui sont stockées. Donc logiquement le seul pic de consommation est au lancement du site.
 
-![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)
+![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)  
 __Fig.5__: Résultat de notre prototype V.2 coté serveur 
 
 ## Prototype n°3 : Fonctionnalités pour le scénario prioritaire avec données stockées dans une base de données
 
 Pour la V3 de notre prototype, nous voulons que les données soient stockées dans une base de données en ligne (CouchDB). L'interêt d'une base de données dynamique est de pouvoir rajouter facilement des musiques. On pourrait même imaginer comme on le voulait un formulaire pour que les gens rajoutent eux même leur musique dans l'application.
 
-![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)
+![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)  
 __Fig.6__: Résultat de notre prototype V.2 
 
 
-![image](https://github.com/user-attachments/assets/51b8db95-6d01-458f-936b-7d6fa91f767d)
+![image](https://github.com/user-attachments/assets/51b8db95-6d01-458f-936b-7d6fa91f767d)  
 __Fig.7__: Résultat de notre prototype V.3
 
 On n'observe pas de différence dans l'utilisation du réseau via notre sécnario green frame, cela est dû au fait que dans notre scénario principal, nous récupérons toutes les musiques. Cependant pour de futurs scénarios cette base de données nous permettra de faire des requêtes spécifiques (pour ne demander qu'une seule musique par exemple, ou un seul style de musique) et ainsi de réduire le réseau utilisé. On remarque cependant une augmentation de l'usuage du CPU lié au fonctionnement de la base de donnée sur un docker. Cette modification de notre prototype a l'air à priori néfaste écologiquement mais deviendra à l'avenir une meilleure solution.
 
-![Capture d'écran 2024-11-19 171624](https://github.com/user-attachments/assets/db711e7e-821d-4585-abb2-68c6014e8aac)
+![Capture d'écran 2024-11-19 171624](https://github.com/user-attachments/assets/db711e7e-821d-4585-abb2-68c6014e8aac)  
 __Fig.8__: Résultat de notre prototype V.3 coté backend
 
 ## Prototype n°4 : Fonctionnalités pour le scénario prioritaire avec filtrage des données
 
 ### Passage à l'échelle
 
-Dans le cas d'una application de streaming de music, l'augmentation de données se traduit par une augmentation de musique. Le poids des musiques ne va pas changer, il y en aura juste plus. Il est cependant nécessaire d'avoir une grande liberté de choix pour être compétitifs donc une grande data base. 
+Dans le cas d'una application de streaming de musique, l'augmentation de données se traduit par une augmentation du nombre de musiques. Le poids des musiques ne va pas changer, il y en aura juste plus. Il est cependant nécessaire d'avoir une grande liberté de choix pour être compétitif donc une grande base de données. 
 
-L'augmentation du volume de musiques semble dur d'apréhender mais il paraît assez évident que ce marché est en plein expension et qu'il ne sera pas linéaire dans les prochaines années.
+L'augmentation du volume de musiques semble fifficile à apréhender mais il paraît assez évident que ce marché est en pleine expension et qu'il ne sera pas linéaire dans les prochaines années.
 
 ### Évolution de l'impact environnemental avant correction
 
 La figure 9 illustre l'impact du passage à l'échelle de 10 musiques à 1000 musiques (donc multiplier par 100 de manière arbitraire).
-On voit une grande augmentation du temps d'écran, effectivement on a qu'une seule page donc toutes les musiques sont affichés sur l'écran d'acceuil, on peut imaginer qu'il est aller scroller tout en bas de la page pour le scénario d'où le grand screen time. On observe aucun changement sur le côté client ce qui est logique. Sur le côté serveur on voir une augmentation de 250% au niveau du cpu pour traiter la data supplémentaire et aussi une augmentation pas mesurable au niveau réseau qui est aussi importante.
+On voit une grande augmentation du temps d'écran, effectivement on a qu'une seule page donc toutes les musiques sont affichées sur l'écran d'acceuil. On n'observe aucun changement sur le côté client ce qui est logique. Sur le côté serveur on voit une augmentation de 250% au niveau du cpu pour traiter la data supplémentaire et aussi une augmentation conséquence au niveau réseau.
 
-![Capture d'écran 2024-11-26 154741](https://github.com/user-attachments/assets/e88237fa-1035-47ad-a730-3701d14fab9f)
+![Capture d'écran 2024-11-26 154741](https://github.com/user-attachments/assets/e88237fa-1035-47ad-a730-3701d14fab9f)  
 __Fig.9__ : Évolution de l'impact de la consultation de la page d'acceuil en passant de 10 musiques à 1000 musiques.
 
 ### Prise en compte du passage à l'échelle
 
-Nos résultats montrent qu'on a beaucoup trop de musiques affiché sur notre site, on veut donc filtrer les musiques qu'on va afficher, en occurence par date de sortie pour afficher les musiques les plus récentes à l'utilisateur. 
+Nos résultats montrent qu'on a beaucoup trop de musiques affichées sur notre site, on veut donc filtrer les musiques qu'on va afficher, en l'occurence par date de sortie pour afficher les musiques les plus récentes à l'utilisateur. 
 
-Pour réaliser cela nous devons indexer notre base de donnée pour réaliser une requête dans la base de donnée, du coup dans notre cas on va l'indexer en fonction de la date car on va l'afficher selon celle-ci.
+Pour réaliser cela nous devons indexer notre base de donnée pour réaliser une requête dans la base de donnée. Du coup, dans notre cas, on va l'indexer en fonction de l'attribut release_date.
 
 ### Évolution de l'impact environnemental après correction
 
-Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière verion est toujours un peu plus néfaste que avant mais le résultats vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la data base, dans de prochaines versions nous améliorerons notre application pour pouvoir accèder aux 1000 musiques sans pour autant les afficher d'office.
-![Capture d'écran 2024-11-26 171712](https://github.com/user-attachments/assets/1a25ffab-8b4f-470e-9e76-fc9a650d8e80)
-__Fig.10__ : Evolution de l'impact de notre app au cours des dernieres versions.
+Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière verion est toujours un peu plus néfaste qu'avant mais le résultat vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la base de données. Dans les prochaines versions nous améliorerons notre application pour pouvoir accéder aux 1000 musiques sans pour autant les afficher (notamment en améliorant notre outil de recherche).
+![Capture d'écran 2024-11-26 171712](https://github.com/user-attachments/assets/1a25ffab-8b4f-470e-9e76-fc9a650d8e80)  
+__Fig.10__ : Evolution de l'impact de notre application au cours des dernieres versions.
 
-Quand on regarde les résultats plus attentivement, on voit que effectivement le screen time tombe, mais aussi qu'il consomme beaucoup moins pour accèder à la base de donné grâce à notre indexation qui a amelioré l'efficacité de la BDD. Et ensuite on consomme moins de ressources en réseau car évidemment on n'affiche plus que 100 musiques au lieu de 1000.
+Quand on regarde les résultats plus attentivement, on voit effectivement la consommation de l'écran tombe, mais aussi qu'il consomme beaucoup moins pour accéder à la base de données grâce à notre indexation qui a amelioré l'efficacité de la BDD. Et ensuite on consomme moins de ressources en réseau car évidemment on n'affiche plus que 100 musiques au lieu de 1000.
 
-![Capture_decran_2024-11-26_172301](https://github.com/user-attachments/assets/f49948d3-9dfd-4c54-bad0-8a36616e866c)
-__Fig.11__ : Impact de la page d'acceuil avec les 100 musiques les plus récentes affichés
+![Capture_decran_2024-11-26_172301](https://github.com/user-attachments/assets/f49948d3-9dfd-4c54-bad0-8a36616e866c)  
+__Fig.11__ : Impact de la page d'acceuil avec les 100 musiques les plus récentes affichées
