@@ -126,6 +126,19 @@ const MusicSearchApp = () => {
     }
   };
 
+  const groupByCategory = (songs) => {
+    return songs.reduce((acc, song) => {
+      const genre = song.genre || 'Uncategorized';
+      if (!acc[genre]) {
+        acc[genre] = [];
+      }
+      acc[genre].push(song);
+      return acc;
+    }, {});
+  };
+
+  const groupedMusic = groupByCategory(musicDatabase);
+
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-4xl mx-auto">
@@ -145,20 +158,24 @@ const MusicSearchApp = () => {
         </div>
 
         <div className="space-y-4">
-          {musicDatabase.map(song => (
-            <div 
-              key={song._id}
-              className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow"
-            >
-              <h2 className="text-xl font-semibold text-gray-800">{song.title}</h2>
-              <div className="flex justify-between mt-2 mb-4">
-                <span className="text-gray-600">{song.artist}</span>
-                <span className="text-gray-500">{song.release_date}</span>
-              </div>
-              <AudioPlayer song={song} />
+          {Object.keys(groupedMusic).map((genre) => (
+            <div key={genre}>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">{genre}</h2>
+              {groupedMusic[genre].map((song) => (
+                <div 
+                  key={song._id}
+                  className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow mb-4">
+                  <h2 className="text-xl font-semibold text-gray-800">{song.title}</h2>
+                  <div className="flex justify-between mt-2 mb-4">
+                    <span className="text-gray-600">{song.artist}</span>
+                    <span className="text-gray-500">{song.release_date}</span>
+                  </div>
+                  <AudioPlayer song={song} />
+                </div>
+              ))}
             </div>
           ))}
-          
+
           {musicDatabase.length === 0 && searchTerm && (
             <div className="text-center text-gray-500 py-8">
               No songs found matching "{searchTerm}"
