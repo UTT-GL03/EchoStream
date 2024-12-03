@@ -203,3 +203,24 @@ Quand on regarde les résultats plus attentivement, on voit effectivement la con
 
 ![Capture_decran_2024-11-26_172301](https://github.com/user-attachments/assets/f49948d3-9dfd-4c54-bad0-8a36616e866c)  
 __Fig.11__ : Impact de la page d'acceuil avec les 100 musiques les plus récentes affichées
+
+## Prototype n°5: Evolution de notre fonction recherche
+
+### Changement dans la BDD
+
+Au cours de notre dernier prototype où nous avons augmenté notre BDD, nous avons rencontré le problème suivant: avant nous affichions toute la BDD dans notre page d'accueuil et avions une fonctions de recherche depuis les titres affichés. Quand nous avons multiplié les titres, nous ne pouvions plus affiché tous les titres de la BDD car c'était beaucoup trop, mais du coup nous pouvions rechercher uniquement dans les 100 titres les plus récents affichés et non pas dans toute notre BDD.
+
+Pour résoudre ce problème nous avons pensé changé notre fonction de recherche pour que quand on tape dans la barre de recherche, l'application va envoyer une requete à la base de donnée pour trouver les titres avec le préfixe correspondant à la recherche. Cependant avant nosu avions un index en fonction de la date de sorite vu que nous affichions les titres les plus récents, or on fait une requête en fonction des titres. Donc pour optimiser la recherche on a fait un index dynamique, quand la barre de recherche est vide et donc qu'on affiche les titres les plus récents, on demande à couchDB d'utiliser un index en fonction de la date. Mais si la barre de recherche contient quelque chose, on demadne à couchDB d'utiliser un index en fonction de l'ordre alphabétique.
+
+Après analyse des résultats, ils se sont améliorés logiquement car on a pu baisser le nombre de musiques afficher à l'acceuil de 100 à 20.
+![Capture d'écran 2024-12-03 161220](https://github.com/user-attachments/assets/ef603576-261f-4c29-b36c-8ca9d9eec102)
+__Fig.12__ : Impact de la page d'acceuil avec la nouvelle fonction recherche
+
+### Changement de l'alogorithme et analyse green IT
+
+Après réflexion sur notre algorithme actuelle, il fait une recherche à chaque fois qu'on tape dans la barre de recherche, ce qui créer plein de requêtes qui peuvent être considére inutile. On a donc changé pour faire la requête uniquement quand on appuie sur entrée. Cependant l'impact de ce changement ne peut pas vraiment être vu grâce a greenFrame, on a donc utiliser greenIt extension pour voir la différence entre les deux versions.
+![image](https://github.com/user-attachments/assets/a7f9b2e0-fd63-40a6-8db9-4b63894c413a)
+__Fig.13__ : Impact d'une recherche de musique avant
+
+![image](https://github.com/user-attachments/assets/a982d2a4-9ad0-4e6b-bc9a-e5cafb90bba6)
+__Fig.14__ : Impact d'une recherche de musique après
