@@ -235,6 +235,13 @@ Initialement, nous souhaitions proposer à l'utilisateur une musique sélectionn
 Le résultat avec GreenFrame est quasiment identique au précédent.
 
 ![greenframe ajout de musique aléatoire](https://github.com/user-attachments/assets/d4b8adff-4d28-4bb3-9a2e-e0d3eadb4172)
-__Fig.14__ : Impact GreenFrame de la page d'accueil après changement
+__Fig.15__ : Impact GreenFrame de la page d'accueil avec proposition d'une musique aléatoirement
+
+### Groupement des musiques par genre
+
+Le deuxième ajout dans la page d'accueil est l'affichage ordonné de ces dernières. En effet actuellement elles sont uniquement triées par date. Cependant pour que l'utilisateur puisse mieux se repérer, il nous semble important de grouper les musiques du même genre ensemble. Nous avons groupés les musiques dans le frontend car ajouter un index pour faire le tri par genre avait un impact très négatif lorsque nous avons tester avec mango. Nous avons priorisé le tri par les titres avec mango. L'impact est visible mais très faible et négligeable
+
+![greenframe groupement par genre](https://github.com/user-attachments/assets/93f1766e-bba2-4d62-8123-221f2c56add3)
+__Fig.16__ : Impact GreenFrame de la page d'accueil après groupement par genre des musiques
 
 
