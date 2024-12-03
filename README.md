@@ -221,7 +221,20 @@ __Fig.12__ : Impact de la page d'acceuil avec la nouvelle fonction de recherche.
 
 Notre algorithme actuel fait une recherche à chaque fois qu'on tape dans la barre de recherche, ce qui peut vite être contraignant car il fait pleins de requêtes qui peuvent être considérées inutiles. On a donc modifié la recherche pour ne faire la requête que lorsque l'utilisateur appuie sur entrée. Cependant l'impact de ce changement ne peut pas vraiment être vu grâce a greenFrame, on a donc utilisé l'extension greenIT pour voir la différence entre les deux versions.
 ![image](https://github.com/user-attachments/assets/a7f9b2e0-fd63-40a6-8db9-4b63894c413a)
+
 __Fig.13__ : Impact d'une recherche de musique avant changement
 
 ![image](https://github.com/user-attachments/assets/a982d2a4-9ad0-4e6b-bc9a-e5cafb90bba6)
 __Fig.14__ : Impact d'une recherche de musique après changement
+
+## Prototype n°6: Ajout de fonctionnalités sur la page d'accueil
+
+### Proposition d'une musique aléatoire
+
+Initialement, nous souhaitions proposer à l'utilisateur une musique sélectionnée aléatoirement parmi les musiques sorties récemment. Nous avons donc ajouter cette fonctionnalité dans le footer de notre page web. Parmi les 20 musiques les plus récentes retournées par la première requête à la BDD, une est sélectionnée aléatoirement et affichée en bas de la page. Ainsi, si l'utilisateur a du mal à se décider sur la musique qu'il souhaite écouter, il peut utiliser cette fonctionnalité.
+Le résultat avec GreenFrame est quasiment identique au précédent.
+
+![greenframe ajout de musique aléatoire](https://github.com/user-attachments/assets/d4b8adff-4d28-4bb3-9a2e-e0d3eadb4172)
+__Fig.14__ : Impact GreenFrame de la page d'accueil après changement
+
+
