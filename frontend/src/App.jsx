@@ -78,11 +78,12 @@ const AudioPlayer = ({ song }) => {
 const MusicSearchApp = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [musicDatabase, setMusicDatabase] = useState([]);
+  const [finalSearchTerm, setFinalSearchTerm] = useState('');
 
   useEffect(() => {
     let body;
 
-    if (searchTerm === '') {
+    if (finalSearchTerm === '') {
       body = JSON.stringify({
         selector: {
           release_date: { "$lt": "2024-12-03" }
@@ -94,8 +95,8 @@ const MusicSearchApp = () => {
       body = JSON.stringify({
         selector: {
           title: {
-            "$gte": searchTerm.toLowerCase(),
-            "$lte": searchTerm.toLowerCase() + "\ufff0"
+            "$gte": finalSearchTerm.toLowerCase(),
+            "$lte": finalSearchTerm.toLowerCase() + "\ufff0"
           }
         },
         limit: 20
@@ -110,11 +111,15 @@ const MusicSearchApp = () => {
       .then((data) => {
         const musics = data.docs;
         setMusicDatabase(musics);
-        })
+      })
       .catch((error) => console.error("Error fetching data:", error));
-  }, [searchTerm]);
+  }, [finalSearchTerm]);
 
-  const filteredMusic = musicDatabase;
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      setFinalSearchTerm(searchTerm);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
@@ -129,13 +134,13 @@ const MusicSearchApp = () => {
             placeholder="Search for songs or artists..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
             className="w-full p-4 pr-12 rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
           />
-          <Search className="absolute right-4 top-4 text-gray-400" size={24} />
         </div>
 
         <div className="space-y-4">
-          {filteredMusic.map(song => (
+          {musicDatabase.map(song => (
             <div 
               key={song._id}
               className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow"
@@ -149,7 +154,7 @@ const MusicSearchApp = () => {
             </div>
           ))}
           
-          {filteredMusic.length === 0 && searchTerm && (
+          {musicDatabase.length === 0 && searchTerm && (
             <div className="text-center text-gray-500 py-8">
               No songs found matching "{searchTerm}"
             </div>
