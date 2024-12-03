@@ -1,0 +1,9 @@
+{
+  "index": {
+    "fields": [
+        {"title": "desc"}
+    ]
+  },
+  "name": "by_title",
+  "type": "json"
+}

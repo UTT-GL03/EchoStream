@@ -80,28 +80,41 @@ const MusicSearchApp = () => {
   const [musicDatabase, setMusicDatabase] = useState([]);
 
   useEffect(() => {
+    let body;
+
+    if (searchTerm === '') {
+      body = JSON.stringify({
+        selector: {
+          release_date: { "$lt": "2024-12-03" }
+        },
+        sort: [{ release_date: "desc" }],
+        limit: 20
+      });
+    } else {
+      body = JSON.stringify({
+        selector: {
+          title: {
+            "$gte": searchTerm.toLowerCase(),
+            "$lte": searchTerm.toLowerCase() + "\ufff0"
+          }
+        },
+        limit: 20
+      });
+    }
     fetch('http://localhost:5984/echostream_db/_find', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        selector: { release_date: { "$lt": '2024-11-27' },},
-        sort: [{ release_date: "desc" }],
-        limit: 100
-      })
+      body: body
     })
       .then((response) => response.json())
       .then((data) => {
         const musics = data.docs;
-        console.log(musics);
         setMusicDatabase(musics);
         })
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  }, [searchTerm]);
 
-  const filteredMusic = musicDatabase.filter(song =>
-    song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    song.artist.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredMusic = musicDatabase;
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
