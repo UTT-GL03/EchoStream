@@ -79,6 +79,7 @@ const MusicSearchApp = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [musicDatabase, setMusicDatabase] = useState([]);
   const [finalSearchTerm, setFinalSearchTerm] = useState('');
+  const [randomSong, setRandomSong] = useState(null);
 
   useEffect(() => {
     let body;
@@ -111,6 +112,10 @@ const MusicSearchApp = () => {
       .then((data) => {
         const musics = data.docs;
         setMusicDatabase(musics);
+        if (!randomSong && musics.length > 0) {
+          const randomIndex = Math.floor(Math.random() * musics.length);
+          setRandomSong(musics[randomIndex]);
+        }
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, [finalSearchTerm]);
@@ -161,6 +166,16 @@ const MusicSearchApp = () => {
           )}
         </div>
       </div>
+
+      {randomSong && (
+        <footer className="fixed bottom-0 left-0 w-full p-4 text-center">
+          <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+            <h2 className="text-lg font-semibold text-gray-800">Musique à découvrir !</h2>
+            <p className="text-gray-600">{randomSong.title} - {randomSong.artist}</p>
+            <AudioPlayer song={randomSong} />
+          </div>
+        </footer>
+      )}
     </div>
   );
 };
