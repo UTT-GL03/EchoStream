@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import AudioPlayer from './AudioPlayer';
+import PlayerBar from './PlayerBar';
 
 const CategoryPage = () => {
   const { genre } = useParams();
   const [musicList, setMusicList] = useState([]);
   const [artistList, setArtistList] = useState([]);
+  const [randomSong, setRandomSong] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:5984/echostream_db/_find', {
@@ -22,6 +24,10 @@ const CategoryPage = () => {
         setMusicList(musicData);
         const uniqueArtists = [...new Set(musicData.map(song => song.artist))];
         setArtistList(uniqueArtists);
+        if (!randomSong && musicData.length > 0) {
+          const randomIndex = Math.floor(Math.random() * musicData.length);
+          setRandomSong(musicData[randomIndex]);
+        }
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, [genre]);
@@ -71,6 +77,7 @@ const CategoryPage = () => {
           </div>
         </div>
       </div>
+      <PlayerBar randomSong={randomSong}/>
     </div>
   );
 };
