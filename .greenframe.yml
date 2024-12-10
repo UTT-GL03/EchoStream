@@ -3,6 +3,8 @@ projectName: EchoStream
 scenarios:
     - path: ./benchmarks/scenario1.js
       name: Consulter les musiques
+    - path: ./benchmarks/scenario2.js
+      name: Consulter une catégorie
 containers:
   - echostream-static_hosting-1
   - echostream-backend-1
