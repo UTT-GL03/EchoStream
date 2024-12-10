@@ -1,0 +1,9 @@
+{
+  "index": {
+    "fields": [
+        {"genre": "desc"}
+    ]
+  },
+  "name": "by_genre",
+  "type": "json"
+}

@@ -69,3 +69,14 @@ services:
     depends_on:
       accessible_backend:
         condition: service_completed_successfully
+  index_by_genre:
+    image: curlimages/curl
+    entrypoint: ["/bin/sh","-c"]
+    volumes:
+      - ./backend/by_genre.json:/by_genre.json
+    command:
+      - |
+        curl -X POST http://backend:5984/echostream_db/_index -H "Content-Type: application/json" -d @/by_genre.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
+    depends_on:
+      accessible_backend:
+        condition: service_completed_successfully
