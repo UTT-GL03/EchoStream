@@ -244,4 +244,14 @@ Le deuxième ajout dans la page d'accueil est l'affichage ordonné de ces derni�
 ![greenframe groupement par genre](https://github.com/user-attachments/assets/93f1766e-bba2-4d62-8123-221f2c56add3)
 __Fig.16__ : Impact GreenFrame de la page d'accueil après groupement par genre des musiques
 
+## Prototype n°7: Ajout d'une deuxième page comme prévu dans le mock-up
 
+Nous avons donc ajouté une deuxième comme dans le mock-up initiale, celle-ci permet d'encorager l'utilisateur d'écouter des musiques dans son genre et donc de limiter l'effet rebond discuter en début de projet.
+
+La page consiste à afficher une liste des musiques liée au genre sur lequelle l'utilisateur a cliqué dessus et aussi une liste des artistes qui sont liée à ce genre.
+Pour cela on a d'abord repris notre code existant pour séparer en pluisieurs component notre code car pour le moment c'est juste un gros bloc. Cela nosu permettra de réutliser le design et les fonctionnalités existantes dans la nouvelle page ou de futures pages. Alors étonnament après cela nous avons eu une légère amélioration sur les résultats de greenFrame, mais après s'être questionné dessus, on est partis du principe que c'était plus une incertitude de mesure qu'autre chose et donc d'ignoré ce résultat qui ne change pas grand chose.
+
+Nous avons utilisé React routeur pour gérer nos pluisieurs pages, on a indexé notre base de donnée sur les genres pour la novelle page puisqu'on ne garde pas la fonction de recherche dans celle-ci, et on a créer un nouveau scénario GreenFrame pour tester la nouvelle page. Une fois la page réalisé les résultats greenFrame nous montrent que le score générale du site à doubler parce que il ajoute le résultat des deux scénarios mais en réalité la nouvelle page est du même niveau que la première, même un peu moins, la différence semble être le temps d'écran donc ça ne veut rien dire, la deuxième page est tout à fait acceptable en terme de consommation énergétique.
+
+![Capture d'écran 2024-12-10 171229](https://github.com/user-attachments/assets/7f1e63ef-a99e-484c-9467-2592f5f40ab5)
+__Fig.17__ : Impact GreenFrame après ajout de la deuxième page
