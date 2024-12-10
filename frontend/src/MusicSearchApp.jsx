@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import AudioPlayer from './AudioPlayer';
+import { Link } from 'react-router-dom';
 
 const MusicSearchApp = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -85,30 +86,38 @@ const MusicSearchApp = () => {
         </div>
 
         <div className="space-y-4">
-          {Object.keys(groupedMusic).map((genre) => (
-            <div key={genre}>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">{genre}</h2>
-              {groupedMusic[genre].map((song) => (
-                <div 
-                  key={song._id}
-                  className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow mb-4">
-                  <h2 className="text-xl font-semibold text-gray-800">{song.title}</h2>
-                  <div className="flex justify-between mt-2 mb-4">
-                    <span className="text-gray-600">{song.artist}</span>
-                    <span className="text-gray-500">{song.release_date}</span>
-                  </div>
-                  <AudioPlayer song={song} />
+            {Object.keys(groupedMusic).map((genre) => (
+                <div key={genre}>
+                {/* Ajout d'un lien pour la catégorie */}
+                <Link
+                    to={`/category/${genre}`}
+                    className="text-2xl font-semibold text-blue-600 hover:underline mb-4"
+                >
+                    {genre}
+                </Link>
+                {groupedMusic[genre].map((song) => (
+                    <div
+                    key={song._id}
+                    className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow mb-4"
+                    >
+                    <h2 className="text-xl font-semibold text-gray-800">{song.title}</h2>
+                    <div className="flex justify-between mt-2 mb-4">
+                        <span className="text-gray-600">{song.artist}</span>
+                        <span className="text-gray-500">{song.release_date}</span>
+                    </div>
+                    <AudioPlayer song={song} />
+                    </div>
+                ))}
                 </div>
-              ))}
-            </div>
-          ))}
+            ))}
 
-          {musicDatabase.length === 0 && searchTerm && (
-            <div className="text-center text-gray-500 py-8">
-              No songs found matching "{searchTerm}"
-            </div>
-          )}
+            {musicDatabase.length === 0 && searchTerm && (
+                <div className="text-center text-gray-500 py-8">
+                No songs found matching "{searchTerm}"
+                </div>
+            )}
         </div>
+
       </div>
 
       {randomSong && (
