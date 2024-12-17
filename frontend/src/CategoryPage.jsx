@@ -56,7 +56,7 @@ const CategoryPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto" style={{ paddingBottom: '100px' }}>
         <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">
           {genre} Category
         </h1>

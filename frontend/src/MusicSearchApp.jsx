@@ -70,7 +70,7 @@ const MusicSearchApp = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto" style={{ paddingBottom: '100px' }}>
         <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">
           EchoStream
         </h1>
@@ -89,7 +89,6 @@ const MusicSearchApp = () => {
         <div className="space-y-4">
             {Object.keys(groupedMusic).map((genre) => (
                 <div key={genre}>
-                {/* Ajout d'un lien pour la catégorie */}
                 <Link
                     to={`/category/${genre}`}
                     className="text-2xl font-semibold text-blue-600 hover:underline mb-4"
