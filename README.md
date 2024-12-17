@@ -258,3 +258,11 @@ __Fig.17__ : Impact GreenFrame de la page principale après modufications
 
 ![Capture d'écran 2024-12-10 172051](https://github.com/user-attachments/assets/ae4c7661-c0ad-4a0a-b05f-f4b44bbc64fe)
 __Fig.18__ : Impact GreenFrame de la page pour une catégorie
+
+## Prototype n°8: Fonctionnalités mineures et refactor
+
+Nous nous sommes rendus compte qu'un attribut dans nos données n'était jamais utilisé. Il s'agit de l'attribut "duration" supposé définir la durée d'une musique. Or la durée d'une musique est déjà définie par le ficheir mp3 charcgé par l'utilisateur lorsqu'il lance l'écoute de la musique. Nous avons donc décidé de supprimer cet attribut pour faire des économies d'énergie principalement du côté du CPU.
+En effet après ce changement, nous avons le résultat anticipé, une baisse non négligeable de la consommation du CPU.
+
+![image](https://github.com/user-attachments/assets/54629036-8b7c-41ff-aead-d34c5729ad08)  
+__Fig.19__ : Impact GreenFrame après suppression de l'attribut "duration"
