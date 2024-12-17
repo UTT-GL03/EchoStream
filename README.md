@@ -273,3 +273,7 @@ __Fig.19__ : Impact GreenFrame après suppression de l'attribut "duration"
 
 Nous avons encuite corrigé un bug dans notre application sur le bouton permettant de couuper le son d'une musique. Ce dernier ne fonctionnait qu'une fois la musique chargée. Il ne s'agit que d'un simple refactor du code qui n'a eu aucun impact sur nos scénarios GreenFrame
 
+### Changement de la page catégorie
+
+Notre page de catégorie est censé afficher toutes les musiques de ce style, cepandant par soucis d'économie d'énergie on ne peut pas afficher toutes les musiques disponibles car sinon la consommation de l'écran est trop grande, et la consommation réseau est aussi trop grande.
+Pour le moment notre page n'affiche que les 10 premières musiques et les artistes liée à ces 10 musiques, on a donc ajouté une fonctionnalité pour pouvoir demander de charcher plus de musiques à afficher de la base de donnée. Au début on faisait une grande requête avec toutes les musiques de la base de donnée et on en affichait qe 10 par 10, cepandant cela n'est très optimisé comme requête. On a donc changé et utilisé le bookmark que donne la réponse de couchDB, celle-ci permet de dans notre cas, faire une requête de 10 musiques, et quand on appuie sur le bouton pour charger plus de musique, il va faire une nouvelle requette en reprennant le bookmark donné par la première réponse, et couchDB va reprendre la requete là il s'était arrêté, donc il va nous donner de la 11ème musique à la 20ème.
