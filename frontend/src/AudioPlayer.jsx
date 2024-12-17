@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import './App.css';
 
@@ -8,11 +8,18 @@ const AudioPlayer = ({ song }) => {
   const [progress, setProgress] = useState(0);
   const [audioSrc, setAudioSrc] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const audioRef = useRef(null);
+  const audioRef = useRef(new Audio());
+
+  useEffect(() => {
+    audioRef.current.muted = isMuted;
+  }, [isMuted]);
 
   const togglePlay = () => {
     if (!audioSrc) {
       setAudioSrc(song.audioUrl);
+      audioRef.current.src = song.audioUrl;
+      audioRef.current.play();
+      setIsPlaying(true);
     } else if (isLoaded) {
       if (isPlaying) {
         audioRef.current.pause();
@@ -24,10 +31,8 @@ const AudioPlayer = ({ song }) => {
   };
 
   const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
+    audioRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
   };
 
   const handleTimeUpdate = () => {
@@ -39,8 +44,11 @@ const AudioPlayer = ({ song }) => {
 
   const handleCanPlay = () => {
     setIsLoaded(true);
-    audioRef.current.play();
-    setIsPlaying(true);
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setProgress(0);
   };
 
   return (
@@ -48,10 +56,10 @@ const AudioPlayer = ({ song }) => {
       <button onClick={togglePlay} className="p-2 rounded-full hover:bg-gray-100">
         {isPlaying ? <Pause size={20} /> : <Play size={20} />}
       </button>
-      
+
       <div className="flex-1">
         <div className="bg-gray-200 h-2 rounded-full">
-          <div 
+          <div
             className="bg-blue-500 h-2 rounded-full"
             style={{ width: `${progress}%` }}
           />
@@ -62,15 +70,12 @@ const AudioPlayer = ({ song }) => {
         {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
       </button>
 
-      {audioSrc && (
-        <audio
-          ref={audioRef}
-          src={audioSrc}
-          onTimeUpdate={handleTimeUpdate}
-          onCanPlay={handleCanPlay}
-          onEnded={() => setIsPlaying(false)}
-        />
-      )}
+      <audio
+        ref={audioRef}
+        onTimeUpdate={handleTimeUpdate}
+        onCanPlay={handleCanPlay}
+        onEnded={handleEnded}
+      />
     </div>
   );
 };
