@@ -29,7 +29,7 @@ Il est essentiel de réfléchir à des fonctionnalités plus essentielles (en se
 ### Résultat
 Pour tester les scénarios sur les sites de streaming en ligne. Nous avons dû ajouter une étape "accepter les cookies" dans notre scénario afin de le faire fonctionner.
 Nous avons utilisé l'outil GreenIT en ligne de commandes pour les services Deezer et MusicMe, qui nous permet de scripter et tester nos scénarios.
-Les résultats de la platforme Deezer et Musicme : [Voir la preview du fichier HTML](https://utt-gl03.github.io/EchoStream/benchmarks/scenario1/benchmark.html)
+Les résultats de la platforme Deezer et Musicme : [Voir le résultat](https://utt-gl03.github.io/EchoStream/benchmarks/scenario1/benchmark.html)
 
 Les résultats de la plateforme Spotify sont différents, la stucture de la page fait que nous ne pouvons pas utiliser la version en ligne de commandes de GreenIT. Nous avons donc utilisé l'extension chrome GreenIT et changer le scénario car il fallait absolument créer un compte pour écouter de la musique. Pour utiliser cet outil nous allons nous même suivre notre scénario et faire une analyse à la fin de toutes les requêtes qui  ont été effectuées.
 
@@ -104,7 +104,7 @@ Au final on se sait pas encore toutes les fonctionnalités qu'on utilisera ou n'
 
 Nous pouvons donc éxecuter notre scénario principal et voir l'impact de l'utilisation de notre site comparé à nos concurrents :
 
-[Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/scenario2/EchoStream.html)
+[Voir le résultat](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/scenario2/EchoStream.html)
 
 On remarque évidemment que notre application est très loin de l'impact des services de streaming existants. Cela est tout à fait logique car nous avons bien moins de fonctionnalités et une base de données infiniment plus petite. Cependant nous avons bel et bien notre fonctionnalité principale qui consiste à écoute de la musique.
 
@@ -115,19 +115,19 @@ On remarque évidemment que notre application est très loin de l'impact des ser
 Dans cette seconde version du prototype, les données sont désormais chargées dynamiquement par le frontend.
 En utilisant le même scénario qu'avec la première version du prototype, nous n'avons qu'une seule requête supplémentaire par page consultée.
 
-[Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2/EchoStream.html)
+[Voir le résultat](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2/EchoStream.html)
 
 ### Optimisation du nombre de requêtes
 
 Nous nous sommes rendus compte qu'une requête était faite pour chaque musique lorsque nous chargions la mage pour charger le fichier mp3.
-Nous avons donc modifié notre application pour ne charger le fichier mp3 que lorsque nous lançons la musqique. Nous perdons quelques informations non nécessaires comme la durée de la musique mais nous gagnons un nombre important de requête.
+Nous avons donc modifié notre application pour ne charger le fichier mp3 que lorsque nous lançons la musqique. Nous perdons quelques informations non nécessaires comme la durée de la musique mais le nombre de requêtes a fortement diminué, ce qui très positif.
 
-[Voir la preview du fichier html](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2_optiRequetes/EchoStream.html)
+[Voir le résultat](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2_optiRequetes/EchoStream.html)
 
 ### Changement de l'outil d'analyse
 
-Après avoir discuté de la méthode de calcul qu'utilise GreenIT, nous nous sommes demandés si cette manière de calculer était vraiment pertinente ? En résumé GreenIT vise à calculer l'impact global de l'utilisation d'un site internet, que ce soit l'impact de l'achat ou la production du téléphone utilisé, l'alimentation des serveurs, la construction duréseau, etc. Au final même si l'outil est pratique et permet de se rendre compte des impacts des utilisations de la technologie, il ne nous aide pas vraiment à voir l'impact strictement lié à l'utilisation de notre site. 
-On utilisera donc GreenFrame, un outil qui permet de calculer uniquement l'impact énergétique lié à l'utilisation de notre application web.
+Après avoir discuté de la méthode de calcul qu'utilise GreenIT, nous avons décidé d'utilisé une autre méthode afin de calculer l'impact de notre application. En effet GreenIT vise à calculer l'impact global de l'utilisation d'un site internet, que ce soit l'impact de l'achat ou la production du téléphone utilisé, l'alimentation des serveurs, la construction duréseau, etc. Cependant dans notre cas nous souhaitons plutôt connaître l'impact strictement lié à l'utilisation de notre site. 
+Dans la suite du projet, nous utiliserons donc GreenFrame, un outil qui permet de calculer uniquement l'impact énergétique lié à l'utilisation de notre application web.
 
 On veut donc re-créer un échantillon d'analyse des sites concurrents pour pouvoir comparer ce qui est comparable avec le nouvel outil, voici les résultats de l'analyse simple de la première page du site :
 
@@ -140,12 +140,16 @@ __Fig.2__: Résultat de Deezer
 ![Capture d'écran 2024-11-12 163624](https://github.com/user-attachments/assets/53d6db26-01d5-463a-8512-6e96722bcac7)  
 __Fig.3__: Résultat de MusicMe
 
-On fait ensuite les modifications pour faire les tests à chaque push dans notre projet GreenFrame. On peut voir des résultats qui nous disent que notre site consomme très peu de ressource, essentiellement du temps d'écran, la seule fonctionnalité qui peut est celle de la recherche donc très peu de CPU utilisé. Ce sont donc des résultats très concluants par rapport aux concurrents.
+On remarque ici une consommation très élevée au niveau du CPU, du réseau et de l'écran. Cependant, les impacts de la mémoire et du disque sont quasiment nuls.
+
+On fait ensuite les modifications pour faire les tests de GreenFrame automatiquement à chaque fois que l'on modifie notre dépôt de projet GitHub. On peut voir des résultats qui nous disent que notre site consomme très peu de ressource, essentiellement du temps d'écran, la seule fonctionnalité qui a un impact significatif est celle de la recherche donc très peu de CPU utilisé. Ce sont donc des résultats très concluants par rapport aux concurrents.
+
+Ce qui fait que nos résultats sont bien meilleurs est le fait que nous nous sommes concentrées sur la fonctionnalité essentielle de l'écoute de la musique, et non sur des fonctionnalités superflues.
 
 ![Capture d'écran 2024-11-12 174747](https://github.com/user-attachments/assets/21d6b884-99e8-41fb-90a7-4bff0ccf34d5)  
 __Fig.4__: Résultat de notre prototype V.2
 
-Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant, effectivement nous n'avons pas de streaming, ni de transformations ou calcul à faire dans le serveur qui ne fait que relayer les données qui sont stockées. Donc logiquement le seul pic de consommation est au lancement du site.
+Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant. En effet cela est en partie dû au fait que nous avons décider de charger directement le fichier mp3 au complet. Bien qu'avaoir un système de streaming permet de limiter l'impact, ce n'est pas pour les fichiers audio que cela est le plus impactant car un fichier audio n'est pas particulièrement grand. Nous n'avons pas non plus de transformations ou calcul à faire dans le serveur qui ne fait que relayer les données qui sont stockées. Donc logiquement le seul pic de consommation est au lancement du site.
 
 ![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)  
 __Fig.5__: Résultat de notre prototype V.2 coté serveur 
