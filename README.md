@@ -144,28 +144,27 @@ On remarque ici une consommation très élevée au niveau du CPU, du réseau et 
 
 On fait ensuite les modifications pour faire les tests de GreenFrame automatiquement à chaque fois que l'on modifie notre dépôt de projet GitHub. On peut voir des résultats qui nous disent que notre site consomme très peu de ressource, essentiellement du temps d'écran, la seule fonctionnalité qui a un impact significatif est celle de la recherche donc très peu de CPU utilisé. Ce sont donc des résultats très concluants par rapport aux concurrents.
 
-Ce qui fait que nos résultats sont bien meilleurs est le fait que nous nous sommes concentrées sur la fonctionnalité essentielle de l'écoute de la musique, et non sur des fonctionnalités superflues.
+Ce qui fait que nos résultats sont bien meilleurs est le fait que nous nous sommes concentrés sur la fonctionnalité essentielle de l'écoute de la musique, et non sur des fonctionnalités superflues. En réalité presque la totalité de notre impact vient de l'écran. On se rend donc ici bien compte que l'affichage des informations est la première barrière à une application écologique.
 
 ![Capture d'écran 2024-11-12 174747](https://github.com/user-attachments/assets/21d6b884-99e8-41fb-90a7-4bff0ccf34d5)  
 __Fig.4__: Résultat de notre prototype V.2
 
-Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant. En effet cela est en partie dû au fait que nous avons décider de charger directement le fichier mp3 au complet. Bien qu'avaoir un système de streaming permet de limiter l'impact, ce n'est pas pour les fichiers audio que cela est le plus impactant car un fichier audio n'est pas particulièrement grand. Nous n'avons pas non plus de transformations ou calcul à faire dans le serveur qui ne fait que relayer les données qui sont stockées. Donc logiquement le seul pic de consommation est au lancement du site.
+Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant. En effet cela est en partie dû au fait que nous avons décider de charger directement le fichier mp3 au complet. Bien qu'avoir un système de streaming permet de limiter l'impact, ce n'est pas pour les fichiers audio que cela est le plus impactant car un fichier audio n'est pas particulièrement volumineux (contrairement à un film par exemple). L'essentiel est surtout de ne pas charger le fichier tant que le musique n'est pas lue. Nous n'avons pas non plus de transformations ou calcul à faire dans le serveur qui ne fait que relayer les données qui sont stockées. Donc logiquement le seul pic de consommation est au lancement du site.
+
+![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)  
+__Fig.6__: Résultat de notre prototype V.2 
 
 ![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)  
 __Fig.5__: Résultat de notre prototype V.2 coté serveur 
 
 ## Prototype n°3 : Fonctionnalités pour le scénario prioritaire avec données stockées dans une base de données
 
-Pour la V3 de notre prototype, nous voulons que les données soient stockées dans une base de données en ligne (CouchDB). L'interêt d'une base de données dynamique est de pouvoir rajouter facilement des musiques. On pourrait même imaginer comme on le voulait un formulaire pour que les gens rajoutent eux même leur musique dans l'application.
-
-![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)  
-__Fig.6__: Résultat de notre prototype V.2 
-
+Pour la 3ème version de notre prototype, nous voulons que les données soient stockées dans une base de données en ligne (CouchDB). L'interêt d'une base de données dynamique est de pouvoir rajouter facilement des musiques.
 
 ![image](https://github.com/user-attachments/assets/51b8db95-6d01-458f-936b-7d6fa91f767d)  
 __Fig.7__: Résultat de notre prototype V.3
 
-On n'observe pas de différence dans l'utilisation du réseau via notre sécnario green frame, cela est dû au fait que dans notre scénario principal, nous récupérons toutes les musiques. Cependant pour de futurs scénarios cette base de données nous permettra de faire des requêtes spécifiques (pour ne demander qu'une seule musique par exemple, ou un seul style de musique) et ainsi de réduire le réseau utilisé. On remarque cependant une augmentation de l'usuage du CPU lié au fonctionnement de la base de donnée sur un docker. Cette modification de notre prototype a l'air à priori néfaste écologiquement mais deviendra à l'avenir une meilleure solution.
+On n'observe pas de différence dans l'utilisation du réseau via notre scénario GreenFrame, cela est dû au fait que dans notre scénario principal, nous récupérons toutes les musiques. Cependant pour de futurs scénarios cette base de données nous permettra de faire des requêtes spécifiques (pour ne demander qu'une seule musique par exemple, ou un seul style de musique) et ainsi de réduire le réseau utilisé. On remarque cependant une augmentation de l'usuage du CPU lié au fonctionnement de la base de données sur un docker. Cette modification de notre prototype a l'air à priori néfaste écologiquement mais deviendra à l'avenir une meilleure solution.
 
 ![Capture d'écran 2024-11-19 171624](https://github.com/user-attachments/assets/db711e7e-821d-4585-abb2-68c6014e8aac)  
 __Fig.8__: Résultat de notre prototype V.3 coté backend
@@ -174,52 +173,52 @@ __Fig.8__: Résultat de notre prototype V.3 coté backend
 
 ### Passage à l'échelle
 
-Dans le cas d'una application de streaming de musique, l'augmentation de données se traduit par une augmentation du nombre de musiques. Le poids des musiques ne va pas changer, il y en aura juste plus. Il est cependant nécessaire d'avoir une grande liberté de choix pour être compétitif donc une grande base de données. 
+Dans le cas d'une application de streaming de musique, l'augmentation de données se traduit par une augmentation du nombre de musiques. Le poids des musiques ne va pas changer, il y en aura juste plus. Il est cependant nécessaire d'avoir une grande liberté de choix pour être compétitif donc une grande base de données. 
 
-L'augmentation du volume de musiques semble fifficile à apréhender mais il paraît assez évident que ce marché est en pleine expension et qu'il ne sera pas linéaire dans les prochaines années.
+L'augmentation du volume de musiques semble difficile à apréhender mais il paraît assez évident que ce marché est en pleine expension et qu'il ne sera pas linéaire dans les prochaines années.
 
 ### Évolution de l'impact environnemental avant correction
 
 La figure 9 illustre l'impact du passage à l'échelle de 10 musiques à 1000 musiques (donc multiplier par 100 de manière arbitraire).
-On voit une grande augmentation du temps d'écran, effectivement on a qu'une seule page donc toutes les musiques sont affichées sur l'écran d'acceuil. On n'observe aucun changement sur le côté client ce qui est logique. Sur le côté serveur on voit une augmentation de 250% au niveau du cpu pour traiter la data supplémentaire et aussi une augmentation conséquence au niveau réseau.
+On voit une grande augmentation de l'impact de l'écran, effectivement on a qu'une seule page donc toutes les musiques sont affichées sur l'écran d'accueil. On n'observe aucun changement sur le côté client ce qui est logique. Sur le côté serveur on voit une augmentation de 250% au niveau du CPU pour traiter les données supplémentaires et aussi une augmentation conséquente au niveau réseau.
 
 ![Capture d'écran 2024-11-26 154741](https://github.com/user-attachments/assets/e88237fa-1035-47ad-a730-3701d14fab9f)  
-__Fig.9__ : Évolution de l'impact de la consultation de la page d'acceuil en passant de 10 musiques à 1000 musiques.
+__Fig.9__ : Évolution de l'impact de la consultation de la page d'accueil en passant de 10 musiques à 1000 musiques.
 
 ### Prise en compte du passage à l'échelle
 
 Nos résultats montrent qu'on a beaucoup trop de musiques affichées sur notre site, on veut donc filtrer les musiques qu'on va afficher, en l'occurence par date de sortie pour afficher les musiques les plus récentes à l'utilisateur. 
 
-Pour réaliser cela nous devons indexer notre base de donnée pour réaliser une requête dans la base de donnée. Du coup, dans notre cas, on va l'indexer en fonction de l'attribut release_date.
+Pour réaliser cela nous devons indexer notre base de données pour réaliser une requête dans la base de données. Du coup, dans notre cas, on va l'indexer en fonction de l'attribut release_date. Cet attribut va permettre d'avoir les musiques les plus récentes en premier, ce qui correspond à ce qui est généralement attendu dans une application de musiques. En ajoutant l'index sur cet attribut, nous pourrons ordonner efficacement les musiques par date de sortie.
 
 ### Évolution de l'impact environnemental après correction
 
-Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière verion est toujours un peu plus néfaste qu'avant mais le résultat vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la base de données. Dans les prochaines versions nous améliorerons notre application pour pouvoir accéder aux 1000 musiques sans pour autant les afficher (notamment en améliorant notre outil de recherche).
+Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière version est toujours un peu plus néfaste qu'avant mais le résultat vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la base de données. Dans les prochaines versions nous améliorerons notre application pour pouvoir accéder aux 1000 musiques sans pour autant les afficher (notamment en améliorant notre outil de recherche).
 
 ![Capture d'écran 2024-11-26 171712](https://github.com/user-attachments/assets/1a25ffab-8b4f-470e-9e76-fc9a650d8e80)  
 __Fig.10__ : Evolution de l'impact de notre application au cours des dernieres versions.
 
-Quand on regarde les résultats plus attentivement, on voit effectivement la consommation de l'écran tombe, mais aussi qu'il consomme beaucoup moins pour accéder à la base de données grâce à notre indexation qui a amelioré l'efficacité de la BDD. Et ensuite on consomme moins de ressources en réseau car évidemment on n'affiche plus que 100 musiques au lieu de 1000.
+Quand on regarde les résultats plus attentivement, on voit effectivement la consommation de l'écran reduire, mais aussi qu'il consomme beaucoup moins pour accéder à la base de données grâce à notre indexation qui a amelioré l'efficacité de la base de données. Et ensuite on consomme moins de ressources en réseau car évidemment on n'affiche plus que 100 musiques au lieu de 1000.
 
 ![Capture_decran_2024-11-26_172301](https://github.com/user-attachments/assets/f49948d3-9dfd-4c54-bad0-8a36616e866c)  
-__Fig.11__ : Impact de la page d'acceuil avec les 100 musiques les plus récentes affichées
+__Fig.11__ : Impact de la page d'accueil avec les 100 musiques les plus récentes affichées
 
-## Prototype n°5: Evolution de notre fonction recherche
+## Prototype n°5 : Evolution de notre fonction recherche
 
 ### Changement dans la BDD
 
 Au cours de notre dernier prototype où nous avons augmenté la taille de notre BDD, nous avons rencontré un problème. En effet, avant le changement, nous affichions toute la BDD dans notre page d'accueuil et avions une fonction de recherche depuis les titres affichés. Quand nous avons multiplié les titres, nous ne pouvions plus afficher tous les titres de la BDD car cela avait un impact très négatif, mais du coup nous ne pouvions rechercher que dans les 100 titres les plus récents affichés et non pas dans toute notre BDD.
 
-Pour résoudre ce problème nous avons modifié notre fonction de recherche pour que, lorsque l'on tape dans la barre de recherche, l'application va envoyer une requête à la base de donnée pour trouver les titres avec le préfixe correspondant à la recherche. Cependant avant nous avions un index en fonction de la date de sortie vu que nous affichions les titres les plus récents, or on fait maintenant une requête en fonction des titres. Donc pour optimiser la recherche on a fait un nouvel index sur l'attribut "title" de notre BDD. Lorsque la barre de recherche est vide et donc qu'on affiche les titres les plus récents, on a une requête avec un tri par date et donc couchDB utilise l'index by_date. Mais si la barre de recherche contient quelque chose, on utilise juste le filtre sur le titre et donc couchDB utilise l'index by_title.
-Nous avons utilisé cette solution car couchDB ne fonctionnait pas avec un seul index unique sur 2 attributs (date et titre). Nous avons estimé que lorsque l'utilisateur charge la page pour la première fois, il est plutôt interessé par les dernières sorties, alors que lorsqu'il effectue une recherche, il sait ce qu'il veut et la date a donc peu d'importance.
+Pour résoudre ce problème nous avons modifié notre fonction de recherche. Dorénavant, lorsque l'utilisateur écrit quelque chose dans la barre de recherche, l'application envoie une nouvelle requête à la base de données pour trouver les titres avec le préfixe correspondant à la recherche. Cependant avant nous avions un index en fonction de la date de sortie vu que nous affichions les titres les plus récents, or on fait maintenant une requête en fonction des titres. Donc pour optimiser la recherche on a fait un nouvel index sur l'attribut "title" de notre BDD. Lorsque la barre de recherche est vide et donc qu'on affiche les titres les plus récents, on a une requête avec un tri par date et donc couchDB utilise l'index by_date. Mais si la barre de recherche contient quelque chose, on utilise juste le filtre sur le titre et donc couchDB utilise l'index by_title.
+Cela permet de garder un tri sur un index simple (et non sur un double index) ce qui a un meilleur impact écologique. Nous avons estimé que lorsque l'utilisateur charge la page pour la première fois, il est plutôt interessé par les dernières sorties, alors que lorsqu'il effectue une recherche, il sait ce qu'il veut et la date a donc peu d'importance.
 
-Après analyse des résultats, ils se sont améliorés logiquement car on a pu diminuer le nombre de musiques afficher à l'acceuil de 100 à 20.
+Après analyse des résultats, ils se sont améliorés logiquement car on a pu diminuer le nombre de musiques affichées à l'accueil de 100 à 20, tout en ayant accès aux 1000 musiques avec la fonction de recherche.
 ![Capture d'écran 2024-12-03 161220](https://github.com/user-attachments/assets/ef603576-261f-4c29-b36c-8ca9d9eec102)
-__Fig.12__ : Impact de la page d'acceuil avec la nouvelle fonction de recherche.
+__Fig.12__ : Impact de la page d'accueil avec la nouvelle fonction de recherche.
 
-### Changement de l'alogorithme et analyse green IT
+### Changement de l'algorithme et analyse green IT
 
-Notre algorithme actuel fait une recherche à chaque fois qu'on tape dans la barre de recherche, ce qui peut vite être contraignant car il fait pleins de requêtes qui peuvent être considérées inutiles. On a donc modifié la recherche pour ne faire la requête que lorsque l'utilisateur appuie sur entrée. Cependant l'impact de ce changement ne peut pas vraiment être vu grâce a greenFrame, on a donc utilisé l'extension greenIT pour voir la différence entre les deux versions.
+Notre algorithme actuel fait une recherche à chaque fois qu'on tape dans la barre de recherche, ce qui peut vite être contraignant car il fait beaucoup de requêtes qui peuvent être considérées inutiles. On a donc modifié la recherche pour ne faire la requête que lorsque l'utilisateur appuie sur la touche "entrée" de son clavier. Cependant l'impact de ce changement ne peut pas vraiment être vu grâce a GreenFrame, on a donc utilisé l'extension GreenIT pour voir la différence entre les deux versions.
 ![image](https://github.com/user-attachments/assets/a7f9b2e0-fd63-40a6-8db9-4b63894c413a)
 
 __Fig.13__ : Impact d'une recherche de musique avant changement
@@ -227,11 +226,13 @@ __Fig.13__ : Impact d'une recherche de musique avant changement
 ![image](https://github.com/user-attachments/assets/a982d2a4-9ad0-4e6b-bc9a-e5cafb90bba6)
 __Fig.14__ : Impact d'une recherche de musique après changement
 
-## Prototype n°6: Ajout de fonctionnalités sur la page d'accueil
+On remarque bien qu'il y a moins de requêtes et donc un meilleur impact. Nous avons tapé 4 caractères dans la barre de recherche, et plutôt que de faire une requête à chaque nouveau caractère, nous avons 1 seule requête. Il s'agit bien d'un gain de 3 requêtes.
+
+## Prototype n°6 : Ajout de fonctionnalités sur la page d'accueil
 
 ### Proposition d'une musique aléatoire
 
-Initialement, nous souhaitions proposer à l'utilisateur une musique sélectionnée aléatoirement parmi les musiques sorties récemment. Nous avons donc ajouter cette fonctionnalité dans le footer de notre page web. Parmi les 20 musiques les plus récentes retournées par la première requête à la BDD, une est sélectionnée aléatoirement et affichée en bas de la page. Ainsi, si l'utilisateur a du mal à se décider sur la musique qu'il souhaite écouter, il peut utiliser cette fonctionnalité.
+Initialement, nous souhaitions proposer à l'utilisateur une musique sélectionnée aléatoirement parmi les musiques sorties récemment. Nous avons donc ajouté cette fonctionnalité dans le pied de page de notre page web. Parmi les 20 musiques les plus récentes retournées par la première requête à la BDD, une est sélectionnée aléatoirement et affichée en bas de la page. Ainsi, si l'utilisateur a du mal à se décider sur la musique qu'il souhaite écouter, il peut utiliser cette fonctionnalité.
 Le résultat avec GreenFrame est quasiment identique au précédent.
 
 ![greenframe ajout de musique aléatoire](https://github.com/user-attachments/assets/d4b8adff-4d28-4bb3-9a2e-e0d3eadb4172)
@@ -239,19 +240,20 @@ __Fig.15__ : Impact GreenFrame de la page d'accueil avec proposition d'une musiq
 
 ### Groupement des musiques par genre
 
-Le deuxième ajout dans la page d'accueil est l'affichage ordonné de ces dernières. En effet actuellement elles sont uniquement triées par date. Cependant pour que l'utilisateur puisse mieux se repérer, il nous semble important de grouper les musiques du même genre ensemble. Nous avons groupés les musiques dans le frontend car ajouter un index pour faire le tri par genre avait un impact très négatif lorsque nous avons tester avec mango. Nous avons priorisé le tri par les titres avec mango. L'impact est visible mais très faible et négligeable
+Le deuxième ajout dans la page d'accueil est l'affichage ordonné de ces dernières. En effet actuellement elles sont uniquement triées par date. Cependant pour que l'utilisateur puisse mieux se repérer, il nous semble important de grouper les musiques du même genre ensemble. 
+Nous avons essayer d'ajouter un nouvel index pour grouper les musiques lorsque nous effectuons notre requête à la base de données. Cependant lors de nos tests sur Mango l'impact était très négatif, nous avons donc priorisé le tri par date de sortie et par titre avec Mango puis effectuer le groupement par genre directement dans le frontend de l'application. Avec cette méthode l'impact est toujours visible mais suffisamment faible pour le négliger.
 
 ![greenframe groupement par genre](https://github.com/user-attachments/assets/93f1766e-bba2-4d62-8123-221f2c56add3)
 __Fig.16__ : Impact GreenFrame de la page d'accueil après groupement par genre des musiques
 
-## Prototype n°7: Ajout d'une deuxième page comme prévu dans le mock-up
+## Prototype n°7 : Ajout d'une deuxième page comme prévu dans le mock-up
 
-Nous avons donc ajouté une deuxième page comme dans le mock-up initial. Celle-ci permet à l'utilisateur d'écouter des musiques dans le enre sélectionné et donc de limiter l'effet rebond discuté en début de projet.
+Conformément aux maquettes réalisées plus tôt, nous avons ajouté une deuxième page à notre application. Celle-ci permet à l'utilisateur d'écouter des musiques dans le genre sélectionné et donc de limiter l'effet rebond discuté en début de projet.
 
 La page consiste à afficher une liste des musiques liées au genre sur lequel l'utilisateur a cliqué dans la page principale et aussi une liste des artistes qui sont liés à ce genre.
-Pour cela on a d'abord repris notre code existant pour séparer en plusieurs composants notre code car jusqu'ici nous avions juste un gros bloc. Cela nous permettra de réutiliser le design et les fonctionnalités existantes dans la nouvelle page ou de futures pages. Suite à cela nous avons eu une légère amélioration sur les résultats de greenFrame, mais après s'être questionné dessus, nous sommes partis du principe que c'était une amélioration plutôt liée aux incertitudes de mesure qu'autre chose car il n'y avait aucune raison pour le CPU de moins consommer. On a donc ignoré ce résultat qui ne change pas grand chose.
+Pour cela on a d'abord repris notre code existant pour séparer en plusieurs composants notre code car jusqu'ici nous avions juste un gros bloc. Cela nous permettra de réutiliser le design et les fonctionnalités existantes dans la nouvelle page ou de futures pages. Suite à cela nous avons eu une légère amélioration sur les résultats de GreenFrame, mais après s'être questionné dessus, nous sommes partis du principe que c'était une amélioration plutôt liée aux incertitudes de mesure qu'autre chose car il n'y avait aucune raison pour le CPU de moins consommer. On a donc ignoré ce résultat qui ne change pas grand chose.
 
-Nous avons utilisé React Router pour gérer le fait que nous avons maintenant plusieurs pages. On a indexé notre base de donnée sur les genres pour la novelle page puisqu'on ne garde pas la fonction de recherche dans celle-ci, et on a créé un nouveau scénario GreenFrame pour tester la nouvelle page. Une fois la page réalisée les résultats greenFrame nous montrent que le score général du site a presque doublé, ce qui est logique parce qu'il faut ajouter le résultat des deux scénarios mais en réalité la nouvelle page est du même niveau que la première, même un peu moins, la deuxième page est tout à fait acceptable en terme de consommation énergétique.
+Nous avons utilisé React Router pour gérer le fait que nous avons maintenant plusieurs pages. On a indexé notre base de données sur les genres pour la nouvelle page puisqu'on ne garde pas la fonction de recherche dans celle-ci, et on a créé un nouveau scénario GreenFrame pour tester la nouvelle page. Une fois la page réalisée les résultats GreenFrame nous montrent que le score général du site a presque doublé, ce qui est logique parce qu'il faut ajouter le résultat des deux scénarios mais en réalité la nouvelle page est du même niveau que la première, même un peu moins, la deuxième page est tout à fait acceptable en terme de consommation énergétique.
 
 ![Capture d'écran 2024-12-10 172059](https://github.com/user-attachments/assets/9f2c5a37-1d02-4c30-bfa6-f7e0de951254)
 __Fig.17__ : Impact GreenFrame de la page principale après modufications
@@ -259,21 +261,21 @@ __Fig.17__ : Impact GreenFrame de la page principale après modufications
 ![Capture d'écran 2024-12-10 172051](https://github.com/user-attachments/assets/ae4c7661-c0ad-4a0a-b05f-f4b44bbc64fe)
 __Fig.18__ : Impact GreenFrame de la page pour une catégorie
 
-## Prototype n°8: Fonctionnalités mineures et refactor
+## Prototype n°8 : Fonctionnalités mineures et refactor
 
 ### Suppresion d'un attribut dans la base de données 
 
-Nous nous sommes rendus compte qu'un attribut dans nos données n'était jamais utilisé. Il s'agit de l'attribut "duration" supposé définir la durée d'une musique. Or la durée d'une musique est déjà définie par le ficheir mp3 charcgé par l'utilisateur lorsqu'il lance l'écoute de la musique. Nous avons donc décidé de supprimer cet attribut pour faire des économies d'énergie principalement du côté du CPU.
-En effet après ce changement, nous avons le résultat anticipé, une baisse non négligeable de la consommation du CPU.
+Nous nous sommes rendus compte qu'un attribut dans nos données n'était jamais utilisé. Il s'agit de l'attribut "duration" supposé définir la durée d'une musique. Or la durée d'une musique est déjà définie par le fichier mp3 chargé par l'utilisateur lorsqu'il lance l'écoute de la musique. Nous avons donc décidé de supprimer cet attribut pour faire des économies d'énergie principalement du côté du CPU.
+En effet après ce changement, nous avons le résultat une légère baisse de la consommation. Cela est dû au fait que nous récupérons tous les attributs des musiques dans notre requête à la base de données. Ainsi les données transmises sont plus légères.
 
 ![image](https://github.com/user-attachments/assets/54629036-8b7c-41ff-aead-d34c5729ad08)  
 __Fig.19__ : Impact GreenFrame après suppression de l'attribut "duration"
 
 ### Correction du bouton "mute"
 
-Nous avons encuite corrigé un bug dans notre application sur le bouton permettant de couuper le son d'une musique. Ce dernier ne fonctionnait qu'une fois la musique chargée. Il ne s'agit que d'un simple refactor du code qui n'a eu aucun impact sur nos scénarios GreenFrame
+Nous avons ensuite corrigé un bug dans notre application sur le bouton permettant de couper le son d'une musique. Ce dernier ne fonctionnait qu'une fois la musique chargée. Il ne s'agit que d'une simple correction de bug qui n'a eu aucun impact sur nos scénarios GreenFrame
 
 ### Changement de la page catégorie
 
-Notre page de catégorie est censé afficher toutes les musiques de ce style, cepandant par soucis d'économie d'énergie on ne peut pas afficher toutes les musiques disponibles car sinon la consommation de l'écran est trop grande, et la consommation réseau est aussi trop grande.
-Pour le moment notre page n'affiche que les 10 premières musiques et les artistes liée à ces 10 musiques, on a donc ajouté une fonctionnalité pour pouvoir demander de charcher plus de musiques à afficher de la base de donnée. Au début on faisait une grande requête avec toutes les musiques de la base de donnée et on en affichait qe 10 par 10, cepandant cela n'est très optimisé comme requête. On a donc changé et utilisé le bookmark que donne la réponse de couchDB, celle-ci permet de dans notre cas, faire une requête de 10 musiques, et quand on appuie sur le bouton pour charger plus de musique, il va faire une nouvelle requette en reprennant le bookmark donné par la première réponse, et couchDB va reprendre la requete là il s'était arrêté, donc il va nous donner de la 11ème musique à la 20ème.
+Notre page de catégorie est censée afficher toutes les musiques de ce style, cepandant par soucis d'économie d'énergie on ne peut pas afficher toutes les musiques disponibles car sinon la consommation de l'écran est trop grande, et la consommation réseau est aussi trop grande.
+Pour le moment notre page n'affiche que les 10 premières musiques et les artistes liée à ces 10 musiques, on a donc ajouté une fonctionnalité pour pouvoir demander de chercher plus de musiques à afficher de la base de données. Au début on faisait une grande requête avec toutes les musiques de la base de données et on en affichait que 10 par 10, cepandant cela n'est pas très optimisé comme requête. On a donc changé et utilisé le "bookmark" que donne la réponse de couchDB, celui-ci permet dans notre cas, de faire une requête de 10 musiques, et quand on appuie sur le bouton pour charger plus de musiques, il va faire une nouvelle requête en reprenant le bookmark donné par la première réponse, et couchDB va reprendre la requête là où il s'était arrêté, donc il va nous donner de la 11ème musique à la 20ème musique.
