@@ -44,7 +44,9 @@ Les résultats de la plateforme Spotify sont différents, la stucture de la page
 2. Rechercher une musique précise
 3. Lancer l'écoute de cette musique 
 
-Resultat :  ![Capture d'écran 2024-10-15 172913](https://github.com/user-attachments/assets/3939adf0-0d86-498c-a1af-dc7b6a0e08f5)  
+![Capture d'écran 2024-10-15 172913](https://github.com/user-attachments/assets/3939adf0-0d86-498c-a1af-dc7b6a0e08f5)  
+__Fig.1__: Résultat des scénarios Spotify
+
 Le résultat du premier scénario (en bas) est particulièrement désastreux. Le site propose des vidéos et gifs par rapport à l'actualité des artistes ce qui est particulièrement coûteux en ressources
 
 ## Streaming d'une musique
@@ -63,6 +65,7 @@ Nous avons retenu deux pages type :
 - celle d'une playlist (avec les musiques dedans et les artistes de ce genre).
 
 ![mockup](frontend/mockup.png)  
+__Fig.2__: Maquette des interfaces d'EchoStream
 
 Pour des raisons de respect des droits d'auteurs, nous utilisons des données générées (avec dummy-json). Ces données sont générées aléatoirement et permettent d'identifier une musique, cepandant on ne peut pas générer un fichier audio donc on utilise un URL qui vient de la base de données Pixabay (voir [modele de données](frontend/sample_data.hbs)).
 
@@ -79,7 +82,7 @@ Ce scénario nécéssite de pouvoir rechercher parmi une liste de musiques et de
 Nous avons développé une page avec une barre de recherche et la liste des musiques.
 
 ![Capture d'écran 2024-10-29 170600](https://github.com/user-attachments/assets/0fb92cfe-7919-4a54-9d5e-01a32880ede8)  
-Fig.2: Prototype de la page de recherche.
+__Fig.3__: Prototype de la page de recherche d'une musique
 
 Pour l'instant nous avons choisi d'utiliser la librairie lucid-react essentiellement pour sa fonction de recherche qui permet de prototyper rapidement sans se lancer dans la conception d'un algorithme de recherche. Il s'avère que cette librairie permet aussi d'ajouter des élèments graphiques pour des contrôleurs de média, fonctions qui peuvent être assurées de manière minimaliste par le html 5. 
 
@@ -92,7 +95,13 @@ Nous avons donc utilisé simplement l'extension chrome de GreenIT pour voir de m
 - les mêmes versions avec l'utilisation de lucid-react pour les élèments de contrôle de média et pour la barre de recherche.
 
 ![Capture d'écran 2024-10-29 172507](https://github.com/user-attachments/assets/72af5e44-4452-4b2b-a514-3b0860a3eb63)  
-Fig.3: Résultat des 4 tests.
+__Fig.4__: Résultat des 4 tests 
+
+Sur cette image nous avons les résultats dans l'ordre :
+- de la version de production **sans** lucid-react,
+- de la version de développement **sans** lucid-react,
+- de la version de production **avec** lucid-react,
+- de la version de développement **avec** lucid-react.
 
 Ce qu'on lit de ces résultats c'est que les versions de développement du site web ont déjà un impact significatif. On remarque qu'utiliser des librairies pour le design uniquement a un impact asses significatif (environ 20% de différence).
 
@@ -132,13 +141,13 @@ Dans la suite du projet, nous utiliserons donc GreenFrame, un outil qui permet d
 On veut donc re-créer un échantillon d'analyse des sites concurrents pour pouvoir comparer ce qui est comparable avec le nouvel outil, voici les résultats de l'analyse simple de la première page du site :
 
 ![Capture d'écran 2024-11-12 163127](https://github.com/user-attachments/assets/3124cedc-2501-43fb-b5a7-0279412c784c)  
-__Fig.1__: Résultat de Spotify
+__Fig.5__: Résultat de Spotify
 
 ![Capture d'écran 2024-11-12 163520](https://github.com/user-attachments/assets/7ab482d9-83b9-4aa2-aaa5-be6c9949967b)  
-__Fig.2__: Résultat de Deezer
+__Fig.6__: Résultat de Deezer
 
 ![Capture d'écran 2024-11-12 163624](https://github.com/user-attachments/assets/53d6db26-01d5-463a-8512-6e96722bcac7)  
-__Fig.3__: Résultat de MusicMe
+__Fig.7__: Résultat de MusicMe
 
 On remarque ici une consommation très élevée au niveau du CPU, du réseau et de l'écran. Cependant, les impacts de la mémoire et du disque sont quasiment nuls.
 
@@ -147,27 +156,27 @@ On fait ensuite les modifications pour faire les tests de GreenFrame automatique
 Ce qui fait que nos résultats sont bien meilleurs est le fait que nous nous sommes concentrés sur la fonctionnalité essentielle de l'écoute de la musique, et non sur des fonctionnalités superflues. En réalité presque la totalité de notre impact vient de l'écran. On se rend donc ici bien compte que l'affichage des informations est la première barrière à une application écologique.
 
 ![Capture d'écran 2024-11-12 174747](https://github.com/user-attachments/assets/21d6b884-99e8-41fb-90a7-4bff0ccf34d5)  
-__Fig.4__: Résultat de notre prototype V.2
+__Fig.8__: Résultat de notre prototype V.2
 
 Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant. En effet cela est en partie dû au fait que nous avons décider de charger directement le fichier mp3 au complet. Bien qu'avoir un système de streaming permet de limiter l'impact, ce n'est pas pour les fichiers audio que cela est le plus impactant car un fichier audio n'est pas particulièrement volumineux (contrairement à un film par exemple). L'essentiel est surtout de ne pas charger le fichier tant que le musique n'est pas lue. Nous n'avons pas non plus de transformations ou calcul à faire dans le serveur qui ne fait que relayer les données qui sont stockées. Donc logiquement le seul pic de consommation est au lancement du site.
 
 ![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)  
-__Fig.6__: Résultat de notre prototype V.2 
+__Fig.9__: Résultat de notre prototype V.2 
 
 ![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)  
-__Fig.5__: Résultat de notre prototype V.2 coté serveur 
+__Fig.10__: Résultat de notre prototype V.2 coté serveur 
 
 ## Prototype n°3 : Fonctionnalités pour le scénario prioritaire avec données stockées dans une base de données
 
 Pour la 3ème version de notre prototype, nous voulons que les données soient stockées dans une base de données en ligne (CouchDB). L'interêt d'une base de données dynamique est de pouvoir rajouter facilement des musiques.
 
 ![image](https://github.com/user-attachments/assets/51b8db95-6d01-458f-936b-7d6fa91f767d)  
-__Fig.7__: Résultat de notre prototype V.3
+__Fig.11__: Résultat de notre prototype V.3
 
 On n'observe pas de différence dans l'utilisation du réseau via notre scénario GreenFrame, cela est dû au fait que dans notre scénario principal, nous récupérons toutes les musiques. Cependant pour de futurs scénarios cette base de données nous permettra de faire des requêtes spécifiques (pour ne demander qu'une seule musique par exemple, ou un seul style de musique) et ainsi de réduire le réseau utilisé. On remarque cependant une augmentation de l'usuage du CPU lié au fonctionnement de la base de données sur un docker. Cette modification de notre prototype a l'air à priori néfaste écologiquement mais deviendra à l'avenir une meilleure solution.
 
 ![Capture d'écran 2024-11-19 171624](https://github.com/user-attachments/assets/db711e7e-821d-4585-abb2-68c6014e8aac)  
-__Fig.8__: Résultat de notre prototype V.3 coté backend
+__Fig.12__: Résultat de notre prototype V.3 coté backend
 
 ## Prototype n°4 : Fonctionnalités pour le scénario prioritaire avec filtrage des données
 
@@ -183,7 +192,7 @@ La figure 9 illustre l'impact du passage à l'échelle de 10 musiques à 1000 mu
 On voit une grande augmentation de l'impact de l'écran, effectivement on a qu'une seule page donc toutes les musiques sont affichées sur l'écran d'accueil. On n'observe aucun changement sur le côté client ce qui est logique. Sur le côté serveur on voit une augmentation de 250% au niveau du CPU pour traiter les données supplémentaires et aussi une augmentation conséquente au niveau réseau.
 
 ![Capture d'écran 2024-11-26 154741](https://github.com/user-attachments/assets/e88237fa-1035-47ad-a730-3701d14fab9f)  
-__Fig.9__ : Évolution de l'impact de la consultation de la page d'accueil en passant de 10 musiques à 1000 musiques.
+__Fig.13__ : Évolution de l'impact de la consultation de la page d'accueil en passant de 10 musiques à 1000 musiques.
 
 ### Prise en compte du passage à l'échelle
 
@@ -196,12 +205,12 @@ Pour réaliser cela nous devons indexer notre base de données pour réaliser un
 Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière version est toujours un peu plus néfaste qu'avant mais le résultat vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la base de données. Dans les prochaines versions nous améliorerons notre application pour pouvoir accéder aux 1000 musiques sans pour autant les afficher (notamment en améliorant notre outil de recherche).
 
 ![Capture d'écran 2024-11-26 171712](https://github.com/user-attachments/assets/1a25ffab-8b4f-470e-9e76-fc9a650d8e80)  
-__Fig.10__ : Evolution de l'impact de notre application au cours des dernieres versions.
+__Fig.14__ : Evolution de l'impact de notre application au cours des dernieres versions.
 
 Quand on regarde les résultats plus attentivement, on voit effectivement la consommation de l'écran reduire, mais aussi qu'il consomme beaucoup moins pour accéder à la base de données grâce à notre indexation qui a amelioré l'efficacité de la base de données. Et ensuite on consomme moins de ressources en réseau car évidemment on n'affiche plus que 100 musiques au lieu de 1000.
 
 ![Capture_decran_2024-11-26_172301](https://github.com/user-attachments/assets/f49948d3-9dfd-4c54-bad0-8a36616e866c)  
-__Fig.11__ : Impact de la page d'accueil avec les 100 musiques les plus récentes affichées
+__Fig.15__ : Impact de la page d'accueil avec les 100 musiques les plus récentes affichées
 
 ## Prototype n°5 : Evolution de notre fonction recherche
 
@@ -214,17 +223,17 @@ Cela permet de garder un tri sur un index simple (et non sur un double index) ce
 
 Après analyse des résultats, ils se sont améliorés logiquement car on a pu diminuer le nombre de musiques affichées à l'accueil de 100 à 20, tout en ayant accès aux 1000 musiques avec la fonction de recherche.
 ![Capture d'écran 2024-12-03 161220](https://github.com/user-attachments/assets/ef603576-261f-4c29-b36c-8ca9d9eec102)
-__Fig.12__ : Impact de la page d'accueil avec la nouvelle fonction de recherche.
+__Fig.16__ : Impact de la page d'accueil avec la nouvelle fonction de recherche.
 
 ### Changement de l'algorithme et analyse green IT
 
 Notre algorithme actuel fait une recherche à chaque fois qu'on tape dans la barre de recherche, ce qui peut vite être contraignant car il fait beaucoup de requêtes qui peuvent être considérées inutiles. On a donc modifié la recherche pour ne faire la requête que lorsque l'utilisateur appuie sur la touche "entrée" de son clavier. Cependant l'impact de ce changement ne peut pas vraiment être vu grâce a GreenFrame, on a donc utilisé l'extension GreenIT pour voir la différence entre les deux versions.
 ![image](https://github.com/user-attachments/assets/a7f9b2e0-fd63-40a6-8db9-4b63894c413a)
 
-__Fig.13__ : Impact d'une recherche de musique avant changement
+__Fig.17__ : Impact d'une recherche de musique avant changement
 
 ![image](https://github.com/user-attachments/assets/a982d2a4-9ad0-4e6b-bc9a-e5cafb90bba6)
-__Fig.14__ : Impact d'une recherche de musique après changement
+__Fig.18__ : Impact d'une recherche de musique après changement
 
 On remarque bien qu'il y a moins de requêtes et donc un meilleur impact. Nous avons tapé 4 caractères dans la barre de recherche, et plutôt que de faire une requête à chaque nouveau caractère, nous avons 1 seule requête. Il s'agit bien d'un gain de 3 requêtes.
 
@@ -236,7 +245,7 @@ Initialement, nous souhaitions proposer à l'utilisateur une musique sélectionn
 Le résultat avec GreenFrame est quasiment identique au précédent.
 
 ![greenframe ajout de musique aléatoire](https://github.com/user-attachments/assets/d4b8adff-4d28-4bb3-9a2e-e0d3eadb4172)
-__Fig.15__ : Impact GreenFrame de la page d'accueil avec proposition d'une musique aléatoirement
+__Fig.19__ : Impact GreenFrame de la page d'accueil avec proposition d'une musique aléatoirement
 
 ### Groupement des musiques par genre
 
@@ -244,7 +253,7 @@ Le deuxième ajout dans la page d'accueil est l'affichage ordonné de ces derni�
 Nous avons essayer d'ajouter un nouvel index pour grouper les musiques lorsque nous effectuons notre requête à la base de données. Cependant lors de nos tests sur Mango l'impact était très négatif, nous avons donc priorisé le tri par date de sortie et par titre avec Mango puis effectuer le groupement par genre directement dans le frontend de l'application. Avec cette méthode l'impact est toujours visible mais suffisamment faible pour le négliger.
 
 ![greenframe groupement par genre](https://github.com/user-attachments/assets/93f1766e-bba2-4d62-8123-221f2c56add3)
-__Fig.16__ : Impact GreenFrame de la page d'accueil après groupement par genre des musiques
+__Fig.20__ : Impact GreenFrame de la page d'accueil après groupement par genre des musiques
 
 ## Prototype n°7 : Ajout d'une deuxième page comme prévu dans le mock-up
 
@@ -256,10 +265,10 @@ Pour cela on a d'abord repris notre code existant pour séparer en plusieurs com
 Nous avons utilisé React Router pour gérer le fait que nous avons maintenant plusieurs pages. On a indexé notre base de données sur les genres pour la nouvelle page puisqu'on ne garde pas la fonction de recherche dans celle-ci, et on a créé un nouveau scénario GreenFrame pour tester la nouvelle page. Une fois la page réalisée les résultats GreenFrame nous montrent que le score général du site a presque doublé, ce qui est logique parce qu'il faut ajouter le résultat des deux scénarios mais en réalité la nouvelle page est du même niveau que la première, même un peu moins, la deuxième page est tout à fait acceptable en terme de consommation énergétique.
 
 ![Capture d'écran 2024-12-10 172059](https://github.com/user-attachments/assets/9f2c5a37-1d02-4c30-bfa6-f7e0de951254)
-__Fig.17__ : Impact GreenFrame de la page principale après modufications
+__Fig.21__ : Impact GreenFrame de la page principale après modufications
 
 ![Capture d'écran 2024-12-10 172051](https://github.com/user-attachments/assets/ae4c7661-c0ad-4a0a-b05f-f4b44bbc64fe)
-__Fig.18__ : Impact GreenFrame de la page pour une catégorie
+__Fig.22__ : Impact GreenFrame de la page pour une catégorie
 
 ## Prototype n°8 : Fonctionnalités mineures et refactor
 
@@ -269,7 +278,7 @@ Nous nous sommes rendus compte qu'un attribut dans nos données n'était jamais 
 En effet après ce changement, nous avons le résultat une légère baisse de la consommation. Cela est dû au fait que nous récupérons tous les attributs des musiques dans notre requête à la base de données. Ainsi les données transmises sont plus légères.
 
 ![image](https://github.com/user-attachments/assets/54629036-8b7c-41ff-aead-d34c5729ad08)  
-__Fig.19__ : Impact GreenFrame après suppression de l'attribut "duration"
+__Fig.23__ : Impact GreenFrame après suppression de l'attribut "duration"
 
 ### Correction du bouton "mute"
 
