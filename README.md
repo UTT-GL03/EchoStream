@@ -380,7 +380,8 @@ Le bouton "mute" ne fonctionnait qu’après le chargement complet de la musique
 - La page affiche désormais les **10 premières musiques** et leurs artistes associés.  
 - Une fonctionnalité permet de charger davantage de musiques grâce à l’utilisation du **"bookmark"** de CouchDB, évitant des requêtes globales inefficaces.
 
-
+**Impact** : 
+On ne constate pas d'impact direct sur greenFrame puisque de base on avait paramétré la requete pour ne prendre que 10 musiques et les artistes liées, or maintenant quand on charge la page on n'afiche encore que 10 musiques et les artisrtes liées, or maintenant on peut accèder à **toute la base de donnée** de manière **efficiente** et **sur demande** de l'utilisateur pour convenir à ses besoins. Etant donnée que les scénarios greenframe ne sont pas assez poussé on ne voit **pas de changement**.
 
 ## Conclusion
 
