@@ -1,293 +1,386 @@
 # EchoStream
-## Choix du sujet
-L’écoute de la musique en streaming représente une activité quotidienne pour beaucoup d'entre nous, car elle peut facilement être pratiquée en parallèle d’autres tâches comme le travail ou les trajets quotidiens.  
-  
-Au-delà de cet usage personnel, le streaming musical a connu une adoption massive. Il est devenu l’un des moyens les plus populaires de consommer de la musique, remplaçant largement les formats physiques et offrant une accessibilité mondiale.
-## Utilité sociale
-La musique en streaming joue un rôle important sur :  
-- le plan médico-social car l’écoute de la musique peut améliorer le bien-être, aider à gérer le stress et l’anxiété, favoriser la motivation, la concentration, et même contribuer à la méditation. Elle a un impact positif sur la santé mentale et émotionnelle.
-- Le développement territorial car Le streaming permet aux artistes issus de régions éloignées d’atteindre un public mondial. Cela leur offre des opportunités sans précédent pour se faire connaître, dépassant les limites géographiques traditionnelles.
-## Effets de la numérisation
-Un des avantages majeurs du streaming musical pour l'environnement est qu'il a remplacé des technologies plus anciennes comme par exemple les CD qui impliquaient une production physique et donc des émissions de plastique. De plus, il se positionne comme une alternative plus respectueuse de l’environnement aux festivals ou concerts, qui génèrent des impacts importants liés aux déplacements.  
-Cependant, cette substitution aux pratiques anciennes engendre aussi un important effet rebond. La numérisation de la musique a bouleversé son mode de consommation. Avec l'accès facile à des millions de titres, la consommation de musique a fortement augmenté. Là où, il y a quelques années, un unique album CD coûtait plus de cinq euros, aujourd’hui, pour ce même montant, il est possible d’avoir accès à des millions de titres pendant un mois via une plateforme de streaming.  
-  
-Cette évolution pose des questions écologiques et économiques, on peut se demander :  
-- si le streaming peut encourager la surconsommation de musique, car on peut désormais écouter des morceaux partout et à tout moment,
-- si les fonctionnalités de ces plateformes, telles que les photos postées quotidiennement par des artistes ou les listes de lecture personnalisées qui encouragent à écouter toujours plus de musiques différentes, sont utiles.  
 
-Il est essentiel de réfléchir à des fonctionnalités plus essentielles (en se concentrant sur l'écoute des musiques) et moins gourmandes en ressources, tout en se questionnant sur le fait que ces fonctionnalités non essentielles sont généralement activées par défaut, et l'utilisateur moyen ne prend pas toujours le temps de les désactiver même s'il ne les utilise pas.
+---
+
+## Choix du sujet
+
+L’écoute de la musique en streaming représente une activité quotidienne pour **beaucoup d'entre nous**, car elle peut facilement être pratiquée en parallèle d’autres tâches comme le travail ou les trajets quotidiens.  
+
+Au-delà de cet usage personnel, le streaming musical a connu une **adoption massive**. Il est devenu l’un des moyens les plus populaires de consommer de la musique, remplaçant largement les formats physiques et offrant une **accessibilité mondiale**.
+
+---
+
+## Utilité sociale
+
+La musique en streaming joue un rôle important sur :  
+
+- **Le plan médico-social** :  
+  *L’écoute de la musique peut améliorer le bien-être, aider à gérer le stress et l’anxiété, favoriser la motivation, la concentration, et même contribuer à la méditation.* Elle a un **impact positif** sur la santé mentale et émotionnelle.
+
+- **Le développement territorial** :  
+  *Le streaming permet aux artistes issus de régions éloignées d’atteindre un public mondial.* Cela leur offre des **opportunités sans précédent** pour se faire connaître, dépassant les limites géographiques traditionnelles.
+
+---
+
+## Effets de la numérisation
+
+Un des avantages majeurs du streaming musical pour l'environnement est qu'il a remplacé des technologies plus anciennes comme les **CD** et les **MP3**, qui impliquaient une production physique et donc des émissions de plastique. De plus, il se positionne comme une alternative plus respectueuse de l’environnement aux **festivals ou concerts**, qui génèrent des impacts importants liés aux déplacements.  
+
+Cependant, cette substitution aux pratiques anciennes engendre aussi un **important effet rebond** :  
+
+- **Accessibilité massive** : Avec l'accès facile à des millions de titres, la consommation de musique a fortement augmenté.  
+- **Impact économique** : Là où, en 2016, un album CD coûtait environ *10 dollars*, aujourd’hui, pour ce même montant, il est possible d’avoir accès à des **millions de titres** pendant un mois via une plateforme de streaming.  
+
+### Questions à se poser :
+- *Le streaming peut-il encourager la surconsommation de musique, car on peut désormais écouter des morceaux partout et à tout moment ?*  
+- *Les fonctionnalités des plateformes (stories des artistes, playlists personnalisées) sont-elles vraiment utiles ou encouragent-elles une écoute toujours plus diversifiée, mais aussi plus gourmande en ressources ?*  
+
+> **Lien utile :** [Dummy JSON pour générer des données aléatoires](https://dummy-json.com/)
+
+---
+
 ## Scénario 1 : "Lancer une musique recommandée"
-1. L'utilisateur se rend sur un site web de streaming en ligne
-2. Il lance la première musique qui lui est proposée
-3. Il regarde les autres musiques proposées sur la page d'accueil mais rien ne l'intéresse, il stoppe donc sa navigation.
+
+1. **L'utilisateur** se rend sur un site web de streaming en ligne.  
+2. Il accepte les cookies.  
+3. Il lance la première musique qui lui est proposée.  
+4. Il regarde les autres musiques proposées sur la page d'accueil, mais rien ne l'intéresse. Il stoppe donc sa navigation.  
+
+---
 
 ## Scénario 2 : "Rechercher une musique spécifique"
-1. L'utilisateur se rend sur un site web de streaming en ligne
-2. Il recherche une musique
-3. Il lance la musique trouvée
 
-### Résultat
-Pour tester les scénarios sur les sites de streaming en ligne. Nous avons dû ajouter une étape "accepter les cookies" dans notre scénario afin de le faire fonctionner.
-Nous avons utilisé l'outil GreenIT en ligne de commandes pour les services Deezer et MusicMe, qui nous permet de scripter et tester nos scénarios.
-Les résultats de la platforme Deezer et Musicme : [Voir le résultat](https://utt-gl03.github.io/EchoStream/benchmarks/scenario1/benchmark.html)
+1. **L'utilisateur** se rend sur un site web de streaming en ligne.  
+2. Il accepte les cookies.  
+3. Il recherche une musique.  
+4. Il lance la musique trouvée.  
 
-Les résultats de la plateforme Spotify sont différents, la stucture de la page fait que nous ne pouvons pas utiliser la version en ligne de commandes de GreenIT. Nous avons donc utilisé l'extension chrome GreenIT et changer le scénario car il fallait absolument créer un compte pour écouter de la musique. Pour utiliser cet outil nous allons nous même suivre notre scénario et faire une analyse à la fin de toutes les requêtes qui  ont été effectuées.
+### Résultats :
+Les résultats des plateformes :  
+- [Deezer](https://www.deezer.com/) et [MusicMe](https://www.musicme.com/) : [Scénario 1 : "Lancer une musique recommandée"](https://utt-gl03.github.io/EchoStream/benchmarks/scenario1/benchmark.html).  
+- **Spotify** : Les résultats diffèrent en raison de la structure de la page et nécessitent l'utilisation de l'extension Chrome GreenIT.  
 
-#### Scénario spotify :
-##### Premier scénario :
-1. Se rendre sur le site web et se connecter
-2. Lancer la première musique proposée 
-3. Regarder les autres musiques proposées sur la page d'accueil mais ne rien trouver.
+---
 
-##### Deuxième scénario :
-1. Se rendre sur le site web et se connecter
-2. Rechercher une musique précise
-3. Lancer l'écoute de cette musique 
+## Scénario : Streaming d'une musique
 
-![Capture d'écran 2024-10-15 172913](https://github.com/user-attachments/assets/3939adf0-0d86-498c-a1af-dc7b6a0e08f5)  
-__Fig.1__: Résultat des scénarios Spotify
+Malheureusement, l’outil **GreenIT** mesure uniquement à un **instant T**. Pour évaluer l'impact du streaming sur toute la durée d'écoute, une analyse manuelle via l’outil de débogage réseau est nécessaire.  
 
-Le résultat du premier scénario (en bas) est particulièrement désastreux. Le site propose des vidéos et gifs par rapport à l'actualité des artistes ce qui est particulièrement coûteux en ressources
+- **Spotify** : Requête de **325 Ko toutes les 10 secondes**, soit 5 850 Ko pour une chanson de 3 minutes.  
+- **Deezer** : Requête de **278 octets toutes les 30 secondes**, soit 1,390 Ko pour une chanson de 3 minutes.  
+- **MusicMe** : Requête de **413 octets toutes les 30 secondes**, soit 2,065 Ko pour une chanson de 3 minutes.  
 
-## Streaming d'une musique
-Malheuresement l'outil GreenIT ne mesure que sur l'instant T, mais nous avons analyser manuellement l'impact du streaming d'une musique avec la console de notre navigateur.
-
-Dans certains cas, selon le service et la durée de la musique, le fichier audio est directement chargé entièrement, et il n'y a donc pas toujours de streaming à proprement parlé. Dans d'autres cas, le service va effectuer plusieurs requêtes pour récupérer le son par morceaux.
-
-Par exemple, MusicMe récupère les sons par morceau de 413 octets, avec une nouvelle requête à chaque fois.
+---
 
 ## Maquette de l'interface et échantillon de données
 
-Nous avons vu lors de nos scénarios qu'avoir des playlists personnalisées était une des fonctionnalités particulierement gourmandes. Nous avons donc opté pour un protype qui se base uniquement sur des genres de musiques, tout en gardant toute l'usabilité d'un site de streaming de musique.
+Lors des scénarios, nous avons constaté qu'avoir des playlists personnalisées était une des fonctionnalités particulièrement gourmandes. Nous avons donc opté pour un prototype basé uniquement sur des genres de musiques choisis par l'utilisateur, tout en gardant l'usabilité d’un site de streaming.  
 
-Nous avons retenu deux pages type :
-- celle avec les playlists par genre,
-- celle d'une playlist (avec les musiques dedans et les artistes de ce genre).
+![Mockup](frontend/mockup.png)
+_Fig.1 : Mockup de notre application._
 
-![mockup](frontend/mockup.png)  
-__Fig.2__: Maquette des interfaces d'EchoStream
+> **Liens utiles :**  
+> - [Pixabay](https://pixabay.com/) : Base de données pour les URL audio.  
+> - [Lucid React](https://react-lucid.hubspotdev.com/) : Librairie utilisée pour le design et les contrôles média.  
 
-Pour des raisons de respect des droits d'auteurs, nous utilisons des données générées (avec dummy-json). Ces données sont générées aléatoirement et permettent d'identifier une musique, cepandant on ne peut pas générer un fichier audio donc on utilise un URL qui vient de la base de données Pixabay (voir [modele de données](frontend/sample_data.hbs)).
+---
 
 ## Prototype n°1 : Fonctionnalités pour le scénario prioritaire avec données statiques
 
-Pour le premier prototype : 
-- notre base de données reste statique et dans le frontend,
-- les fonctionnalités implémentés sont celles uniquement requises pour le scénario 1 (Rechercher une musique et l'écouter).
+Pour le premier prototype :  
+- La base de données est **statique** et incluse dans le frontend.  
+- Les fonctionnalités implémentées se limitent au scénario 1 (*Rechercher une musique et l’écouter*).  
 
-Ce scénario nécéssite de pouvoir rechercher parmi une liste de musiques et de l'écouter.
+![Capture d'écran](https://github.com/user-attachments/assets/0fb92cfe-7919-4a54-9d5e-01a32880ede8)  
+_Fig.2 : Prototype de la page de recherche._
 
-### Page recherche
+---
 
-Nous avons développé une page avec une barre de recherche et la liste des musiques.
+## Prototype n°2 : Chargement dynamique des données
 
-![Capture d'écran 2024-10-29 170600](https://github.com/user-attachments/assets/0fb92cfe-7919-4a54-9d5e-01a32880ede8)  
-__Fig.3__: Prototype de la page de recherche d'une musique
+- Les données sont désormais **chargées dynamiquement** par le frontend.  
+- Une requête supplémentaire est effectuée par page consultée.  
 
-Pour l'instant nous avons choisi d'utiliser la librairie lucid-react essentiellement pour sa fonction de recherche qui permet de prototyper rapidement sans se lancer dans la conception d'un algorithme de recherche. Il s'avère que cette librairie permet aussi d'ajouter des élèments graphiques pour des contrôleurs de média, fonctions qui peuvent être assurées de manière minimaliste par le html 5. 
+[Scénario 2 : "Rechercher une musique spécifique"](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2/EchoStream.html)
 
-On a donc voulu voir quel était l'impact d'utiliser les fonctions qui ne sont pas nécessaires car déjà existantes avec l'argument 'controller' que propose la balise <audio> ou <media> de html mais qui améliore l'interface utilisateur de notre application. Nous utilisons aussi tailwind.css pour le style général de la page pour générer du css personnalisé. Nous pensons en effet que travailler l'interface utilisateur d'un service de streaming est essentiel pour s'assurer que le client apprécie son utilisation et revienne plus tard.
+---
 
-Nous pouvons donc ici mesurer l'impact général de la page et donc de nos choix de framework, utiliser react et les librairies pour gagner du temps sur les fonctionnalités et l'esthéthisme font que cela peut manquer d'optimisation.
-
-Nous avons donc utilisé simplement l'extension chrome de GreenIT pour voir de manière très simple l'impact de nos choix en mesurant :
-- la version de développement et de production du site web avec l'utilisation des balises html par défaut,
-- les mêmes versions avec l'utilisation de lucid-react pour les élèments de contrôle de média et pour la barre de recherche.
-
-![Capture d'écran 2024-10-29 172507](https://github.com/user-attachments/assets/72af5e44-4452-4b2b-a514-3b0860a3eb63)  
-__Fig.4__: Résultat des 4 tests 
-
-Sur cette image nous avons les résultats dans l'ordre :
-- de la version de production **sans** lucid-react,
-- de la version de développement **sans** lucid-react,
-- de la version de production **avec** lucid-react,
-- de la version de développement **avec** lucid-react.
-
-Ce qu'on lit de ces résultats c'est que les versions de développement du site web ont déjà un impact significatif. On remarque qu'utiliser des librairies pour le design uniquement a un impact asses significatif (environ 20% de différence).
-
-Cependant une fois compilée la page est déjà beaucoup plus moderée et en plus la différence entre les deux versions ne se voit quasiment pas. On peut donc se dire que cela ne change pas grand chose avec la librairie lucid-react d'utiliser des fonctions importées pour gérer des élements de designs. 
-
-Au final on se sait pas encore toutes les fonctionnalités qu'on utilisera ou n'utilisera pas pour finir le projet mais on peut se dire qu'on peut se sentir libre d'utiliser ou non cette librairie comme on veut car l'impact sera dérisoire.
-
-### Execution du scénario principal
-
-Nous pouvons donc éxecuter notre scénario principal et voir l'impact de l'utilisation de notre site comparé à nos concurrents :
-
-[Voir le résultat](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/scenario2/EchoStream.html)
-
-On remarque évidemment que notre application est très loin de l'impact des services de streaming existants. Cela est tout à fait logique car nous avons bien moins de fonctionnalités et une base de données infiniment plus petite. Cependant nous avons bel et bien notre fonctionnalité principale qui consiste à écoute de la musique.
 
 ## Prototype n°2 : Fonctionnalités pour le scénario prioritaire avec données statiques chargées de manière dynamique
 
-### Chargement dynamique des données
-
-Dans cette seconde version du prototype, les données sont désormais chargées dynamiquement par le frontend.
+Dans cette seconde version du prototype, les données sont désormais chargées dynamiquement par le frontend.  
 En utilisant le même scénario qu'avec la première version du prototype, nous n'avons qu'une seule requête supplémentaire par page consultée.
 
-[Voir le résultat](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2/EchoStream.html)
+[Scénario 2 : "Rechercher une musique spécifique"](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2/EchoStream.html)
 
 ### Optimisation du nombre de requêtes
 
-Nous nous sommes rendus compte qu'une requête était faite pour chaque musique lorsque nous chargions la mage pour charger le fichier mp3.
-Nous avons donc modifié notre application pour ne charger le fichier mp3 que lorsque nous lançons la musqique. Nous perdons quelques informations non nécessaires comme la durée de la musique mais le nombre de requêtes a fortement diminué, ce qui très positif.
+Nous nous sommes rendus compte qu'une requête était faite pour chaque musique lorsque nous chargions la page pour charger le fichier MP3.  
+Nous avons donc modifié notre application pour **ne charger le fichier MP3 que lorsque nous lançons la musique**. Nous perdons quelques informations non nécessaires comme la durée de la musique, mais nous gagnons un nombre important de requêtes.
 
-[Voir le résultat](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2_optiRequetes/EchoStream.html)
+[Scénario 2 : "Rechercher une musique spécifique"](https://utt-gl03.github.io/EchoStream/benchmarks/EchoStream/dynamicData_scen2_optiRequetes/EchoStream.html)
 
 ### Changement de l'outil d'analyse
 
-Après avoir discuté de la méthode de calcul qu'utilise GreenIT, nous avons décidé d'utilisé une autre méthode afin de calculer l'impact de notre application. En effet GreenIT vise à calculer l'impact global de l'utilisation d'un site internet, que ce soit l'impact de l'achat ou la production du téléphone utilisé, l'alimentation des serveurs, la construction duréseau, etc. Cependant dans notre cas nous souhaitons plutôt connaître l'impact strictement lié à l'utilisation de notre site. 
-Dans la suite du projet, nous utiliserons donc GreenFrame, un outil qui permet de calculer uniquement l'impact énergétique lié à l'utilisation de notre application web.
+Après avoir discuté de la méthode de calcul qu'utilise GreenIT, nous nous sommes demandés si cette manière de calculer était vraiment pertinente ? En résumé, GreenIT vise à calculer l'impact global de l'utilisation d'un site internet, que ce soit l'impact de l'achat ou la production du téléphone utilisé, l'alimentation des serveurs, la construction du réseau, etc.  
 
-On veut donc re-créer un échantillon d'analyse des sites concurrents pour pouvoir comparer ce qui est comparable avec le nouvel outil, voici les résultats de l'analyse simple de la première page du site :
+Au final, même si l'outil est pratique et permet de se rendre compte des impacts des utilisations de la technologie, il ne nous aide pas vraiment à voir l'impact strictement lié à l'utilisation de notre site.  
+On utilisera donc **GreenFrame**, un outil qui permet de calculer uniquement l'impact énergétique lié à l'utilisation de notre application web.
+
+On veut donc re-créer un échantillon d'analyse des sites concurrents pour pouvoir comparer ce qui est comparable avec le nouvel outil. Voici les résultats de l'analyse simple de la première page du site :
 
 ![Capture d'écran 2024-11-12 163127](https://github.com/user-attachments/assets/3124cedc-2501-43fb-b5a7-0279412c784c)  
-__Fig.5__: Résultat de Spotify
+_Fig.3: Résultat de Spotify_
 
 ![Capture d'écran 2024-11-12 163520](https://github.com/user-attachments/assets/7ab482d9-83b9-4aa2-aaa5-be6c9949967b)  
-__Fig.6__: Résultat de Deezer
+_Fig.4: Résultat de Deezer_
 
 ![Capture d'écran 2024-11-12 163624](https://github.com/user-attachments/assets/53d6db26-01d5-463a-8512-6e96722bcac7)  
-__Fig.7__: Résultat de MusicMe
+_Fig.5: Résultat de MusicMe_ 
 
-On remarque ici une consommation très élevée au niveau du CPU, du réseau et de l'écran. Cependant, les impacts de la mémoire et du disque sont quasiment nuls.
-
-On fait ensuite les modifications pour faire les tests de GreenFrame automatiquement à chaque fois que l'on modifie notre dépôt de projet GitHub. On peut voir des résultats qui nous disent que notre site consomme très peu de ressource, essentiellement du temps d'écran, la seule fonctionnalité qui a un impact significatif est celle de la recherche donc très peu de CPU utilisé. Ce sont donc des résultats très concluants par rapport aux concurrents.
-
-Ce qui fait que nos résultats sont bien meilleurs est le fait que nous nous sommes concentrés sur la fonctionnalité essentielle de l'écoute de la musique, et non sur des fonctionnalités superflues. En réalité presque la totalité de notre impact vient de l'écran. On se rend donc ici bien compte que l'affichage des informations est la première barrière à une application écologique.
+Nous faisons ensuite les modifications pour faire les tests à chaque push dans notre projet GreenFrame. On peut voir des résultats qui nous disent que notre site consomme très peu de ressources, essentiellement du temps d'écran. La seule fonctionnalité gourmande est celle de la recherche donc très peu de CPU utilisé. Ce sont donc des résultats très concluants par rapport aux concurrents.
 
 ![Capture d'écran 2024-11-12 174747](https://github.com/user-attachments/assets/21d6b884-99e8-41fb-90a7-4bff0ccf34d5)  
-__Fig.8__: Résultat de notre prototype V.2
+_Fig.6: Résultat de notre prototype V.2_
 
-Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifant. En effet cela est en partie dû au fait que nous avons décider de charger directement le fichier mp3 au complet. Bien qu'avoir un système de streaming permet de limiter l'impact, ce n'est pas pour les fichiers audio que cela est le plus impactant car un fichier audio n'est pas particulièrement volumineux (contrairement à un film par exemple). L'essentiel est surtout de ne pas charger le fichier tant que le musique n'est pas lue. Nous n'avons pas non plus de transformations ou calcul à faire dans le serveur qui ne fait que relayer les données qui sont stockées. Donc logiquement le seul pic de consommation est au lancement du site.
-
-![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)  
-__Fig.9__: Résultat de notre prototype V.2 
+Nous avons ensuite mesuré l'impact de la partie serveur de notre prototype. On peut voir qu'il est insignifiant. Effectivement, nous n'avons pas de streaming, ni de transformations ou calcul à faire dans le serveur, qui ne fait que relayer les données qui sont stockées. Logiquement, le seul pic de consommation est au lancement du site.
 
 ![Capture d'écran 2024-11-12 175123](https://github.com/user-attachments/assets/02277dd5-2ba6-450d-9293-dfeb058f94f8)  
-__Fig.10__: Résultat de notre prototype V.2 coté serveur 
+_Fig.7: Résultat de notre prototype V.2 côté serveur_
+
+---
 
 ## Prototype n°3 : Fonctionnalités pour le scénario prioritaire avec données stockées dans une base de données
 
-Pour la 3ème version de notre prototype, nous voulons que les données soient stockées dans une base de données en ligne (CouchDB). L'interêt d'une base de données dynamique est de pouvoir rajouter facilement des musiques.
+Pour la V3 de notre prototype, nous voulons que les données soient stockées dans une base de données en ligne (**CouchDB**).  
+L'intérêt d'une base de données dynamique est de pouvoir rajouter facilement des musiques. On pourrait même imaginer, comme on le voulait, un formulaire pour que les gens rajoutent eux-mêmes leur musique dans l'application.
+
+![Capture d'écran 2024-11-19 171407](https://github.com/user-attachments/assets/fc2ecb9b-3c1b-48cd-a62f-1187cb111d90)  
+_Fig.8: Résultat de notre prototype V.2_
 
 ![image](https://github.com/user-attachments/assets/51b8db95-6d01-458f-936b-7d6fa91f767d)  
-__Fig.11__: Résultat de notre prototype V.3
+_Fig.9: Résultat de notre prototype V.3_
 
-On n'observe pas de différence dans l'utilisation du réseau via notre scénario GreenFrame, cela est dû au fait que dans notre scénario principal, nous récupérons toutes les musiques. Cependant pour de futurs scénarios cette base de données nous permettra de faire des requêtes spécifiques (pour ne demander qu'une seule musique par exemple, ou un seul style de musique) et ainsi de réduire le réseau utilisé. On remarque cependant une augmentation de l'usuage du CPU lié au fonctionnement de la base de données sur un docker. Cette modification de notre prototype a l'air à priori néfaste écologiquement mais deviendra à l'avenir une meilleure solution.
+On n'observe pas de différence dans l'utilisation du réseau via notre scénario GreenFrame. Cela est dû au fait que, dans notre scénario principal, nous récupérons toutes les musiques. Cependant, pour de futurs scénarios, cette base de données nous permettra de faire des requêtes spécifiques (par exemple, pour ne demander qu'une seule musique ou un seul style de musique) et ainsi de réduire le réseau utilisé.  
+
+On remarque cependant une augmentation de l'usage du CPU liée au fonctionnement de la base de données sur un Docker. Cette modification de notre prototype a l'air, à priori, néfaste écologiquement mais deviendra à l'avenir une meilleure solution.
 
 ![Capture d'écran 2024-11-19 171624](https://github.com/user-attachments/assets/db711e7e-821d-4585-abb2-68c6014e8aac)  
-__Fig.12__: Résultat de notre prototype V.3 coté backend
+_Fig.10: Résultat de notre prototype V.3 côté backend_
+
+
+---
 
 ## Prototype n°4 : Fonctionnalités pour le scénario prioritaire avec filtrage des données
 
-### Passage à l'échelle
+### 📈 Passage à l'échelle
 
-Dans le cas d'une application de streaming de musique, l'augmentation de données se traduit par une augmentation du nombre de musiques. Le poids des musiques ne va pas changer, il y en aura juste plus. Il est cependant nécessaire d'avoir une grande liberté de choix pour être compétitif donc une grande base de données. 
+Dans le cas d'une application de streaming de musique, **l'augmentation des données** se traduit par une augmentation du nombre de musiques.  
+- Le poids des musiques ne change pas, mais leur volume total augmente.  
+- Il est nécessaire d'avoir une grande base de données pour offrir une liberté de choix compétitive.  
 
-L'augmentation du volume de musiques semble difficile à apréhender mais il paraît assez évident que ce marché est en pleine expension et qu'il ne sera pas linéaire dans les prochaines années.
+Cependant, ce marché étant en pleine expansion, **la gestion des données ne sera pas linéaire dans les prochaines années**.
 
-### Évolution de l'impact environnemental avant correction
+---
 
-La figure 9 illustre l'impact du passage à l'échelle de 10 musiques à 1000 musiques (donc multiplier par 100 de manière arbitraire).
-On voit une grande augmentation de l'impact de l'écran, effectivement on a qu'une seule page donc toutes les musiques sont affichées sur l'écran d'accueil. On n'observe aucun changement sur le côté client ce qui est logique. Sur le côté serveur on voit une augmentation de 250% au niveau du CPU pour traiter les données supplémentaires et aussi une augmentation conséquente au niveau réseau.
+### 📉 Évolution de l'impact environnemental avant correction
+
+La figure ci-dessous illustre **l'impact du passage de 10 musiques à 1 000 musiques** (multiplié par 100 de manière arbitraire) :  
+- **Temps d’écran** : Augmentation importante due à l'affichage de toutes les musiques sur la page d'accueil.  
+- **Consommation réseau et CPU** : Hausse significative liée au traitement des données supplémentaires.
 
 ![Capture d'écran 2024-11-26 154741](https://github.com/user-attachments/assets/e88237fa-1035-47ad-a730-3701d14fab9f)  
-__Fig.13__ : Évolution de l'impact de la consultation de la page d'accueil en passant de 10 musiques à 1000 musiques.
+_Fig.11 : Évolution de l'impact de la consultation de la page d'accueil en passant de 10 musiques à 1 000 musiques._
 
-### Prise en compte du passage à l'échelle
+---
 
-Nos résultats montrent qu'on a beaucoup trop de musiques affichées sur notre site, on veut donc filtrer les musiques qu'on va afficher, en l'occurence par date de sortie pour afficher les musiques les plus récentes à l'utilisateur. 
+### ✅ Prise en compte du passage à l'échelle
 
-Pour réaliser cela nous devons indexer notre base de données pour réaliser une requête dans la base de données. Du coup, dans notre cas, on va l'indexer en fonction de l'attribut release_date. Cet attribut va permettre d'avoir les musiques les plus récentes en premier, ce qui correspond à ce qui est généralement attendu dans une application de musiques. En ajoutant l'index sur cet attribut, nous pourrons ordonner efficacement les musiques par date de sortie.
+Pour résoudre ce problème, nous avons décidé de **filtrer les musiques affichées sur la page d'accueil**.  
+- Les musiques sont triées **par date de sortie**, et seules les plus récentes sont affichées à l’utilisateur.  
+- La base de données a été indexée en fonction de l’attribut `release_date` pour optimiser cette requête.  
 
-### Évolution de l'impact environnemental après correction
+---
 
-Nous pouvons voir les effets positifs de nos changements de manière drastique. La dernière version est toujours un peu plus néfaste qu'avant mais le résultat vient surtout du fait qu'on affiche 100 musiques au lieu de 10, mais nous avons bien 1000 musiques dans la base de données. Dans les prochaines versions nous améliorerons notre application pour pouvoir accéder aux 1000 musiques sans pour autant les afficher (notamment en améliorant notre outil de recherche).
+### 🌍 Évolution de l'impact environnemental après correction
+
+Les résultats montrent des **effets positifs significatifs** après la correction :  
+- La version corrigée est légèrement plus gourmande qu'avant, car **100 musiques sont affichées au lieu de 10**.  
+- Cependant, nous avons bien **1 000 musiques** dans la base de données, prêtes à être utilisées pour de futurs scénarios.  
 
 ![Capture d'écran 2024-11-26 171712](https://github.com/user-attachments/assets/1a25ffab-8b4f-470e-9e76-fc9a650d8e80)  
-__Fig.14__ : Evolution de l'impact de notre application au cours des dernieres versions.
+_Fig.12 : Évolution de l'impact de notre application au cours des dernières versions._
 
-Quand on regarde les résultats plus attentivement, on voit effectivement la consommation de l'écran reduire, mais aussi qu'il consomme beaucoup moins pour accéder à la base de données grâce à notre indexation qui a amelioré l'efficacité de la base de données. Et ensuite on consomme moins de ressources en réseau car évidemment on n'affiche plus que 100 musiques au lieu de 1000.
+En observant de plus près :  
+- **Consommation écran** : Réduction importante grâce au filtrage des musiques.  
+- **Accès à la base de données** : Optimisé grâce à l'indexation, réduisant les ressources nécessaires.  
+- **Consommation réseau** : Réduction notable avec seulement 100 musiques affichées.  
 
-![Capture_decran_2024-11-26_172301](https://github.com/user-attachments/assets/f49948d3-9dfd-4c54-bad0-8a36616e866c)  
-__Fig.15__ : Impact de la page d'accueil avec les 100 musiques les plus récentes affichées
+![Capture d'écran 2024-11-26 172301](https://github.com/user-attachments/assets/f49948d3-9dfd-4c54-bad0-8a36616e866c)  
+_Fig.13 : Impact de la page d'accueil avec les 100 musiques les plus récentes affichées._
 
-## Prototype n°5 : Evolution de notre fonction recherche
 
-### Changement dans la BDD
+## Prototype n°5 : Évolution de notre fonction recherche
 
-Au cours de notre dernier prototype où nous avons augmenté la taille de notre BDD, nous avons rencontré un problème. En effet, avant le changement, nous affichions toute la BDD dans notre page d'accueuil et avions une fonction de recherche depuis les titres affichés. Quand nous avons multiplié les titres, nous ne pouvions plus afficher tous les titres de la BDD car cela avait un impact très négatif, mais du coup nous ne pouvions rechercher que dans les 100 titres les plus récents affichés et non pas dans toute notre BDD.
+### **Changement dans la BDD**
 
-Pour résoudre ce problème nous avons modifié notre fonction de recherche. Dorénavant, lorsque l'utilisateur écrit quelque chose dans la barre de recherche, l'application envoie une nouvelle requête à la base de données pour trouver les titres avec le préfixe correspondant à la recherche. Cependant avant nous avions un index en fonction de la date de sortie vu que nous affichions les titres les plus récents, or on fait maintenant une requête en fonction des titres. Donc pour optimiser la recherche on a fait un nouvel index sur l'attribut "title" de notre BDD. Lorsque la barre de recherche est vide et donc qu'on affiche les titres les plus récents, on a une requête avec un tri par date et donc couchDB utilise l'index by_date. Mais si la barre de recherche contient quelque chose, on utilise juste le filtre sur le titre et donc couchDB utilise l'index by_title.
-Cela permet de garder un tri sur un index simple (et non sur un double index) ce qui a un meilleur impact écologique. Nous avons estimé que lorsque l'utilisateur charge la page pour la première fois, il est plutôt interessé par les dernières sorties, alors que lorsqu'il effectue une recherche, il sait ce qu'il veut et la date a donc peu d'importance.
+Au cours de notre dernier prototype, où nous avons augmenté la taille de notre BDD, nous avons rencontré un problème.  
+**Avant le changement** :  
+- Nous affichions **toute la BDD** sur notre page d'accueil et avions une fonction de recherche sur les titres affichés.  
+- Avec l'augmentation du nombre de titres, il n’était plus possible d’afficher toute la BDD, car cela avait un **impact très négatif**.  
+- Par conséquent, la recherche ne fonctionnait que sur les **100 titres les plus récents affichés**, et non pas sur toute la BDD.
 
-Après analyse des résultats, ils se sont améliorés logiquement car on a pu diminuer le nombre de musiques affichées à l'accueil de 100 à 20, tout en ayant accès aux 1000 musiques avec la fonction de recherche.
-![Capture d'écran 2024-12-03 161220](https://github.com/user-attachments/assets/ef603576-261f-4c29-b36c-8ca9d9eec102)
-__Fig.16__ : Impact de la page d'accueil avec la nouvelle fonction de recherche.
+**Solution mise en place** :  
+- Lorsque l'utilisateur écrit quelque chose dans la barre de recherche, l'application envoie une **requête spécifique à la base de données** pour trouver les titres correspondant au **préfixe** recherché.  
+- Un **nouvel index** a été créé sur l’attribut **"title"** pour optimiser cette recherche.  
+- Si la barre de recherche est vide, la requête utilise un tri par date grâce à l'index **by_date**. Sinon, l’index **by_title** est utilisé.  
 
-### Changement de l'algorithme et analyse green IT
+**Avantage** :  
+- En maintenant un tri avec un index simple (plutôt qu’un double index), nous avons un **meilleur impact écologique**.  
+- Lors du premier chargement de la page, l’utilisateur voit les **titres les plus récents**.  
+- Lorsqu’il effectue une recherche, il obtient des résultats précis, et **la date des titres devient secondaire**.
 
-Notre algorithme actuel fait une recherche à chaque fois qu'on tape dans la barre de recherche, ce qui peut vite être contraignant car il fait beaucoup de requêtes qui peuvent être considérées inutiles. On a donc modifié la recherche pour ne faire la requête que lorsque l'utilisateur appuie sur la touche "entrée" de son clavier. Cependant l'impact de ce changement ne peut pas vraiment être vu grâce a GreenFrame, on a donc utilisé l'extension GreenIT pour voir la différence entre les deux versions.
-![image](https://github.com/user-attachments/assets/a7f9b2e0-fd63-40a6-8db9-4b63894c413a)
+**Résultats** :  
+Après analyse, les résultats se sont logiquement améliorés :  
+- Le nombre de musiques affichées à l’accueil est passé de **100 à 20**, tout en permettant un accès à **1000 musiques via la recherche**.
 
-__Fig.17__ : Impact d'une recherche de musique avant changement
+![Capture d'écran 2024-12-03 161220](https://github.com/user-attachments/assets/ef603576-261f-4c29-b36c-8ca9d9eec102)  
+_Fig.14 : Impact de la page d'accueil avec la nouvelle fonction de recherche._
 
-![image](https://github.com/user-attachments/assets/a982d2a4-9ad0-4e6b-bc9a-e5cafb90bba6)
-__Fig.18__ : Impact d'une recherche de musique après changement
+---
 
-On remarque bien qu'il y a moins de requêtes et donc un meilleur impact. Nous avons tapé 4 caractères dans la barre de recherche, et plutôt que de faire une requête à chaque nouveau caractère, nous avons 1 seule requête. Il s'agit bien d'un gain de 3 requêtes.
+### **Changement de l'algorithme et analyse Green IT**
+
+Notre algorithme actuel effectuait une recherche à chaque fois qu’un caractère était tapé dans la barre de recherche, ce qui générait **beaucoup de requêtes inutiles**.  
+
+**Amélioration apportée** :  
+- La recherche n'est déclenchée que lorsque l'utilisateur appuie sur la touche **"Entrée"**.  
+
+**Mesure de l'impact** :  
+- L’impact de ce changement ne peut pas être mesuré avec **GreenFrame**, nous avons donc utilisé l’extension **GreenIT** pour observer les différences.  
+
+![image](https://github.com/user-attachments/assets/a7f9b2e0-fd63-40a6-8db9-4b63894c413a)  
+_Fig.15 : Impact d'une recherche avant changement._  
+
+![image](https://github.com/user-attachments/assets/a982d2a4-9ad0-4e6b-bc9a-e5cafb90bba6)  
+_Fig.16 : Impact d'une recherche après changement._
+
+**Observation** :  
+- Avec ce nouveau comportement, nous avons une réduction des requêtes envoyées.  
+- Par exemple, en tapant **4 caractères**, nous effectuons **1 seule requête** au lieu de **4 requêtes**, ce qui représente un **gain de 3 requêtes**.
+
+---
 
 ## Prototype n°6 : Ajout de fonctionnalités sur la page d'accueil
 
-### Proposition d'une musique aléatoire
+### **Proposition d'une musique aléatoire**
 
-Initialement, nous souhaitions proposer à l'utilisateur une musique sélectionnée aléatoirement parmi les musiques sorties récemment. Nous avons donc ajouté cette fonctionnalité dans le pied de page de notre page web. Parmi les 20 musiques les plus récentes retournées par la première requête à la BDD, une est sélectionnée aléatoirement et affichée en bas de la page. Ainsi, si l'utilisateur a du mal à se décider sur la musique qu'il souhaite écouter, il peut utiliser cette fonctionnalité.
-Le résultat avec GreenFrame est quasiment identique au précédent.
+**Contexte** :  
+Nous souhaitions proposer à l'utilisateur une **musique aléatoire** parmi les titres les plus récents.  
 
-![greenframe ajout de musique aléatoire](https://github.com/user-attachments/assets/d4b8adff-4d28-4bb3-9a2e-e0d3eadb4172)
-__Fig.19__ : Impact GreenFrame de la page d'accueil avec proposition d'une musique aléatoirement
+**Mise en place** :  
+- Parmi les **20 musiques les plus récentes** retournées par la requête à la BDD, une est sélectionnée aléatoirement et affichée en bas de la page.  
 
-### Groupement des musiques par genre
+**Objectif** :  
+Aider l'utilisateur indécis à découvrir une musique facilement.  
 
-Le deuxième ajout dans la page d'accueil est l'affichage ordonné de ces dernières. En effet actuellement elles sont uniquement triées par date. Cependant pour que l'utilisateur puisse mieux se repérer, il nous semble important de grouper les musiques du même genre ensemble. 
-Nous avons essayer d'ajouter un nouvel index pour grouper les musiques lorsque nous effectuons notre requête à la base de données. Cependant lors de nos tests sur Mango l'impact était très négatif, nous avons donc priorisé le tri par date de sortie et par titre avec Mango puis effectuer le groupement par genre directement dans le frontend de l'application. Avec cette méthode l'impact est toujours visible mais suffisamment faible pour le négliger.
+**Impact** :  
+- Les résultats GreenFrame montrent que cette fonctionnalité a **un impact négligeable** par rapport à la version précédente.
 
-![greenframe groupement par genre](https://github.com/user-attachments/assets/93f1766e-bba2-4d62-8123-221f2c56add3)
-__Fig.20__ : Impact GreenFrame de la page d'accueil après groupement par genre des musiques
+![greenframe ajout de musique aléatoire](https://github.com/user-attachments/assets/d4b8adff-4d28-4bb3-9a2e-e0d3eadb4172)  
+_Fig.17 : Impact GreenFrame de la page d'accueil avec proposition d'une musique aléatoire._
+
+---
+
+### **Groupement des musiques par genre**
+
+**Contexte** :  
+Actuellement, les musiques sont triées uniquement par **date de sortie**.  
+
+**Amélioration apportée** :  
+- Les musiques sont désormais **groupées par genre** pour aider l’utilisateur à mieux se repérer.  
+- L'indexation par genre dans la BDD s’est avérée trop coûteuse en termes d’impact, nous avons donc opté pour un **groupement côté frontend** après le tri par date et titre avec **Mango**.  
+
+**Résultat** :  
+- Cette méthode présente un **impact écologique acceptable**, bien que visible.  
+
+![greenframe groupement par genre](https://github.com/user-attachments/assets/93f1766e-bba2-4d62-8123-221f2c56add3)  
+_Fig.18 : Impact GreenFrame de la page d'accueil après groupement par genre._
+
+---
 
 ## Prototype n°7 : Ajout d'une deuxième page comme prévu dans le mock-up
 
-Conformément aux maquettes réalisées plus tôt, nous avons ajouté une deuxième page à notre application. Celle-ci permet à l'utilisateur d'écouter des musiques dans le genre sélectionné et donc de limiter l'effet rebond discuté en début de projet.
+### **Description de la nouvelle page**
 
-La page consiste à afficher une liste des musiques liées au genre sur lequel l'utilisateur a cliqué dans la page principale et aussi une liste des artistes qui sont liés à ce genre.
-Pour cela on a d'abord repris notre code existant pour séparer en plusieurs composants notre code car jusqu'ici nous avions juste un gros bloc. Cela nous permettra de réutiliser le design et les fonctionnalités existantes dans la nouvelle page ou de futures pages. Suite à cela nous avons eu une légère amélioration sur les résultats de GreenFrame, mais après s'être questionné dessus, nous sommes partis du principe que c'était une amélioration plutôt liée aux incertitudes de mesure qu'autre chose car il n'y avait aucune raison pour le CPU de moins consommer. On a donc ignoré ce résultat qui ne change pas grand chose.
+**Objectif** :  
+Cette page permet à l'utilisateur d’écouter des musiques d’un genre sélectionné, tout en limitant l’**effet rebond** discuté en début de projet.  
 
-Nous avons utilisé React Router pour gérer le fait que nous avons maintenant plusieurs pages. On a indexé notre base de données sur les genres pour la nouvelle page puisqu'on ne garde pas la fonction de recherche dans celle-ci, et on a créé un nouveau scénario GreenFrame pour tester la nouvelle page. Une fois la page réalisée les résultats GreenFrame nous montrent que le score général du site a presque doublé, ce qui est logique parce qu'il faut ajouter le résultat des deux scénarios mais en réalité la nouvelle page est du même niveau que la première, même un peu moins, la deuxième page est tout à fait acceptable en terme de consommation énergétique.
+**Contenu de la page** :  
+- Une liste des **musiques liées au genre sélectionné**.  
+- Une liste des **artistes associés à ce genre**.  
 
-![Capture d'écran 2024-12-10 172059](https://github.com/user-attachments/assets/9f2c5a37-1d02-4c30-bfa6-f7e0de951254)
-__Fig.21__ : Impact GreenFrame de la page principale après modufications
+### **Implémentation technique**
 
-![Capture d'écran 2024-12-10 172051](https://github.com/user-attachments/assets/ae4c7661-c0ad-4a0a-b05f-f4b44bbc64fe)
-__Fig.22__ : Impact GreenFrame de la page pour une catégorie
+1. **Refactorisation du code** :  
+   - Le code a été décomposé en plusieurs composants réutilisables pour simplifier les futures évolutions.  
+
+2. **Gestion de plusieurs pages** :  
+   - Utilisation de **React Router** pour passer d'une page à l'autre.  
+
+3. **Indexation des données** :  
+   - Un nouvel index a été ajouté sur les genres, car la fonction de recherche n’est pas présente sur cette page.  
+
+**Résultats GreenFrame** :  
+- Le score général du site a presque doublé, mais cela s’explique par l’ajout d’un **nouveau scénario**.  
+- En réalité, la nouvelle page a un impact similaire, voire légèrement inférieur à la page principale.
+
+![Capture d'écran 2024-12-10 172059](https://github.com/user-attachments/assets/9f2c5a37-1d02-4c30-bfa6-f7e0de951254)  
+_Fig.19 : Impact GreenFrame de la page principale après modifications._
+
+![Capture d'écran 2024-12-10 172051](https://github.com/user-attachments/assets/ae4c7661-c0ad-4a0a-b05f-f4b44bbc64fe)  
+_Fig.20 : Impact GreenFrame de la page pour une catégorie._
+
+---
 
 ## Prototype n°8 : Fonctionnalités mineures et refactor
 
-### Suppresion d'un attribut dans la base de données 
+### **Suppression d'un attribut dans la base de données**
 
-Nous nous sommes rendus compte qu'un attribut dans nos données n'était jamais utilisé. Il s'agit de l'attribut "duration" supposé définir la durée d'une musique. Or la durée d'une musique est déjà définie par le fichier mp3 chargé par l'utilisateur lorsqu'il lance l'écoute de la musique. Nous avons donc décidé de supprimer cet attribut pour faire des économies d'énergie principalement du côté du CPU.
-En effet après ce changement, nous avons le résultat une légère baisse de la consommation. Cela est dû au fait que nous récupérons tous les attributs des musiques dans notre requête à la base de données. Ainsi les données transmises sont plus légères.
+**Contexte** :  
+Un attribut inutile, **"duration"**, était présent dans nos données, bien que cette information soit déjà contenue dans les fichiers MP3.  
+
+**Action** :  
+- Suppression de cet attribut, réduisant la **taille des données transmises** lors des requêtes.  
+
+**Résultat** :  
+- L’impact sur la consommation CPU est légèrement réduit.
 
 ![image](https://github.com/user-attachments/assets/54629036-8b7c-41ff-aead-d34c5729ad08)  
-__Fig.23__ : Impact GreenFrame après suppression de l'attribut "duration"
+_Fig.21 : Impact GreenFrame après suppression de l'attribut "duration."_
 
-### Correction du bouton "mute"
+---
 
-Nous avons ensuite corrigé un bug dans notre application sur le bouton permettant de couper le son d'une musique. Ce dernier ne fonctionnait qu'une fois la musique chargée. Il ne s'agit que d'une simple correction de bug qui n'a eu aucun impact sur nos scénarios GreenFrame
+### **Correction du bouton "mute"**
 
-### Changement de la page catégorie
+**Problème** :  
+Le bouton "mute" ne fonctionnait qu’après le chargement complet de la musique.  
 
-Notre page de catégorie est censée afficher toutes les musiques de ce style, cepandant par soucis d'économie d'énergie on ne peut pas afficher toutes les musiques disponibles car sinon la consommation de l'écran est trop grande, et la consommation réseau est aussi trop grande.
-Pour le moment notre page n'affiche que les 10 premières musiques et les artistes liée à ces 10 musiques, on a donc ajouté une fonctionnalité pour pouvoir demander de chercher plus de musiques à afficher de la base de données. Au début on faisait une grande requête avec toutes les musiques de la base de données et on en affichait que 10 par 10, cepandant cela n'est pas très optimisé comme requête. On a donc changé et utilisé le "bookmark" que donne la réponse de couchDB, celui-ci permet dans notre cas, de faire une requête de 10 musiques, et quand on appuie sur le bouton pour charger plus de musiques, il va faire une nouvelle requête en reprenant le bookmark donné par la première réponse, et couchDB va reprendre la requête là où il s'était arrêté, donc il va nous donner de la 11ème musique à la 20ème musique.
+**Solution** :  
+- Correction de ce bug, sans impact mesurable sur GreenFrame.
+
+---
+
+### **Changement de la page catégorie**
+
+**Problème initial** :  
+- Afficher toutes les musiques d’un genre sur une page consommait trop de ressources (écran et réseau).  
+
+**Solution** :  
+- La page affiche désormais les **10 premières musiques** et leurs artistes associés.  
+- Une fonctionnalité permet de charger davantage de musiques grâce à l’utilisation du **"bookmark"** de CouchDB, évitant des requêtes globales inefficaces.
+
+
 
 ## Conclusion
 
