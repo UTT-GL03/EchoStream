@@ -15,7 +15,7 @@ Au-delà de cet usage personnel, le streaming musical a connu une **adoption mas
 La musique en streaming joue un rôle important sur :  
 
 - **Le plan médico-social** :  
-  *L’écoute de la musique peut améliorer le bien-être, aider à gérer le stress et l’anxiété, favoriser la motivation, la concentration, et même contribuer à la méditation.* Elle a un **impact positif** sur la santé mentale et émotionnelle.
+  *L’écoute de la musique peut améliorer le bien-être, aider à gérer le stress et l’anxiété, favoriser la motivation, la concentration, et même contribuer à la méditation.* Elle a un **impact positif** sur la santé mentale et émotionnelle. [Article sur l'écoute de la musique](https://www.polycliniquedeloreille.com/conseils-sante/musique-effets-cerveau)
 
 - **Le développement territorial** :  
   *Le streaming permet aux artistes issus de régions éloignées d’atteindre un public mondial.* Cela leur offre des **opportunités sans précédent** pour se faire connaître, dépassant les limites géographiques traditionnelles.
@@ -26,16 +26,16 @@ La musique en streaming joue un rôle important sur :
 
 Un des avantages majeurs du streaming musical pour l'environnement est qu'il a remplacé des technologies plus anciennes comme les **CD** et les **MP3**, qui impliquaient une production physique et donc des émissions de plastique. De plus, il se positionne comme une alternative plus respectueuse de l’environnement aux **festivals ou concerts**, qui génèrent des impacts importants liés aux déplacements.  
 
-Cependant, cette substitution aux pratiques anciennes engendre aussi un **important effet rebond** :  
+Cependant, cette substitution aux pratiques anciennes engendre aussi un **important effet rebond** [(article sur l'impact la numérisation)](https://siecledigital.fr/2019/04/10/une-etude-montre-que-la-musique-en-streaming-a-un-impact-sur-lenvironnement/) :  
 
 - **Accessibilité massive** : Avec l'accès facile à des millions de titres, la consommation de musique a fortement augmenté.  
-- **Impact économique** : Là où, en 2016, un album CD coûtait environ *10 dollars*, aujourd’hui, pour ce même montant, il est possible d’avoir accès à des **millions de titres** pendant un mois via une plateforme de streaming.  
+- **Impact économique** : Là où, en 2016, un album CD coûtait environ *15 euros*, aujourd’hui, pour ce même montant, il est possible d’avoir accès à des **millions de titres** pendant un mois via une plateforme de streaming.  
 
 ### Questions à se poser :
 - *Le streaming peut-il encourager la surconsommation de musique, car on peut désormais écouter des morceaux partout et à tout moment ?*  
 - *Les fonctionnalités des plateformes (stories des artistes, playlists personnalisées) sont-elles vraiment utiles ou encouragent-elles une écoute toujours plus diversifiée, mais aussi plus gourmande en ressources ?*  
 
-> **Lien utile :** [Dummy JSON pour générer des données aléatoires](https://dummy-json.com/)
+[**Analyse du leader du marché : spotify**](https://quentinballereau.medium.com/analyse-de-lenvironnement-digital-de-spotify-71764093d361)
 
 ---
 
@@ -88,11 +88,13 @@ _Fig.1 : Mockup de notre application._
 ## Prototype n°1 : Fonctionnalités pour le scénario prioritaire avec données statiques
 
 Pour le premier prototype :  
-- La base de données est **statique** et incluse dans le frontend.  
+- La base de données est **statique** et incluse dans le frontend. [voir modèle de données](https://github.com/UTT-GL03/EchoStream/blob/main/frontend/sample_data.hbs)
 - Les fonctionnalités implémentées se limitent au scénario 1 (*Rechercher une musique et l’écouter*).  
 
 ![Capture d'écran](https://github.com/user-attachments/assets/0fb92cfe-7919-4a54-9d5e-01a32880ede8)  
 _Fig.2 : Prototype de la page de recherche._
+
+> **Lien utile :** [Dummy JSON pour générer des données aléatoires](https://dummy-json.com/)
 
 ---
 
